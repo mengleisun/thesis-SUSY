@@ -1,62 +1,79 @@
 \documentclass[thesis.tex]{subfiles}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[expert]{mathdesign}
 \usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{feynmp}
+
+
+\DeclareGraphicsRule{*}{mps}{*}{}
  
 \begin{document}
-\chapter{Theoretical Background}
+\chapter{Theory and Motivation}
+\label{ch1}
 
-\section{Standard Model}
+\section{The Standard Model}
 The Standard Model (SM) of particle physics is a well-tested and successful model that describes the elementary particles and their interactions. 
 It consists of a set of matter particles and force carriers, as well as the Higgs boson which gives mass to fundamental particles. 
-All the SM particles and their properties are organized in Table 1. 
+All the SM particles and their properties are organized in Table \ref{tab:SM}. 
 These particles are classified into two groups: fermions with half-integer spin, and bosons with integer spin.
 
 \begin{table}[h]
 \centering
+\resizebox{\textwidth}{!}{
 \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| }
+	\hline
+	\multicolumn{10}{ |c| }{Standard Model particles} \\
 	\hline \hline
-	\multicolumn{10}{ |c| }{Fermion: spin $\frac{1}{2}$ } \\
+	\multicolumn{10}{ |c| }{Fermion: spin 1$/$2 } \\
 	\hline
 		& \multicolumn{3}{c}{1st generation} & \multicolumn{3}{ |c| }{2nd generation} & \multicolumn{3}{ |c| }{3rd generation} \\
 	\cline{2-10}
-		& particle & charge & mass & particle & charge & mass & particle & charge & mass \\
+						& particle 			& charge 			& mass (GeV) 			& particle 			& charge 			& mass (GeV) 			& particle 			& charge 			& mass (GeV) \\
 	\hline
-	\multirow{2}{*}{Lepton} & e            & $\pm$ 1    & 0.511 & $\mu$ & $\pm$ 1 & 0.511 & $\tau$ & $\pm$ 1 & 0.511 \\
-	                                     &$\nu_e$  &  0              &  0          &$\nu_\mu$  &  0              &  0   &$\nu_\tau$  &  0              &  0    \\
+	\multirow{2}{*}{Lepton} 	& e            		& $\pm$ 1    		& 0.000511 			& $\mu$			& $\pm$ 1 		& 0.105 				& $\tau$ 			& $\pm$ 1 		& 1.7768 \\
+	\cline{2-10}
+	                                    	&$\nu_e$  		&  0              		& $<$ 2.2$\times$10$^{-6}$  &$\nu_\mu$  	&  0              		& $<$ 1.7$\times$10$^{-3}$ &$\nu_\tau$  		&  0             		&  $<$ 15.5 $\times$10$^{-3}$    \\
 	\hline
-	\multirow{2}{*}{Quark}  &  u           &  $\pm \frac{2}{3}$     & 0.511 & c & $\pm  \frac{2}{3}$ & 0.511 & t   & $\pm  \frac{2}{3}$ & 0.511 \\
-					    & d           &  $\pm \frac{1}{3}$     & 0.511 & c & $\pm  \frac{1}{3}$ & 0.511 & t   & $\pm  \frac{1}{3}$ & 0 \\ 
+	\multirow{2}{*}{Quark}  	&  u           		&  $\pm 2/3$		& 0.0024				 & c 				& $\pm 2/3$		& 1.275 				& t   				& $\pm 2/3$		& 172.44  \\
+	\cline{2-10}
+					    	& d           			&  $\mp 1/3$     	& 0.0048 				 & s				&  $\mp 1/3$ 		 & 0.095				& b   				&  $\mp 1/3$ 		& 4.18 \\ 
 	\hline \hline
 	\multicolumn{10}{ |c| }{Gauge Boson: spin 1 } \\
 	\hline
-	Partile  &  \multicolumn{3}{c|}{Interaction}  &  \multicolumn{3}{c|}{ Mass }  &   \multicolumn{3}{c|}{ Charge } \\
+	Partile  				&  \multicolumn{3}{c|}{Interaction}  		&   \multicolumn{3}{c|}{ Charge }		& \multicolumn{3}{c|}{ Mass (GeV) } 	 \\
 	 \hline
-	 $\gamma$ &  \multicolumn{3}{c|}{EM}  &  \multicolumn{3}{c|}{ 0 }  &   \multicolumn{3}{c|}{ 0 } \\
+	 $\gamma$ 			&  \multicolumn{3}{c|}{EM}  			&  \multicolumn{3}{c|}{ 0 }  			&   \multicolumn{3}{c|}{ 0 } \\
 	 \hline
-	 W &  \multicolumn{3}{c|}{Weak}  &  \multicolumn{3}{c|}{ $\pm$ 1 }  &   \multicolumn{3}{c|}{ 80 } \\
+	 W 					&  \multicolumn{3}{c|}{Weak}  			&  \multicolumn{3}{c|}{ $\pm$ 1 }  		&   \multicolumn{3}{c|}{ 80.39 } \\
 	 \hline
-	 Z &  \multicolumn{3}{c|}{Weak}  &  \multicolumn{3}{c|}{ 0 }  &   \multicolumn{3}{c|}{ 90 } \\
+	 Z 					&  \multicolumn{3}{c|}{Weak}  			&  \multicolumn{3}{c|}{ 0 }  			&   \multicolumn{3}{c|}{ 91.19 } \\
 	 \hline
-	 g &  \multicolumn{3}{c|}{Strong}  &  \multicolumn{3}{c|}{ 0 }  &   \multicolumn{3}{c|}{ 0 } \\
+	 g 					&  \multicolumn{3}{c|}{Strong}  			&  \multicolumn{3}{c|}{ 0 }  			&   \multicolumn{3}{c|}{ 0 } \\
 	 \hline \hline
 	 \multicolumn{10}{ |c| }{Higgs Boson: spin 0 } \\
 	 \hline
-	 H &  \multicolumn{3}{c|}{-}           &   \multicolumn{3}{c|}{ 125 }  &   \multicolumn{3}{c|}{ 0 } \\
+	 H 					&  \multicolumn{3}{c|}{-}           			&   \multicolumn{3}{c|}{ 0 }  			&   \multicolumn{3}{c|}{ 125.09 } \\
 	 \hline
 	                                     
 \end{tabular}
+}
+\caption{Summary of the particle content of the Standard Model, along with their properties.}
+\label{tab:SM}
 \end{table}
 
-The SM was built within a framework known as Quantum Field Theory (QFT), which provides the mathematical tools to describe the subatomic particles using theories that are consistent both with quantum mechanics and special relativity. 
-In QFT, particles are represented by excitations of quantum field. 
-The dynamics and interactions of the particles are described by the Lagrangian formalism using the Lagrangian density $\mathcal{L}$. \\
+The SM is built within a framework known as Quantum Field Theory (QFT), which provides the mathematical tools to describe the subatomic particles using theories that are consistent with both quantum mechanics and special relativity. 
+In QFT, particles are represented by excitations of quantum fields. 
+The dynamics and interactions of the particles are governed by the Lagrangian density $\mathcal{L}$ using Lagrangian formalism.
 
 Fundamental fermions are the basic building blocks of matter. 
-They occur in two varieties: leptons that do not undergo strong interaction, and quarks that participate in the strong interactions. 
-There has been observed three generations of leptons and quarks, each consisting of a charged lepton (e, mu, tao), a neutral neutrino (nu, nu, nu) which is almost massless and interacts only via the weak force and gravity, an up-type quark (u,c,t) with 2/3 electric charge, and a down-type quark (d,s,b) with -1/3 electric charge. 
-Each of these fermions has an associated anti-particle with the same mass but with opposite charge. \\
+They can be classified into two types: leptons that do not undergo strong interaction, and quarks that participate in the strong interactions. 
+There has been observed three generations of leptons and quarks, each consisting of a charged lepton ( e, $\mu$, $\tau$ ), a neutral neutrino ( $\nu_e$, $\nu_\mu$, $\nu_\tau$ ),  an up-type quark ( u, c, t ) with $2/3$ electric charge, and a down-type quark ( d, s, b ) with $-1/3$ electric charge. 
+Neutrinos are almost massless and interact only via the weak force and gravity.
+Each of these fermions has an associated anti-particle with the same mass but opposite charge. 
 
 There are four fundamental forces of nature: the strong interaction, the weak interaction, the electromagnetic force, and gravity. 
 Each of these forces, except gravity, is mediated by its corresponding gauge bosons. 
@@ -64,12 +81,12 @@ The SM is a gauge quantum field theory based on the symmetry group
 	\begin{equation}
 		SU(3) \otimes SU(2) \otimes U(1)_Y,
 	\end{equation}
- where, SU(2)$\otimes$U(1)$_Y$ is the symmetry of electroweak interactions, and SU(3) group describes the symmetry of strong interactions. 
+where $SU(2)\otimes U(1)_Y$ is the symmetry of electroweak interactions, and SU(3) group describes the symmetry of strong interactions. 
 The SU(2) group has three gauge bosons $W_{i, i = 1,2,3}^{\mu}$, and the U(1)$_Y$ group has one gauge boson $B^{\mu}$. 
 The linear combination of these gauge bosons form the physical particles: photon ($\gamma$), $W^{\pm}$ and Z. 
 The photon is a massless vector boson which has two polarizations, and it is the force carrier of the electromagnetic interactions. 
 The $W^+$/$W^{-}$ and Z bosons are massive vector bosons that mediate the weak force. 
-The gauge boson of the SU(3) group is the gluon, which is a massless particle that carries color charge and couples to quarks and other gluons. \\
+The gauge boson of the SU(3) group is the gluon, which is a massless particle that carries color charge and couples to quarks and other gluons. 
  
 The Lagrangian of the SM can be decomposed into four terms: 
 	\begin{equation}
@@ -88,10 +105,7 @@ where a = 1,2,3; and A = 1 ... 8. The field strengths are:
 		\end{array}
 	\end{equation}
 The Levi-Civita tensor $\epsilon^{abc}$ and the Gell-Mann tensor $f^{ABC}$ are the structure constants of the SU(2) and SU(3) group, respectively. 
-
-			
-	
-
+		
 The second term  of \ref{eq:SML} describes the fermion fields and their gauge interactions. 
 Fermion fields are classified into left-chiral and right-chiral states according to their chirality under Lorentz transformations. 
 The left-chiral states are SU(2) doublets, while the right-chiral states are singlets:
@@ -116,14 +130,7 @@ where $i$ is the generation index. $D_\mu$ is the covariant derivative, which ha
 	\begin{equation}
 		D_\mu = (\partial_\mu + i g`YB_\mu + i g \sigma_a W_\mu^a + ig_s \lambda_b G_\mu^{b} ).
 	\end{equation}
-$\lambda_b$ are the eight Gell-Mann matrices that generate the SU(3) group.  \\
-
-The second term of \ref{eq:SML} is the kinetic term of the SM gauge bosons:
-	\begin{equation} 
-		\mathcal{L}_{Gauge} = -\frac{1}{4}B_{\mu\nu} B^{\mu\nu} - \frac{1}{4}F_{\mu\nu}^a F^{a \mu\nu} - \frac{1}{4} G_{\mu\nu}^A G^{A \mu\nu}
-	\end{equation}
-
-
+$\lambda_b$ are the eight Gell-Mann matrices that generate the SU(3) group. 
  
 The gauge bosons are required to be massless in order to reserve gauge invariance. 
 This is the case for gluons and photons. However, the observed W and Z bosons are heavy particles, which implies that the symmetry is somehow broken. 
@@ -164,7 +171,12 @@ the kinematic term can be rewritten as:
 	\begin{equation}
 		(D_\mu \phi)^\dagger(D^\mu\phi) = \frac{1}{2}(\partial H)^2 + \frac{g^2v^2}{4}W^{+\mu}W_{\mu}^- + \frac{v^2g^2}{8cos^2\theta_W}Z_\mu Z^\mu + 0A_\mu A^\mu
 	\end{equation}
-We recognize the second and third terms as the mass term of W and Z bosons. On the other hand, leptons and quarks gain mass through coupling to the Higgs particle.  \\
+We recognize the second and third terms as the mass term of W and Z bosons. On the other hand, leptons and quarks gain mass through Yukawa coupling to the Higgs particle:
+	\begin{equation}
+		\mathcal{L}_Y = (- Y_e \bar{L} \phi l_R - Y_d \bar{Q}H d_R - Y_u \bar{Q} \sigma_2 \phi^\dagger u_R + h.c.)
+	\end{equation}
+which is the third term of  \ref{eq:SML}. 
+
 
 An extensive set of experiments has been made in the past few decades to test the SM. 
 The W and Z bosons were discovered in 1983 at CERN. The top quark, which is the heavist quark, were observed in 1995 at Fermilab. 
@@ -181,11 +193,11 @@ For example, Figure \ref{fig1-1} shows the consistency of the predicted cross-se
 Although the SM is remarkably successful at explaining a wide range of phenomena, it does leave many questions unanswered. 
 One major problem is the omission of the gravity - the most familiar fundamental force. 
 Phenomena at large scale can be well described by the general relativity, however, there is not yet a satisfactory theory which can incorporate the gravity at subatomic scale. 
-Therefore the SM is believed to be a low-energy approximation of a theory existing at the $10^{19}$ GeV Planck scale, the energy at which the gravity is comparable to the other forces and can no longer be ignored.\\
+Therefore the SM is believed to be a low-energy approximation of a theory existing at the $10^{19}$ GeV Planck scale, the energy at which the gravity is comparable to the other forces and can no longer be ignored.
 
-Another outstanding problem of the SM is the lack of explanation for dark matter (DM), so named because it doesn't undergo electromagnetic interactions and thus is invisible to normal matter. The dark matter was discovered through the measurement of velocity dispersion and rotation curves of the galaxies, whose results indicated that the luminous matter cannot explain the observed curves on its own and some invisible matter is needed to account for. Measurements show that roughly 80\% of the matter in the universe is made of dark matter. Despite the extensive experimental efforts of searching for the DM, we still know little about the nature of the DM and its interactions with the normal matter described by the SM. \\
+Another outstanding problem of the SM is the lack of explanation for dark matter (DM), so named because it doesn't undergo electromagnetic interactions and thus is invisible to normal matter. The dark matter was discovered through the measurement of velocity dispersion and rotation curves of the galaxies, whose results indicated that the luminous matter cannot explain the observed curves on its own and some invisible matter is needed to account for. Measurements show that roughly 80\% of the matter in the universe is made of dark matter. Despite the extensive experimental efforts of searching for the DM, we still know little about the nature of the DM and its interactions with the normal matter described by the SM. 
 
-Besides the lack of particle candidates for the gravity and DM, there are some observations that the SM  cannot explain. One of these mysteries is the large discrepancy between the electroweak and Planck scale, which is known as the hierarchy problem. The Higgs mass is measured to be 126 GeV, $10^{17}$ lower than the Planck scale. The physical Higgs mass is a combination of the tree-level bare mass and high order corrections. Because the loop corrections of the Higgs mass contains quadratic divergences, its bare mass has to cancel the corrections with an accuracy up to 26 digits leaving a small mass at electroweak scale. This unnatural cancellation is called "fine tuning problem", and it suggests the appearance of new physics which can stabilize the Higgs mass. \\
+Besides the lack of particle candidates for the gravity and DM, there are some observations that the SM  cannot explain. One of these mysteries is the large discrepancy between the electroweak and Planck scale, which is known as the hierarchy problem. The Higgs mass is measured to be 126 GeV, $10^{17}$ lower than the Planck scale. The physical Higgs mass is a combination of the tree-level bare mass and high order corrections. Because the loop corrections of the Higgs mass contains quadratic divergences, its bare mass has to cancel the corrections with an accuracy up to 26 digits leaving a small mass at electroweak scale. This unnatural cancellation is called "fine tuning problem", and it suggests the appearance of new physics which can stabilize the Higgs mass.
 
 Due to these issues, the SM is considered as an incomplete theory, and many new theories beyond the SM have been introduced to incorporate the unexplained features in the SM. 
 
@@ -194,29 +206,14 @@ Due to these issues, the SM is considered as an incomplete theory, and many new 
 
 Supersymmetry (SUSY) is a favored extension of the SM that provides solutions for many of the problems of the SM. 
 It unifies the description of forces and matter by inducing a symmetric transformation between bosons and fermions. 
-SUSY doubles the number of particles by paring each of the SM particles with a SUSY partner ? each fermion has a bosonic partner named sfermion and each gauge boson has a fermionic partner named gaugino. 
-The SM particle and its superpartner has the same quantum number except the spin. 
-Table 2 lists the SM particles and the corresponding superpartners. 
-In the loop corrections to the Higgs self energy, the contributions from fermions and bosons cancel with each other, leaving a light Higgs mass at the electroweak scale. This is illustrated in Fig. 7. \\
-
-Constructing a supersymmetric Lagrangian in the 4-dimensional spacetime with brutal force can be very difficult and tedious. 
-The introduction of superspace greatly simplified the calculations. 
-The superspace extends the usual spacetime coordinates with two fermionic (or Grassmannian) coordinates. 
-Points in superspace have coordinates:
-     \begin{equation}
-	(x^\mu, \theta, \theta^\dagger)
-     \end{equation}
-where $x^\mu$ are space-time coordinates and $\theta$, $\theta^\dagger$ are anti-commuting Grassmann variables.\\
-
-A supersymmetry transformation performs a rotation in the superspace.
-Such transformations are generated by operator Q, which is called the supercharge.  
+The supersymmetry transformations are generated by operator Q, which is called the supercharge. 
 The operator Q acts on the states, turning a fermionic component into a bosonic component, and vice verse, as: 
       \begin{equation}
-        Q| Boson > = | Fermion>,  Q|Fermion> = |Boson>.
+        Q| \text{Boson} > = | \text{Fermion}>,  Q| \text{Fermion}> = | \text{Boson}>.
       \end{equation} 
 
 The supercharge itself is a spinor, so its hermitian conjugate $Q^\dagger$ is also a symmetry generator. 
-They satisfy the following commutation relations:
+They satisfy the following anti-commutation relations:
     \begin{equation}
      \{Q_a, Q_{\dot{a}}^\dagger \} = (\sigma^\mu})_{a\dot{a}} P_\mu,
      \end{equation} 
@@ -226,27 +223,126 @@ They satisfy the following commutation relations:
       \end{equation} 
       \begin{equation}
      [Q_a, P_\mu] = 0,  [Q_{\dot{a}}^\dagger,  P_\mu] = 0
+     \label{eq:commutation}
     \end{equation} 
 where $P_\mu = i\partial_\mu$ is the momentum operator. 
-The first anti-commutation relation in equation () indicates that ?...... \\
+The first anti-commutation relation in equation \ref{eq:commutation} indicates that the product of two supersymmetric transformations results in translations in space-time.
 
-The field content is grouped into supermultiplets that contain the SM fields and superpartiners. 
+\subsection{The Minimal Supersymmetric Standard Model }
+SUSY doubles the number of particles by paring each particle with a SUSY partner - each fermion has a bosonic partner and each gauge boson has a fermionic partner. 
+The particle and its superpartner has the same quantum number except the spin. The SM fields and superpartiners are grouped together into supermultiplets. 
+With this general concept of SUSY, one can build models with any number of supermultiplets. 
+To solve the hierarchy problem, it is appropriate to first consider the simplest version of the SUSY models, which contains the minimum number of SUSY particles and new interactions. 
+Such a model is referred to as the Minimal Supersymmetric Standard Model (MSSM). 
+
+In MSSM, all the SM fermions are taken to be the fermonic components of chiral supermultiplets. 
+Each of them is paired with a spin 0 scalar partner, whose name is obtained by adding a prefix $s$ to the name of the corresponding SM particle.
+For example, the scalar partner of an electron is called selectron, and the scalar quarks are called squark. 
+The SM gauge fields are taken to be the members of vector supermultiplets and are paired with spin $1/2$ superpartners. 
+The naming convention of the spin $1/2$ superpartners is to add $-ino$ after the name of the SM gauge bosons. 
+So for $B$, $W^{\pm, 0}$ and gluons, we have Bino, Winos and gluinos as their superpartner. 
+Different with the SM, in MSSM two Higgs doublets are required to break the electroweak symmetry. 
+The scalar Higgs fields are paired with spin $1/2$ partners, which are named Higgsinos, to form the chiral multiplets.
+Table 2 lists the particle content of the MSSM. 
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{ |c|c|c|c|c|}
+	\hline \hline
+	\multicolumn{5}{ |c| }{Fermion: spin $\frac{1}{2}$ } \\
+	\hline
+	 	 &  \multicolumn{2}{|c|}{SUSY particle fields} & \multicolumn{2}{ |c| }{Particle fields}  \\
+	\cline{2-5}
+		 &  name & symbol & name &symbol  \\
+	\hline
+	\multirow{5}{*}{sfermion/femion} & \multirow{2}{*}{slepton} & $(\tilde{\nu}_l, \tilde{l})_L$ & \multirow{2}{*}{lepton} & $(\nu_l, l)_L$ \\
+	                                                    &                                      &  $\tilde{l}_R$                      &                                     &  $l_R$ \\
+	\cline{2-5}
+	                                                    & \multirow{3}{*}{squark} & $(\tilde{u}, \tilde{d})_L$      & \multirow{3}{*}{quark}      & $(u,d)_L$ \\
+	                                                    &                                      &  $\tilde{u}_R$                      &                                     &  $u_R$ \\
+	                                                 	  &                                      &  $\tilde{d}_R$                      &                                     &  $d_R$ \\
+	\hline
+	\multirow{3}{*}{gaugino/gauge boson} & Bino                     & $\tilde{B}$                           & B boson                      & $B$ \\
+	\cline{2-5}                                                           
+	                                                            &  Wino                   & $\tilde{W}^\pm$, $\tilde{W}^0$  & W boson               & $W^\pm$, $W^0$ \\
+	\cline{2-5}                                                           
+	                                                            &  Gluino                   & $\tilde{g}$                         & Gluon                          & $G$ \\
+	\hline
+	\multirow{2}{*}{higgsino/higgs}    & \multirow{2}{*}{higgsino} & $(\tilde{H}_d^0, \tilde{H}_d^-)$  & \multirow{2}{*}{higgs} &  $(H_d^0, H_d^-)$\\
+	                                                    &                                         &  $(\tilde{H}_u^+, \tilde{H}_u^0)$ &                            &  $(H_u^+, H_u^0)$\\                                                      
+
+	\hline	                                     		 
+\end{tabular}
+\end{table}
+
+Constructing a supersymmetric Lagrangian in the 4-dimensional spacetime can be very difficult and tedious. 
+The introduction of superspace greatly simplified the calculations. 
+The superspace extends the usual spacetime coordinates with two fermionic (or Grassmannian) coordinates. 
+Points in superspace have coordinates:
+     \begin{equation}
+	(x^\mu, \theta, \theta^\dagger)
+     \end{equation}
+where $x^\mu$ are space-time coordinates and $\theta$, $\theta^\dagger$ are anti-commuting Grassmann variables.
 Supermultiplets are described by functions over the superspace, which are referred to as superfield. 
 A chiral superfield can be expressed by expansion in Grassmann variables as:
     \begin{equation}
-    \Phi(x, \theta, \theta^\dagger) = \phi(x) + \theta\psi(x) + \frac{1}{2}\theta\theta F(x) + (space-time \ derivatives\ acting\ on\ \phi \ and \ \psi )
+    \Phi(x, \theta, \theta^\dagger) = \phi(x) + \theta\psi(x) + \frac{1}{2}\theta\theta F(x) + (\text{space-time derivatives acting on}\ \phi \ {and}\  \psi)
     \end{equation}
  where $\phi$ is a complex scalar field, $\psi$ is a left-chiral spinor, and $F(x)$ is an auxiliary field. 
- The  auxiliary is ?.. \\
-    
- To write down SUSY Lagrangians that contain gauge interactions, we also need vector superfields. 
- A general form of a vector superfield in the Wess-Zumino gauge is:
-    \begin{equation}
-   V = - \theta\sigma^\mu\bar{\theta}V_\mu(x) + i\theta^2\bar{\theta}\bar{\lambda}(x) - i\bar{\theta}^2\theta\lambda(x) + \frac{1}{2}\theta^2\bar{\theta}^2D(x)
-   \end{equation}
-where $V_\mu(x)$ is the gauge field, $\lambda(x)$ and $\bar{\lambda}$ are gauginos, and D(x)....\\
+ The auxiliary field is introduced to ensure that the number of bosons and fermonic degrees of freedom match with each other for both on-shell and off-shell cases. \\
+ A general vector superfield fixed by the Wess-Zumino gauge can be expressed as: 
+ 	\begin{equation}
+		V = -\theta \sigma^\mu \bar{\sigma}V_\mu{x} + i\theta^2 \bar{\theta}\bar{\lambda}(x) -  i\bar{\theta}^2 \theta\lambda(x) + \frac{1}{2}\theta^2 \bar{\theta}^2 D(x).
+	\end{equation}
+Here the $V_\mu(x)$ is the gauge field, $\lambda(x)$ and $\bar{\lambda}(x)$ are gauginos, and $D(x)$ is the auxiliary field. \\
+Then the supersymmetric Lagrangian can be conveniently written as: 
+	\begin{equation}
+		\mathcal{L} = \int d^4\theta \Phi_i^\dagger e^{gV}\Phi_i + \int d^2\theta (\frac{1}{4}W_\alpha^a W^{\alpha a} + h.c.) + \int d^2\theta (W(\Phi) + h.c.)
+		 \label{eq:SUSYL}
+	\end{equation}
+where $W(\Phi)$ is the super potential of the chiral fields. The superpotential of the MSSM has the form: 
+	\begin{equation}
+		W = 	l^i\Phi_i + \frac{1}{2}m^{ij} \Phi_i \Phi_j + \frac{1}{6} y^{ijk} \Phi_i \Phi_j \Phi_k.
+	\end{equation}
+The $W^{\alpha a}$ in \ref{eq:SUSYL} is the field-strength of the vector superfile,
+	\begin{equation}
+		W_\alpha = - \frac{1}{4}\bar{D}^\alpha \bar{D}_\alpha D_\alpha V
+	\end{equation}
+where $D_\alpha$ is the covariant derivatives in superspace. 
 
-Super potential? Lagrangian? MSSM ?
+SUSY provides a solution to the hierarchy problem. 
+In the loop corrections to the Higgs self energy, the contributions from fermions and bosons cancel with each other, leaving a light Higgs mass at the electroweak scale. This is illustrated in Fig. 7.
+
+\begin{figure*}[hbtp]
+\centering
+\begin{fmffile}{simple_tree}
+\begin{fmfgraph*}(100,50)
+\fmfleft{i}
+\fmfright{o}
+\fmflabel{$h$}{i}
+\fmflabel{$h$}{o}
+\fmf{dashes}{i,v1}
+\fmf{dashes}{v2,o}
+\fmf{fermion,label=$t$,left,tension=0.4}{v1,v2,v1}
+\end{fmfgraph*}
+\end{fmffile} 
+
+\begin{fmffile}{simple_susy}
+\begin{fmfgraph*}(100,50)
+\fmfleft{i}
+\fmfright{o}
+\fmflabel{$h$}{i}
+\fmflabel{$h$}{o}
+\fmf{dashes}{i,v1}
+\fmf{dashes}{v2,o}
+\fmf{fermion,label=$\tilde{t}$,left,tension=0.4}{v1,v2,v1}
+\end{fmfgraph*}
+\end{fmffile}  \\
+\bigskip
+\caption{NON}
+\end{figure*}\\
+
+SUSY also provides candidate for the dark matter.  If R-parity is conserved, the lightest SUSY particle (NLSP) is stable. It can serve as an dark matter candidate. 
 
 \subsection{Supersymmetry Breaking}
 As mentioned before, the quadratic divergence of the Higgs mass arising from SM loop can be exactly cancelled by the contribution from SUSY partners when the masses of all states in a supermultiplet are degenerate. 
@@ -254,9 +350,25 @@ However, any partners with the same mass of leptons or light quarks should have 
 Therefore supersymmetry must be a broken symmetry at low energy scale if it is realized in nature. 
 In order to maintain the good ultraviolet behaviour of the supersymmetry while split the mass between the SM particles and their SUSY partners, a soft symmetry breaking is considered. 
 The idea is that supersymmetry is unbroken at some high energy scale at which the exact SUSY is preserved. 
-At low energy scale, the supersymmetry breaking takes place, allowing the SUSY particles to obtain heavier mass than their SM partners. \\
+At low energy scale, the supersymmetry breaking takes place, allowing the SUSY particles to obtain heavier mass than their SM partners.
+This can be achieved by introducing soft breaking terms into the Lagrangian. The MSSM soft-breaking terms are:
+	\begin{equation}
+	\begin{aligned}
+		\mathcal{L}_{soft} &=& - \frac{1}{2} ( M_1 \tilde{B} \tilde{B} + M_2 \tilde{W} \tilde{W} + M_3 \tilde{g} \tilde{g} ) - m_{H_u}^2 |H_u|^2 - m_{H_d}^2 |H_d|^2 - bH_uH_d \\
+			 &  &  - M_Q^2 |\tilde{q}_L |^2 - M_U^2 |\tilde{u}_R |^2  - M_D^2 |\tilde{u}_D |^2 - M_L^2 |\tilde{l}_L |^2 - M_E^2 |\tilde{l}_R |^2
+	\end{aligned}
+	\end{equation}      
+where the coefficient of each term is called soft SUSY breaking parameter. 
+The appearance of the soft breaking terms introduces 105 more independent parameters. 
+Assuming these breaking terms originate from the same mechanism, the scale of the SUSY breaking is denoted as $m_{SUSY}$:
+	\begin{equation}
+		\begin{array}{c c c}
+			M_{1,2,3}, a_{u,d,e} & \sim & m_{SUSY} \\
+			M^2_{Q,u,d,L,e,H_u, H_d}, b & \sim & m^2_{SUSY}
+		\end{array}
+	\end{equation}
 
-Soft supersymmetry breaking terms can arise as an effective description of  the spontaneous supersymmetry breaking, i.e. the Lagrangian is invariant under supersymmetric transformations but the vacuum state is not. 
+To understand the origin of these breaking terms, we can consider the soft supersymmetry breaking as an effective description of  the spontaneous supersymmetry breaking, i.e. the Lagrangian is invariant under supersymmetric transformations but the vacuum state is not. 
 The spontaneous supersymmetry breaking happens when the supercharges do not annihilate the vacuum, i.e., 
     \begin{equation}
 	Q|0> =\ = 0
@@ -281,7 +393,7 @@ The GMSB mechanism assume that the messenger sector couple to the visible sector
 Suppose the hidden sector has some supermultiplet S which has VEV $<F>$, where F is the auxiliary field of S. 
 A set of messenger fields ${\Phi_I, \bar{\Phi}_I}$ couple to the hidden sector via interaction term:
 	 \begin{equation}
-	W = \Sum_I y_I S \Phi_I \bar{\Phi}_I.
+	W = \sum_I y_I S \Phi_I \bar{\Phi}_I.
 	\end{equation}
 If <F> is non-zero, mass splittings are generated in the messenger sector. 
 The messenger fields are charged under the SM gauge. 
@@ -292,23 +404,74 @@ picture
 The gauginos become heavier due to the radiative corrections from messenger particle loops, as illustrated in the Feynman diagram of Figure X. 
  	diagram
 
-The resulting gaugino and sfermion mass have the form
+Assuming that the messenger fields have mass M, we can integrate out the messenger fields to get the effective SUSY breaking. 
+The resulting soft mass is proportional to
+	\begin{equation}
+		M_{soft} \sim  \frac{<F_X>}{M}
+	\end{equation}
+If the M and $\sqrt{ <F>}$ are of the same order, the SUSY breaking can be realized in a scale as low as the electroweak scale. 
+Requiring the gravity effects to be negligible, one can also impose an $10^{15}$ GeV upper bound on the scale of $M_{mess}$. \\
 
-	$M_\lambda \sim $ 
-	
-	$M_sf \sim$
+When the electroweak symmetry is broken, only the SU(3) and U(1) gauge remains unbroken. 
+Similar to the mixing of the gauge bosons in the SM, the Bino, Winos and higgsinos will mix to form mass eigenstates.
+The mixing of two neutral gauginos ($\tilde{B}, \tilde{W}^0$) and two neutral higgsinos ($\tilde{h}_d^0, \tilde{h}_u^0$) will give rise to four neutral mass eigenstates called neutralinos, denoted as $\tilde{\chi}^0_{1,2,3,4}$. The mixing mass matrix for the neutralinos is: 
+	\begin{equation}
+		 M_N  = \left(
+			 \begin{array}{c c c c }
+			 	 M_1                           & 0                                & -M_Z cos\beta S_W & M_Z cos\beta S_W  \\
+				   0                                & M_2                          & M_Zcos\beta C_W   & -M_Zsin\beta C_W  \\
+				 -M_Z cos\beta C_W  & M_Z sin\beta C_W   & 0                                &  \mu \\
+				 M_Z sin\beta S_W     & -M_Z cos\beta S_W  & \mu                          &  0
+			\end{array}
+		\right)
+	\end{equation}
+Similarly, the charged gaugino-higgsino mixing will give rise to four charged mass eigenstates.
+The mixing matrix is: 
+	\begin{equation}
+		M_C = \left(
+			\begin{array}{c c }
+				M_2            & \sqrt{2}M_W sin\beta \\
+				\sqrt{2}M_W cos\beta     &  \mu   
+			\end{array}
+		\right)
+	\end{equation}
+The resulting mass eigenstates, $\tilde{\chi}^\pm_1, \tilde{\chi}^\pm_2$, are called the charginos.
 
 \subsection{Phenomenology of General Gauge mediation Supersymmetry}
 
 According to the Goldstone's theorem, for every global symmetry with spontaneous breaking there exist a massless Nambu?Goldstone boson. 
 Similar to the goldstone boson, spontaneous SUSY breaking gives rise to a massless goldstino. 
 When SUSY is imposed as a local symmetry, the goldstino is absorbed by the gravitino, becoming the longitudinal component of the gravitino. 
-The gravitino mass is:\\
-	$m_2/3 \sim <F>/M_PL$
-	\\
-The mediation scale could be low, making the gravitino very light. 
-In gauge-mediated SUSY, the lightest supersymmetry particle (LSP) is the gravitino. 
-All the heavier SUSY particles will decay cascade to the gravitino. 
+The gravitino mass scales as:
+	\begin{equation}
+		m_{2/3} \sim <F>/M_PL
+	\end{equation}
+The SUSY breaking scale could be very low in gauge-mediated models, making the gravitino to have a mass roughly in the 1 eV to 1 GeV range.  
+Therefore, one important consequence of the GMSB is that gravitino is the lightest supersymmetry particle (LSP).
+All the heavier SUSY particles will eventually decay to the graviton, either directly or through a cascade decay chain. 
+Therefore, the phenomenology is mainly determined by the nature of the next-to-lightest SUSY particle (NLSP).\\
+
+The decay length of the NLSP is promotional to $<F>^2$. 
+Depending on the scale of the messenger mass, the decay of the NLSP can be prompt, long-lived or outside the detector. 
+In this search, we will focus on the prompt scenarios: the NLSP immediately decay to its SM partner and a gravitino. 
+In the general gauge-mediated (GGM) models, the NLSP could in principle be any of the SUSY particles. 
+The general neutralino NLSP senarios are of particular interests, as it can give rise to signature final states involving photons, W, Z or higgs plus large missing transverse momentum. \\
+
+The neutralino NLSP is a mixture of the neutral gauginos and higgsinos. 
+Depending on the relative hierarchy among the soft masses, the NLSP can be more like bino, wino or higgsino. 
+\begin{itemize}
+	\item Bino-Like: if $|M_1| < |\mu|,|M_2|$, the neutralino NLSP is mostly a Bino. It will dominantly decay through the $\tilde{\chi}_1^0 \rightarrow \gamma + \tilde{G}$ channel. 
+	         The typical signature of Bino-like neutralino pair production is a pair of photons and large transverse missing momentum in the final states.  
+	\item Wino-like: if $|M_2| < |\mu|, |M_1|$, the neutralino NLSP is dominated by the Wino component. 
+		Since the wino multiplet consists of both charged ($\tilde{W}^\pm$) and neutral ($\tilde{W}^0$) gauginos, the lightest chargino ($\tilde{\chi}_1^\pm$) can be as light as the neutralino NLSP. 
+		In this case, the $\tilde{\chi}_1^0$ and $\tilde{\chi}_1^\pm$ are nearly mass degenerate, and they are called the co-NLSP. 
+		The wino-like $\tilde{\chi}_1^0$ can decay into $\gamma + \tilde{G}$ or $Z + \tilde{G}$. 
+		The branching fraction of the wino-like $\tilde{\chi}_1^0$ decay is shown in Figure \ref{fig: neuBR}. 
+		The $\tilde{\chi}_1^\pm$ decays to the $W^\pm+ \tilde{G}$ final states.  
+		Depending on the decay mode of the NLSP and the $W/Z$ bosons, the possible final states containing are: $\tilde{\chi}_1^0\tilde{\chi}_1^\pm \rightarrow \gamma W^\pm \tilde{G}\tilde{G} \rightarrow  \gamma l^\pm \nu \tilde{G}\tilde{G} $, $\tilde{\chi}_1^0\tilde{\chi}_1^\pm \rightarrow \gamma W^\pm \tilde{G}\tilde{G} \rightarrow  hadrons + \gamma \tilde{G}\tilde{G} $, $\tilde{\chi}_1^0\tilde{\chi}_1^\pm \rightarrow Z W^\pm \tilde{G}\tilde{G} \rightarrow  l^+ l^- l^\pm \nu \tilde{G}\tilde{G} $.
+	\item Higgsino-like: if $\mu < |M_1|, |M_2|$, the NLSP is higgsino-like. The decay mode of the NLSP varies with the mass parameters and mixing angles. In the case where the $h\tilde{G}$ decay mode is preferred, one can use events containing higgs to probe the production of higgsino-like NLSP and enhance the search sensitivity. 
+\end{itemize}
+
 
 
 

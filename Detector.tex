@@ -84,18 +84,43 @@ The CMS electromagnetic calorimeter (ECAL) is a hermetic, homogeneous detector c
 The PbWO$_4$ crystals have a density of 8.28 g/cm$^3$, radiation length of 0.89cm and Moli`ere radius of 2.2 cm. 
 These characteristics make them the appropriate material for a compact calorimeter. 
 The scintillation light emitted by the crystals are blue-green color, with a maximum wave length at 420-430 nm. 
-Therefore blue laser can be used to monitor the transparency and response of the crystals. \\
+Therefore blue laser can be used to monitor the transparency and response of the crystals. 
 
 The scintillation light is collected by avalanche photodiodes (APDs) in the barrel section and vacuum phototriodes (VPT) in the endcaps. 
 Each barrel crystal has one pair of APDs glued to its back face, and each endcap crystal has only one APT mounted. 
-The photodetectors are depleted by a custom high voltage (HV) power supply which can precisely control the bias voltage and allow the gain of the photodetectors to be stable. \\
+The photodetectors are depleted by a custom high voltage (HV) power supply which can precisely control the bias voltage and allow the gain of the photodetectors to be stable. 
 
 A schematic drawing of the layout of the ECAL is shown in Figure 6. 
 The EB uses 230 mm long crystals, corresponding to a radiation length of 25.8 $X_0$, whilst the length of the crystals in the EE is 220 mm (24.7 $X_0$). 
 The crystals in the EB are grouped into 36 supermodules (SM), 18 on each side of the interaction point, and provide a granularity of 360-fold in $\phi$ and (2$\times$85)-fold in $\eta$, covering the pesudorapidity range up to $|\eta| <$ 1.479. 
 The EE is composed of two Dees, each consists of 3662 crystals, and extends the coverage to $|eta| = $3.0. 
-In addition, a preshower (ES) detector made of lead absorbers and silicon strip sensors is placed in front of EE to improve the identification of closely spaced photons from $\pi^0$ decays. \\
+In addition, a preshower (ES) detector made of lead absorbers and silicon strip sensors is placed in front of EE to improve the identification of closely spaced photons from $\pi^0$ decays. 
 
+The signals from the photodetectors are shaped and amplified by the Multi Gain Pre-Amplifier (MGPA) with gains of 1, 6 and 12. 
+If the signal is saturated, the read-out will switch to a lower gain. 
+Each of the output signal of the MGPA is digitized by a 12 bit analog-to-digital converter (ADC) running at 40MHz and a set of 10 consecutive samples is recorded for amplitude reconstruction.
+The signals from a trigger tower ( $5\times5$ crystals ) in the EB or a super-crystal in the EE are read out together by the on-detector electronics and are stored in pipelines during the Level-1 trigger latency. 
+Once a Level-1 trigger is received, the data will be sent out to the off-detector electronics. 
+
+Radiation can cause a degradation in the crystal transparency due to the formation of color centers. 
+The response of the VPT also varies under irradiation. 
+In absence of irradiation the transparency loss can partially recover through spontaneous annealing. 
+These response changes are measured and corrected using a laser based light monitoring system during the LHC operation. 
+Blue and green laser light pulses are injected via optical fibers to the crystals and off-detector silicon PN photodiodes. 
+The relative responses are then normalized to the measurements at the start of the run to derive correction coefficients. 
+Figure \ref{fig:lasermonitor} shows the evolution of the ECAL response for the Run I and Run II 2016 data taking periods. 
+
+\begin{figure*}[hbtp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{plot/lasermonitor.png}
+\end{figure*}
+
+The ECAL has been operating stably throughout the 2015 and 2016 LHC Run II operation.The analysis using 2.5fb collision data collected in 2015 shows that a relative energy resolutionbetween 1.4\% and 3\% for electrons is achieved in the EB, and 3\% to 4\% for EE. The resolution forlow and high bremsstrahlung electrons are shown in Figure \ref{fig:ecalreso}.
+
+\begin{figure*}[hbtp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{plot/lasermonitor.png}
+\end{figure*}
 
 \section{The CMS Trigger System}
 
