@@ -131,7 +131,7 @@ low and high bremsstrahlung electrons are shown in Figure \ref{fig:ecalreso}.
 \subsection{Hadron Calorimeter}
 The hadron calorimeter (HCAL) is designed to absorb and measure the energy of hadrons. 
 In addition, it is important for the indirect measurement of weakly interacting particles such as neutrinos which escape the detector and result in imbalanced momentum.
-It consists of a barrel (HB) with pseudorapidity range $|\eta| < $ 1.3 and two endcaps (HE) covering 1.3 $ < |\eta| <$ 3.0, and the HB is complemented by an outer calorimeter (HO) outside the solenoid to catch the shower tails. 
+It contains four parts: a barrel (HB) with pseudorapidity range $|\eta| < $ 1.3, two endcaps (HE) covering 1.3 $ < |\eta| <$ 3.0, an outer calorimeter (HO) outside the solenoid to catch the shower tails, and two forward calorimeters (HF) positioned at either end of CMS.
 Figure \ref{fig:hcal} shows the location of the HCAL in CMS detector. 
 
 \begin{figure*}[hbtp]
@@ -140,10 +140,107 @@ Figure \ref{fig:hcal} shows the location of the HCAL in CMS detector.
 	\label{fig:hcal}
 \end{figure*}
 
-The HB and HE are sampling calorimeter made of alternating layers of brass absorber plates and plastic scintillator tiles.
+The HB and HE are the major sub-detector of the HCAL. 
+They are sampling calorimeter made of alternating layers of brass absorber plates and plastic scintillator tiles.
+The HB consists of 17 layers of absorber/scintillator, corresponding to a total interactions length of 5.39 at $|\eta| =$ 0 and 10.3 at $|\eta| =$ 1.3.
+Each HE has 18 scintillator and 17 absorber layers, where the absorber is designed to minimize the cracks between HB and HE. 
 When particles deposit energy in the HCAL, the active materials are excited by ionizing radiation and generate scintillation light, which is read out by wavelength shifting fibers. 
-The HB consists of 17 layers of scintillator, 
 
+The optical signals are amplified and converted into electronic signals by multichannel Hybrid Photodiodes (HPDs). 
+The output analogue signals are then digitized by the charge-integrator and encoder (QIE) chips. 
+After digitization, the signals are delivered to the the trigger/read-out (HTR) board of the backend electronics located in the service cavern. 
+In the HTR, trigger primitives are generated and sent to the Regional Calorimeter trigger.
+The HTR also buffers the readout data and transfers it to the data acquisition system when a Level 1 acceptance decision is received.  
+
+Because of the geometric constrains of the solenoid coil, the EB plus HB doesn't provide enough materials to fully contain the hadron showers. 
+To ensure adequate sampling depth in the $|\eta| < $ 1.3 region, the HO is placed outside the solenoid to detect any late showers or leakage from HB. 
+The HO contains one layer of scintillator and utilises the solenoid coil as absorber, extending the total interaction length of the calorimeter system to be at least 11.8 $\lambda_I$. 
+
+In the forward region, the HF calorimeter extends the coverage up to $|\eta| < $ 5.2.
+The design of the HF is very challenging due to the extremely high radiation dose near the beampipe.  
+Therefore the HF is made up of radiation hard quartz fibers embedded within a 165-cm-long steel absorber.  
+Signals are generated when charged particles above the threshold (0.2 MeV for electrons, 400 MeV for protons) emit Cherenkov lights in the quartz.
+The lights are transported to photomultiplier tubes (PMT) for readout. 
+The HF tower occupancy can be used for CMS luminosity measurements. 
+
+\subsection{The Muon System}
+The detection of muon is an important task of CMS, as suggested by the name of the experiment. 
+Many interesting physics processes, including the decay of Higgs boson to $ZZ$ and potential production of new particles, may involve muons in the final states.
+Muons are less effected by radiative losses because they are 200 times heavier than electrons.
+Most of the muons can penetrate the calorimeter system with little interaction. 
+Therefore the sub-system to detect the muons are placed in the outmost part of the CMS where other particles except neutrinos are expected to be fully absorbed.
+
+The CMS muon system is designed to precisely measure the momentum and charge of muons over a wide kinematic range.
+The detectors sit in between the segments of iron return yoke of the CMS solenoid, where the magnetic field is below 2 T, as shown in the Figure \ref{fig:magnet}.
+Because of the large coverage area outside the solenoid, the materials of the muon system have to be cost-effective and robust.
+Thus gas-ionization detectors are chosen to measure the muons. 
+The muon system uses three different technologies: drift tubes (DT) in the barrel section, cathode strip chambers (CSC) in the endcaps, and resistive plate chambers (RPC) in both the barrel and endcaps to provide fast triggers. \\
+
+\begin{figure*}[hbtp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{plot/magnet.png}
+	\caption{Map of the magnet field (left) and field lines (right) predicted for a longitudinal section of the CMS detector by a magnetic field model at a central magnetic flux density of 3.8 T. Each field line represents a magnetic flux increment of 6 Wb}
+	\label{fig:magnet}
+\end{figure*}
+
+\noindent \textbf{Drift Tubes} 
+
+The muon rate and radiation dose in the central region is relatively low, thus the drift tubes are used in the barrel to cover the pseudorapidity region up to $|\eta| < $ 1.2.
+The DT is a closed-cell wire chamber which consist of a thin wire at high positive voltage (anode) within a gas-filled volume.
+When charged particles pass through the chamber, gas atoms will be ionized and the resulting electrons will drift towards the anode wire.
+The hit position of the muons can be reconstructed by measuring the drift time.  
+
+The basic element of the DT is a rectangular drift cell with a transverse cross section of $42 \times 13\ mm^2$. 
+A gold-plated stainless-steel wire is suspended in the center of the chamber and operates at +3600 V. 
+Four parallel layers of such drift tubes are staggered by half a cell to form a superlayer (SL). 
+SLs with wires along the beam direction can provide measurements for $r\text{-}\phi$ coordinates, while orthogonal SLs can measure the $r\text{-}z$ coordinates. 
+The barrel muon detector consists of four concentric DT stations interleaved with iron yokes, as shown in Figure \ref{fig:DT}.
+Each of the inner three stations, labeled as MB1, MB2, MB3, has 60 chambers which consists of two parallel  SLs and one perpendicular SL. 
+The outer station has 70 chambers, however, each chamber has only an $r\text{-}\phi$ SL. 
+
+The single-hit spatial resolution of the DT tube is averagely 260 $\mu m$ in the $r\text{-}\phi$ direction.
+When segments of the whole chamber are fitted together, the resolution is improved to be 90 $\mu m$.
+
+\begin{figure*}[hbtp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{plot/DT.png}
+	\caption{An R-z cross section of a quadrant of the CMS detector with the axis parallel to the beam (z) running horizontally and radius (R) increasing upward.  The interaction point is at the lower left corner. 
+	 Shown are the locations of the various muon stations and the steel disks (dark grey areas). The 4 drift tube (DT, in light orange) stations are labeled MB (?muon barrel?) and the cathode strip chambers (CSC, in green) are labeled ME (?muon endcap?).              Resistive plate chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE, respectively.}
+	\label{fig:DT}
+\end{figure*}
+
+\noindent \textbf{Cathode Strip Chambers}
+
+In the endcap region, the muon rate is higher and the magnetic field is non-uniform.
+Thus the cathode strip chambers are chosen to measure the muons in the endcaps, since they have faster response time. 
+The CSC is another type of multiwire chamber which consists of thin parallel anode wires crossed with negatively-charged cathode strips.
+All chambers are filled with a gas mixture of 50\% CO$_2$, 40\% Ar, and 10\% CF$_4$.
+When charged particles pass through, they ionize the gas and produce free electrons, which move to the anode wires creating an avalanche pulse.
+Positive ions move to the cathode strips and induce a pulse so that a pair of position coordinates can be read out from one individual chamber.
+Six such chambers form a CSC module, allowing an precise measurement of muon tracks. 
+
+Each endcap has 4 CSC stations, containing a total of 468 chambers.
+The chambers are mounted on the surface of endcap disks in a way that the cathode strips run radially and the anode wires measure the $r$ coordinate. 
+The full CSCs provide a coverage of the pseudorapidity from 0.9 to 2.4.
+An reconstruction efficiency of 96-99\% is achieved for muons except in the gap regions. \\
+
+\noindent \textbf{Resistive Plate Chambers}
+
+The gaseous detectors with wires can provide excellent space resolution, however, the time resolution is relatively poor because of the fluctuations in drift time. 
+The time resolution can be improved using detectors with intense electric field so that the amplification of the signals can immediately start after primary ionization. 
+To ensure unambiguous identification of the collision bunch at the highest LHC luminosities, a dedicated trigger detector made of resistive plate chambers (RPC) is implemented to complement the DTs and CSCs.
+
+The RPCs are double-gap parallel-plate detectors, each gap consists of two plates made of high resistive plastic material. 
+The outer surfaces of the plates are coated with conductive graphite paint, and a voltage of 9.6 kV is applied, allowing the RPCs to operate at avalanche mode.
+The use of high resistive electrode limits the discharge of the chamber to a small region so that the deadtime of the full detector is negligible and a good efficiency is ensured.
+
+The RPCs are installed in both the barrel and endcap region, covering a pseudorapidity region $|\eta| <$ 2.1.
+There are four RPC stations in the barrel, of which the innermost two stations consist of 2 layers of RPCs with DT sandwiched. 
+In the endcap region, there were 3 RPC stations in LHC Run I. 
+During the first long shutdown (LS1), an additional 144 RPCs are installed to the fourth disk. This improved the muon reconstruction efficiency in the range 1.2 $< |\eta| < $ 1.8. 
+
+The RPC system operated smoothly during the LHC Run II with an average efficiency of 94\%. 
+A time resolution of 3 ns or better is achieved for all 3 systems.
 
 
 \section{The CMS Trigger System}
