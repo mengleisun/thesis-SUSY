@@ -243,9 +243,67 @@ The RPC system operated smoothly during the LHC Run II with an average efficienc
 A time resolution of 3 ns or better is achieved for all 3 systems.
 
 
-\section{The CMS Trigger System}
+\section{CMS Trigger System}
+The LHC provides proton-proton collisions every 25 ns, leading to an event rate of 40 MHz. 
+The raw data per event is about 1 MB, which means 40 TB data is produced every second.  
+This large amount of data is far beyond the ability of the machine to store and process the events. 
+Moreover, production rate of the interesting physics processes are a few orders of magnitude lower than the total pp collisions rates. 
+Therefore, a data filtering system is needed to drastically reduce the event rate while keep the interesting events recorded. 
+This task is performed by the CMS trigger system.
+The CMS trigger system reduces the event rate in two steps: the Level-1 trigger (L1) uses hardware electronics to reduce the data rate to 100 kHz, and the high level trigger (HLT) uses software to future reduce the rate to $\sim$ 1 kHz.\\
 
-\section{The CMS Data Acquisition System}
+\noindent \textbf{Level-1 Trigger}
+
+The L1 trigger receives coarsely segmented data from the sub-detectors and performs rough reconstruction of the particles using programmable electronics (FPGA, ASICs).
+It consists of local and global components. 
+The scheme of the L1 system is shown in Figure \ref{fig:L1}.
+In the local trigger level, energy deposits in the calorimeters and hits in the muon stations are summed with reduced resolution to generate trigger primitives (TP). 
+The TPs are fed into two trigger processing layers for object identification and global energy summation, and the resulting objects are send to the global trigger (GT) for the final L1 decision.
+
+\begin{figure*}[hbtp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{plot/L1flow.png}
+	\label{fig:L1}
+\end{figure*}
+
+
+The calorimeter trigger was upgraded during LHC LS1 to adopt a time-multiplexed system that enables the data from the entire calorimeter to be processed in a single FPGA at full granularity.
+It consist of two layers, of which the first layer is designed to pre-process the TPs from ECAL and HCAL and format the data for layer 2.
+The second layer is the main processing layers that performs the object identification and energy reconstruction. 
+$e/\gamma$ candidates are reconstructed by dynamic clustering algorithms around local energy maxima above a fixed threshold. 
+Trigger level energy calibration factors are applied to both the TPs and $e/\gamma$ objects in order to make the summed energy to be similar to the offline reconstructed energy. 
+Jet candidates are formed by taking 9 $\times$ 9 TTs sliding windows around the seed towers. 
+Other global quantities, such as the transverse missing momentum, are computed using the full granularity.
+
+The muon trigger system was also upgraded during LS1 to meet the increased luminosity of LHC Run II. 
+Trigger level muon tracks are reconstructed in the track finder (TF) layer which is composed of three separate components: barrel muon track finder for the DT and RPC in $|\eta| < $ 0.83, the endcap muon track finder for RPC and CSC in $|\eta| > $ 1.24, and the overlap muon track finder covering the three subdetectors in region 0.83 $< |\eta| <$ 1.24. 
+Candidates from the TFs will be propagated to the global muon trigger (GMT) for sorting and isolation computing. 
+The selected muons will be send to the global trigger (GT) along with the information from the calorimeter trigger.
+
+GT is the last stage of the L1 trigger. 
+L1 decision is made using information received from the calorimeter and muon triggers. 
+The GT has been upgraded with state-of-the-art FPGAs on Advanced Mezzanine Cards in a MicroTCA crate.
+The upgraded processors can compute different objects and higher level physics quantities, such as invariant mass, with high efficiency.
+\\
+
+\noindent \textbf{High Level Trigger}
+
+The HLT is a software trigger running on a computing farm which consists of more than 10,000 CPU cores. 
+The basic unit of the HLT menu is called a trigger path, which consists of a series of reconstruction sequenses and event filters. 
+Event selections of each trigger path starts from requiring the presence of one or more L1 objects, which are called L1 seeds. 
+When the L1 seeds pass the kinematic selections of the trigger path, object reconstruction will be performed sequentially with increased complexity so that simple and fast algorithms can run first in the trigger path. 
+A list of filters are implemented in the trigger path to decide if an object/event should be tentatively accepted or rejected. 
+There are more than 400 trigger paths implemented in HLT menu in Run II to cover a wide range of physics signatures.
+An event is only recorded if it is accepted by at least one trigger path. 
+
+The HLT paths are grouped into several output dataset called primary data sets. 
+These data sets include data steams for both physics analysis and detector operations. 
+The RAW data of each event is about 1 MB, while the storage manager can temporarily stores the data on disk with a 2GB/s rate. 
+Therefore the HLT rate is limited to 1000 Hz.
+In Run II, the HLT reconstruction sequences are implemented with the Particle Flow algorithms, which improves the energy resolution and pile-up mitigation in the increased luminosity conditions. 
+
+\textcolor{red}{Plot: HLT rate?}
+
 
 \section{The Data Quality Monitoring and Certification System}
 
