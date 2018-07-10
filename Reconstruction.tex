@@ -3,43 +3,23 @@
 \begin{document}
 \chapter{Event Reconstruction}
 
-The PF procedure identifies each individual particle (a PF candidate) through
-an optimized combination of all subdetector information.  The energy of photons is obtained
-directly from the ECAL measurement, corrected for suppression effects of energies from calori-
-metric  channels  with  small  signals  (referred  to  as  zero-suppression)  [27].   The  energy  of  an
-electron is determined from a combination of the track momentum at the main interaction ver-
-tex, the corresponding ECAL cluster energy, and the energy sum of all bremsstrahlung photons
-associated with the track. The energy of a muon is obtained from the corresponding track mo-
-mentum.  The energy of a charged hadron is defined either by the combined fit of the tracker
-and calorimeter information or from tracker information only depending on the compatibility
-of the calibrated calorimeter cluster energy with measured track energy. Finally, the energy of
-a neutral hadron is obtained from the calibrated energies in ECAL and HCAL.
+Physics objects in CMS are reconstructed using the particle-flow (PF) algorithm, which identifies each particle through an optimized combination of signals of all sub-detectors.
+The PF candidates are classified as photons, charged hadrons, neutral hadrons, electrons, or muons.
+Photons are reconstructed by clustering energy deposits in the ECAL. 
+Tracks are first formed using hits in the inner tracker and then extrapolated to the calorimeter and muon chambers.
+If a track is geometrically close to ECAL and HCAL clusters within a certain distance, they are linked together to form a charged hadron.  
+ECAL and HCAL clusters without associated tracks are identified as neutral hadrons. 
+Muons are formed if the tracks can be associated with segments in muon stations. 
+Electrons are reconstructed by associating tracks to ECAL clusters, and their energy are determined from a combination of the track momentums, calorimeter energy and sum of all bremsstrahlung photons. 
+Fig. \ref{fig:PF} illustrates the response of different types of PF candidates in CMS. 
+The algorithms for the reconstruction of different PF elements are detailed in the following sections. 
 
-The CMS PF algorithm [
-2
-] relies on a efficient and pure track reconstruction, on a clustering
-algorithm able to disentangle overlapping showers, and on an efficient link procedure to connect
-together the deposits of each particle in the sub-detectors. Simplifying, the algorithm can be de-
-scribed as follows; a detailed description can be found in [
-2
-]. The tracks are extrapolated through
-the calorimeters, if they fall within the boundaries of one or several clusters, the clusters are associ-
-ated to the track. The set of track and cluster(s) constitute a charged hadron and the building bricks
-are not considered anymore in the rest of the algorithm. The muons are identified beforehand so
-that their track does not give rise to a charged hadron. The electrons are more difficult to deal with.
-Indeed, due to the frequent Bremsstrahlung photon emission, a specific track reconstruction [
-3
-]
-is needed as well as a dedicated treatment to properly attach the photon clusters to the electron
-and avoid energy double counting. Once all the tracks are treated, the remaining clusters result
-in photons in case of the electromagnetic calorimeter (ECAL) and neutral hadrons in the hadron
-calorimeter (HCAL).
-Once all the deposits of a particle are associated, its nature can be assessed, and the information
-of the sub-detectors combined to determine optimally its four-momentum. In case the calibrated
-calorimeter energy of the clusters, which is simply a linear combination of the ECAL and HCAL
-energy deposits, associated to a track is found to be in excess with respect to the track momentum at
-more than one sigma, the excess is attributed to an overlapping neutral particle (photon or hadron),
-carrying an energy corresponding to the difference of the two measurements
+\begin{figure*}[h]
+	\includegraphics[width=0.9\textwidth]{plot/PF.png}
+	\caption{PF candidates.}
+	\label{fig:PF}
+\end{figure*}
+
 
 \section{Tracks}
 The tracker is the subdetector that is closest to the collision point of the LHC. 
