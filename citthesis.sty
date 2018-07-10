@@ -35,7 +35,7 @@
 \newcommand{\setdoctype}[1]{\def\asudoctype{#1}}
 % possible degree
 \newcommand{\masters}{\def\asudegree{Master of Arts}}
-\newcommand{\doctors}{\def\asudegree{Doctor of Philosophy}}
+\newcommand{\doctors}{\def\asudegree{DOCTOR OF PHILOSOPHY }}
 % defence date
 \newcommand{\setdefdate}[1]{\def\asudefdate{#1}}
 % graduation date
@@ -56,19 +56,19 @@
 
 %% Use them like this, and if you don’t change them you will
 %% get unacceptable title and/or approval pages
-\settitle{AN INCREDIBLE PIECE OF WORK OVER WHICH I HAVE STRUGGLED
-DAY AND NIGHT FOR FAR TOO LONG AND NOW IT IS OVER}
-\setauthor{A. N. Author}
+\settitle{Search for supersymmetry using events with a photon, a
+lepton, and missing transverse momentum in pp collisions at $\sqrt{s} =$ 13 TeV in CMS}
+
+\setauthor{Menglei Sun}
 \setdoctype{Polemic}
-\masters % going for a Masters degree
-%% \doctors % going for a PhD
-\setdefdate{April 2018}
+\doctors % going for a PhD
+\setdefdate{July 2018}
 \setgraddate{May 2021}
 % \setchair{A. Jones} % this one
-\setchairs{A. Jones}{B. Doe} % or this one
-\setmembers{C. Smith \\ D. Somebody \\ Some One Else \\ Yet Another}
-\setdept{The Best Department}
-\setdegrees{B.A. in Art}
+\setchairs{A. }{B. }
+\setmembers{C. \\ D. \\ E. \\ F.} 
+\setdept{PHYSICS}
+\setdegrees{}
 \setcopyyear{2018}
 
 %%% typesets the TITLE page
@@ -81,10 +81,11 @@ DAY AND NIGHT FOR FAR TOO LONG AND NOW IT IS OVER}
 {\Large \textbf{\asutitle}}\par
 \vspace*{\titlefiddle}
 %\vfill
-\emph{Submitted in partial fulfillment of the requirements for\\
-the degree of\\
-\asudegree\\
-in\\\asudept}\par
+\emph{SUBMITTED IN PARTIAL FULFILLMENT OF THE REQUIREMENTS \\
+FOR THE DEGREE OF \\
+\bigskip
+\asudegree
+IN \asudept}\par
 \vspace*{\titlefiddle}
 %\vfill
 \asuauthor\par

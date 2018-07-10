@@ -1,0 +1,117 @@
+\documentclass[thesis.tex]{subfiles}
+\renewcommand\_{\textunderscore\allowbreak}
+
+\begin{document}
+
+
+\chapter{Object Definitions and Event Selection}
+\label{sec:eventSelection}
+
+\section{Photon}
+\label{subsec:photonID}
+The default format of the photons in miniAOD datasets is "slimmedPhotons", which keeps high level physics objects. EGamma energy scales are applied to the photons to optimize the energy reconstruction and resolution. \\ 
+
+Photons with $p_{T} >$ 35 GeV reconstructed in the ECAL barrel ($|\eta| <$ 1.4442) are used. They are required to match the trigger objects of the HLT within $\Delta R <$ 0.3. To pass the $R_9$ filter in the $e\gamma$ trigger, the photons are in addition required to have $R_9 <$ 0.5. Out of such preselected photons, those fulfilling the EGM cut-based loose-ID criteria are selected as candidate photons. The variables and criteria used in the loose-ID are:
+
+\begin{center}
+\begin{itemize}
+\item H/E $<$ 0.0597 \\
+        E is the energy of the ECAL cluster and H is the energy in the HCAL behind it
+\item $\sigma_{i\eta i\eta} <$ 0.01031  \\
+	$\sigma_{i\eta i\eta} <$ describes the shower spread in $\eta$ direction
+\item Iso$_h^\pm <$ 1.295 \\
+	 Iso$_h^\pm <$ is the sum of $p_{T}$ of all charged particles around the photon candidate, with the photon footprint removed. The pile-up contribution in the Iso$_h^\pm <$ is subtracted based on the average hadron activity in the event 
+\item Iso$_h^0 < 10.910 +0.0148 \cdot p_{T} + 0.000017 \cdot p^2_{T}$ \\
+	Iso$_h^0$ is the corrected PF neutral hadron isolation
+\item Iso$_{pho} < 3.630+0.0047 \cdot p_{T}$ \\
+	Iso$_{pho}$ is the corrected PF photon isolation
+\end{itemize}
+\end{center}
+
+To suppress the $e\rightarrow\gamma$ fake objects, candidate photons are required to pass the pixel seed veto. In addition, a photon is rejected if an electron is close to it within $\Delta R <$ 0.02. Such a veto help remove the very rare cases where the ECAL clusters fail to match pixel seeds but electrons still get reconstructed by ECAL-driven tracking algorithm. \\
+
+The identification and pixel veto efficiencies are measured for both data and simulation by EGM group and are given in ~\cite{EGM:leptonScale}. The data-to-simulation scale factors are applied on MC samples to correct the simulation response.
+
+\section{Electron}
+\label{subsec:electronID} 
+Electrons with  $p_{T} >$ 25 GeV reconstructed in the pesudorapidity range $|\eta| <$ 2.5 are used. To ensure a good acceptance efficiency, objects falling in the barrel-endcap region 1.442 $< |\eta| <$ 1.56 are rejected.  \\
+
+Electrons passing the kinematic cuts are required to match the sub-leading leg of the di-photon trigger. To mimic the $R_9$ filters in trigger, a $R_9 <$ 0.5(0.8) preselection cut is applied on the electrons in EB(EE). Candidate electrons are then identified using cut-based medium ID, including the following selections:
+
+\begin{center}
+\begin{itemize}
+\item $\sigma_{i\eta i\eta} <$ 0.00998(EB), 0.0298(EE)
+\item $\Delta\eta_{in} <$ 0.00311(EB), 0.00609(EE)
+\item $\Delta\phi_{in} <$ 0.103(EB), 0.045(EE)
+\item H/E $<$ 0.253(EB), 0.0878(EE)
+\item $|\frac{1}{E} - \frac{1}{p}| <$ 0.0129
+\item At most one expected missing hit in inner tracker layers
+\item Pass conversion veto
+\end{itemize}
+\end{center}
+
+The relative isolation cut is removed from the medium ID selections. Instead, we required the mini-Isolation~\cite{CMS:Isolation} of the electron to be small than 0.1. \\
+
+The efficiencies of the electron identification and mini-Isolation filters are measured by EGM group and are given in \cite{EGM:leptonScale}.
+
+\section{Muon}
+Muons with $p_{T} >$ 25 GeV in the pesudorapidity range $|\eta| <$ 2.4 are used. A matching to the trigger leg is required for a muon to enter the candidate collection. The muon is identified using the standard medium ID, defined as:
+
+\begin{center}
+\begin{itemize}
+\item PF muon ID
+\item Is also reconstructed as a global-muon or as an tracker-muon
+\item Fraction of valid tracker hits $>$ 0.8
+\item Either pass the good global muon criteria or has a segment compatibility greater than 0.451
+\end{itemize}
+\end{center}
+
+The Muon is in addition required to pass the impact parameter and isolation cuts:
+\begin{center}
+\begin{itemize}
+\item Dxy $<$ 0.05 cm, Dz $<$ 0.1 cm.
+\item The muon is required to be isolated with mini-Iso $<$ 0.2.
+\end{itemize}
+\end{center}
+
+Both the identification efficiency and isolation efficiency are measured by SUSY group and are given in \cite{EGM:leptonScale}. \\
+
+If more than one candidate object are identified in an event, the one with the highest $p_{T}$ is used.
+
+\subsection{MET}
+ The missing transverse momentum (MET) is the negative of the vector sum of the transverse momentum of all reconstructed objects in an event. The type-1 corrections is applied to the raw MET. This correction propagate the jet energy corrections to MET.  \\
+
+A set of MET Filters recommended by the JetMET group are applied to clean events with large fake MET, such as detector noise, cosmic rays and beam halos. Events are rejected if they fail the following filters:
+
+\begin{center}
+\begin{itemize}
+\item primry vetex filter:\\
+		At least one good vertex is required to be present in each event. A vertex is considered to be good if it has at least 5 degrees of freedom and its distance from the interaction point is less than 24 cm in z direction and 2cm in the x-y plane. 
+\item beam halo filter
+\item HBHE noise filter
+\item HBHEiso noise filter
+\item ECAL TP filter
+\item Bad PF Muon Filter
+\item Bad Charged hadron filter
+\item EE badSC noise filter
+\item badMuons flag
+\item duplicateMuons flag
+\end{itemize}
+\end{center}
+
+\subsection{Jet and HT}
+\label{subsec:jetID}
+$ak4PFJets$ jets \cite{CMS:AK4Jet1,CMS:AK4Jet2} with $p_T >$ 30 GeV and $ |\eta| <$ 2.5 are used. Jet energy corrections \cite{CMS:JES} derived from the simulation are applied to scale the reconstructed raw energy. To avoid double counting, jets that overlap with photon or lepton candidate are not considered. HT is defined as the scale sum of all jet $p_T$. 
+
+\subsection{Photon FSR}
+  Photons emitted in vector boson (W or Z ) decays or radiated off the leptons can be energetic and isolated. Such events are called final state radiation (FSR) and can mimic the SUSY signals if large MET is also present. Simulation shows that the separation between the photon and the lepton is typically smaller in final states events (FSR) than in SUSY signal events, as shown in Figure [to be produced]. Therefore, three additional cuts are designed to suppress the FSR contributions:
+
+\begin{itemize}
+\item The candidate photon must be well separated from the candidate electron by $\Delta R >$ 0.8
+\item No leptons are reconstructed close to the candidate photon within $\Delta R <$ 0.3
+\item In the $e\gamma$ channel, $M_{e\gamma} > M_Z + 10 $GeV 
+\end{itemize}
+
+The last cut is applied on top of the 90 GeV invariant mass filter of the $e\gamma$ HLT to further reject $Z\rightarrow ee$ events, where one of the electrons is misidentified as a photon.
+
+\end{document}

@@ -1,9 +1,23 @@
 \documentclass[12pt,oneside,letterpaper]{memoir}
-
+\usepackage[T1]{fontenc}
 \usepackage{citthesis}
 \usepackage{subfiles}
 \usepackage{pennames}
 \usepackage{physics}
+
+\usepackage{charter}
+\usepackage[expert]{mathdesign}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{feynmp}
+\usepackage{placeins}
+
+
+\DeclareGraphicsRule{*}{mps}{*}{}
+ 
+
 
 \usepackage[T1]{fontenc}
 % Load lmodern for bold \ttfamily
@@ -36,6 +50,8 @@
 %\setgraddate{May 2014}
 %\setcopyyear{2014}
 
+\setlength{\parskip}{1em}
+
 \begin{document}
 
 
@@ -50,8 +66,6 @@ Thanks!
 \newpage
 \section*{Abstract}
 
-This is an abstract.
-
 \newpage
 \tableofcontents
 \listoftables
@@ -59,16 +73,20 @@ This is an abstract.
 
 \mainmatter
 
+\chapter{Introduction}
+ introduction
+ 
 \subfile{StandardModel}
 \subfile{Detector}
+\subfile{Reconstruction}
+\subfile{Datasets}
+\subfile{EventSelection}
+\subfile{Backgrounds}
+\subfile{Results}
+\subfile{Conclusions}
 
 \appendix
-\chapter{Chain of Evidence}
-\label{AppendixChainOfEvidence}
-\section{Data}
-Some data here.
-\section{More Data}
-More data here.
+\subfile{Appendix}
 
 \backmatter
 
