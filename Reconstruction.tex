@@ -51,6 +51,7 @@ Tracks entering the primary vertex finding are required to satisfy cuts on the t
 The achieved vertex spatical resolution is 10-12 $\mu m$.
 
 \section{Photons}
+\label{sec:reco-photon}
 
 Photons are reconstructed from clusters of energy deposits in the ECAL.
 The pulse from each crystal is digitized by a 12 bit ADC running at 40MHz and a set of 10 consecutive samples is recorded for amplitude reconstruction.
@@ -145,9 +146,6 @@ If $d_{ij}$ is the smallest one, then the $i$th and $j$th object are merged into
 Otherwise, if $d_{iB}$ is the smallest one, then the $i$th object is called a jet and get removed from the list. 
 These steps are repeated until all particles are clustered into jets. 
 
-
-  
-
 \section{Muons}
 Muons leave hits in both the inner tracker and muon stations.
 The tracker can measure the momentum of muons with high precision, while the muon stations can detect the muons with higher purity because other particles are absorbed in the calorimeter system. 
@@ -161,7 +159,16 @@ Based on the reconstruction method, the muons can be classified into three types
 These types are not mutually exclusive.
 The muon identification criteria usually require the muon to be two or more of these types. 
 
-\section{missing energy}
+\section{Missing Transverse Momentum}
+Particles that do not interact with the detector materials, such as neutrinos, usually escape the detector, carrying part of the energy of the final states.
+In the initial state, the total momentum in the transverse plane is almost zero. 
+The presence of invisible particles therefore results in an imbalance in the transverse plane, which is named as missing transverse momentum, denoted as \MET.
+
+The raw \MET~is calculated as the negative of the vector sum of the transverse momentum of all reconstructed objects in an event:
+\begin{equation*}
+	p_{T, raw}^{miss} = - \sum_{i}^{N_{particles}}p_{T,i}
+\end{equation*}
+
 
 \end{document}
 
