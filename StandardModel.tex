@@ -98,7 +98,7 @@ The first term is the kinetic term of the SM gauge bosons:
 	\begin{equation} 
 		\mathcal{L}_{Gauge} = -\frac{1}{4}B_{\mu\nu} B^{\mu\nu} - \frac{1}{4}F_{\mu\nu}^a F^{a \mu\nu} - \frac{1}{4} G_{\mu\nu}^A G^{A \mu\nu}
 	\end{equation}
-where a = 1,2,3; A = 1 ... 8. The field strengths are:
+where $a$ = 1,2,3; $A$ = 1, ... ,8. The field strengths are:
 	\begin{equation}
 		\begin{array}{c c l}
 			B_{\mu\nu} & = & \partial_\mu B_\nu - \partial_\nu B_\mu \\
@@ -106,23 +106,24 @@ where a = 1,2,3; A = 1 ... 8. The field strengths are:
 			G_{\mu\nu}^A &=& \partial_\mu G_\nu^A - \partial_\nu G_\nu^A + g_s f^{ABC}G_{\mu}^B G_{\nu}^C 
 		\end{array}
 	\end{equation}
+where $g_2$ is the weak coupling constant and $g_s$ is the strong coupling constant.
 The Levi-Civita tensor $\epsilon^{abc}$ and the Gell-Mann tensor $f^{ABC}$ are the structure constants of the $SU(2)$ and $SU(3)$ group, respectively. 
 		
-The second term of \ref{eq:SMLagrangian} describes the fermion fields and their gauge interactions. 
+The second term of Eq. \ref{eq:SMLagrangian} describes the fermion fields and their gauge interactions. 
 Fermion fields are classified into left-chiral and right-chiral states according to their chirality under Lorentz transformations. 
 The left-chiral states are $SU(2)$ doublets, while the right-chiral states are singlets:
 	\begin{equation}
 		\begin{array}{cl}
-		\text{Lepton doublet}: & L = \left( \begin{array}{c} \nu_i \\ e_i \end{array} \right)_L \\
-		\text{Lepton singlet}:  & \overline{l}_{R} \\
+		\text{Lepton doublet}: & L = \left( \begin{array}{c} \nu \\ e \end{array} \right)_L \\
+		\text{Lepton singlet}:  & \overline{\ell}_{R} \\
 		\text{Quark doublet}:  & Q =  \left( \begin{array}{c} u \\ d \end{array} \right)_L \\
 		\text{Quark singlet}:    & \overline{u}_{R}, \overline{d}_{R}
 		\end{array}
 	\end{equation}
 The $\mathcal{L}_{kin}$ term has the form: 
 	\begin{equation}
-		\mathcal{L}_{kin} = i \sum_{i}^3 \left( L_i^\dagger \BSig^\mu D_\mu L_i +
-									\bar{l}_i^\dagger \BSig^\mu D_\mu \bar{l}_i + 
+		\mathcal{L}_{kin} = i \sum_{i = 1}^3 \left( L_i^\dagger \BSig^\mu D_\mu L_i +
+									\bar{\ell}_i^\dagger \BSig^\mu D_\mu \bar{\ell}_i + 
 									Q_i^\dagger \BSig^\mu D_\mu Q_i +
 									\bar{u}_i^\dagger \BSig^\mu D_\mu \bar{u}_i +
 									\bar{d}_i^\dagger \BSig^\mu D_\mu \bar{d}_i \right)
@@ -133,62 +134,64 @@ where $i$ is the generation index. $D_\mu$ is the covariant derivative, which ha
 	\end{equation}
 $\lambda_A$ are the eight Gell-Mann matrices that generate the SU(3) group. 
  
-The gauge bosons are required to be massless in order to reserve gauge invariance. 
-This is the case for gluons and photons. However, the observed \PWpm~and \PZ~bosons are heavy particles, which implies that the symmetry is somehow broken. 
-A mechanism named ``spontaneous symmetry breaking'' is introduced to give masses to the \PWpm~and \PZ~ bosons while preserve the renormalizability of the theory. 
-The idea is that the ground state of the theory is not invariant under the symmetry transformation.
-This is achieved by adding a complex $SU(2)$ doublet scalar field, which is know as the Higgs field, to the SM Lagrangian. 
+The gauge bosons are required to be massless in order to preserve gauge invariance. 
+This is the case for gluons and photons. 
+However, the observed \PWpm~and \PZ~bosons are massive particles, which implies that the electroweak symmetry is broken. 
+A mechanism named ``spontaneous symmetry breaking'' is introduced to give masses to the \PWpm~and \PZ~ bosons, while preserving the renormalizability of the theory. 
+The basic idea is that the ground state of the theory is not invariant under symmetry transformation.
+This is achieved by adding a complex $SU(2)$ doublet scalar field, which is known as the Higgs field, to the SM Lagrangian. 
 
-The potential of the Higgs field has the form: 
+The Lagrangian of the Higgs field reads as
 	\begin{equation}
-		V(\phi) = \mu^2\phi^*\phi + \lambda(\phi^*\phi)^2,
+		\mathcal{L} = (D_\mu \phi)^\dagger(D^\mu\phi) - V(\phi),
+	\end{equation}	
+with the potential 
+	\begin{equation}
+		V(\phi) = \mu^2\phi^*\phi + \lambda(\phi^*\phi)^2.
 	\end{equation}
-provided $\mu^2 <$ 0 this potential has minimum: 
+Provided $\mu^2 <$ 0 this potential has minimum at 
 	\begin{equation}
 		v = \sqrt{ -\mu^2/\lambda}.
 	\end{equation}
 	
-There is an infinite number of ground states lying on a ring described by $\phi^*\phi = - \mu^2/\lambda$. 
-Making a choice of the ground state will spontaneously break the symmetry, since a gauge transformation will take the system to a different vacuum state. 
-Adopting the unitary gauge, we choose the ground state to be along the real axis of the lower component of the doublet.
-The Higgs field can be expanded around the vacuum as:
+There is an infinite number of ground states lying along a ring described by $\phi^*\phi = - \mu^2/\lambda$. 
+The system making a choice of the ground state will spontaneously break the symmetry, since a gauge transformation will take the system to a different vacuum state. 
+Adopting the unitary gauge, we choose the ground state to be along the real axis of the lower component of the scalar doublet.
+The Higgs field can then be expanded around the vacuum as:
 	\begin{equation}
 		\langle \phi \rangle = \frac{1}{\sqrt{2}} \left( \begin{array}{c} 0\\v+H \end{array} \right).
 	\end{equation}
-Substituting the Higgs field to the kinetic term $(D_\mu \phi)^\dagger(D^\mu\phi)$, where:
-	\begin{equation}
-		D_\mu = \partial_\mu + i\frac{g_2}{2}\left(  \begin{array}{c c } W_\mu^3  & \sqrt{2}W_\mu^- \\ \sqrt{2}W_\mu^+  & -W_\mu^3 \end{array} \right) + i\frac{g_1}{2}B_\mu, 
-	\end{equation}
-we find:
+
+Substituting the Higgs field to the kinetic term $(D_\mu \phi)^\dagger(D^\mu\phi)$, we find:
 	\begin{equation}
 		(D_\mu \phi)^\dagger(D^\mu\phi) = \frac{1}{2}(\partial_\mu H)^2 + \frac{g_2^2(v+H)^2}{4}W^{+\mu}W_{\mu}^- + \frac{(v+H)^2}{8}(g_2W_\mu^3 - g_1B_\mu)^2.
 	\end{equation}
-Define
+Defining
 	\begin{equation}
 	\begin{array}{c}
 		Z_\mu = \CosW W_\mu^3 - \SinW B_\mu, \\
 		A_\mu = \CosW B_\mu + \SinW W_\mu^3,
 	\end{array}
 	\end{equation}
-with the weak mixing angle defined as:
+with the weak mixing angle (Weinberg angle) $\theta_W$ defined as:
 	\begin{equation}
 		\text{tan} \theta_W \equiv \frac{g_1}{g_2},
 	\end{equation}
 the kinematic term can be rewritten as:
 	\begin{equation}
-		(D_\mu \phi)^\dagger(D^\mu\phi) = \frac{1}{2}(\partial_\mu H)^2 + \frac{g_2^2(v+H)^2}{4}W^{+\mu}W_{\mu}^- + \frac{(v+H)^2g_2^2}{8cos^2\theta_W}Z_\mu Z^\mu + 0A_\mu A^\mu
+		(D_\mu \phi)^\dagger(D^\mu\phi) = \frac{1}{2}(\partial_\mu H)^2 + \frac{g_2^2(v+H)^2}{4}W^{+\mu}W_{\mu}^- + \frac{(v+H)^2g_2^2}{8cos^2\theta_W}Z_\mu Z^\mu.
 		\label{eq:eathiggs}
 	\end{equation}
 	
-We recognize the second and third terms of \ref{eq:eathiggs} as the mass term of W and Z bosons. On the other hand, leptons and quarks gain mass through Yukawa coupling to the Higgs particle:
+We recognize the second and third terms of Eq. \ref{eq:eathiggs} as the mass term of the $W$ and $Z$ bosons. On the other hand, leptons and quarks gain mass through a Yukawa coupling to the Higgs particle:
 	\begin{equation}
 		\mathcal{L}_Y = (- Y_e \bar{L} \phi l_R - Y_d \bar{Q}H d_R - Y_u \bar{Q} \sigma_2 \phi^\dagger u_R + h.c.)
 	\end{equation}
-which is the third term of  \ref{eq:SMLagrangian}. 
+which is the third term of Eq. \ref{eq:SMLagrangian}. 
 
 
-An extensive set of experiments has been made in the past few decades to test the SM. 
-The $W$ and \PZ~bosons were discovered in 1983 at CERN. The top quark, which is the heavist quark, were observed in 1995 at Fermilab. 
+An extensive set of experiments has been carried out in the past few decades to test the SM. 
+The $W$ and \PZ~bosons were discovered in 1983 at CERN \cite{WdiscoveryUA1,WdiscoveryUA2,ZdiscoveryUA1,ZdiscoveryUA2}. The top quark, which is the heavist quark, were observed in 1995 at Fermilab. 
 In 2012, the CMS and ATLAS experiment at CERN announced the observation of a boson with a mass around 125 GeV, which is later found to be the Higgs bosons.
 This discovery completed the last missing piece of the SM.  
 
