@@ -3,7 +3,7 @@
 \begin{document}
 \chapter{Event Reconstruction}
 
-Physics objects in CMS are reconstructed using the particle-flow (PF) algorithm, which identifies each particle through an optimized combination of signals of all sub-detectors.
+Physics objects in CMS are reconstructed using the particle-flow (PF) algorithm~\cite{PARTICLEFLOW}, which identifies each particle through an optimized combination of signals of all sub-detectors.
 The PF candidates are classified as photons, charged hadrons, neutral hadrons, electrons, or muons.
 Photons are reconstructed by clustering energy deposits in the ECAL. 
 Tracks are first formed using hits in the inner tracker and then extrapolated to the calorimeter and muon chambers.
@@ -15,8 +15,8 @@ Fig. \ref{fig:PF} illustrates the response of different types of PF candidates i
 The algorithms for the reconstruction of different PF elements are detailed in the following sections. 
 
 \begin{figure*}[h]
-	\includegraphics[width=0.9\textwidth]{plot/PF.png}
-	\caption{PF candidates.}
+	\includegraphics[width=0.9\textwidth]{Fig/ParticleFlow.pdf}
+	\caption{A sketch of the responses of different types of particles in a transverse slice of the CMS detector. The muon and the charged pion are positively charged, and the electron is negatively charged. Reprint from ~\cite{PARTICLEFLOW}. }
 	\label{fig:PF}
 \end{figure*}
 
@@ -28,7 +28,7 @@ The vertexes of the pp collisions can be reconstructed by taking the intersectio
 A correct estimation of the positions of interaction vertexes is essential for both object identification and pileup mitigation.
 Therefore, the track-finding algorithms must be able to fully exploit the capabilities of the tracker and reconstruct the tracks with high efficiency and accuracy. 
 
-A Combinatorial Track Finder (CTF) based on extended Kalman filter (KF) is used for track reconstruction. 
+A Combinatorial Track Finder (CTF) based on extended Kalman filter (KF) is used for track reconstruction~\cite{TrackPF}. 
 The CTF reconstruction sequence is performed in several iterations, with the initial interactions targeting at easy-identifiable tracks whereas later interactions dealing with more complex situations. 
 Hits associated with the tracks in each iteration is removed from later iterations in order to reduce the complexity for reconstructing more difficult tracks. 
 The CTF generates track seeds in the inner layers of the tracker and constructs the tracks outwards. 
@@ -53,7 +53,7 @@ The achieved vertex spatical resolution is 10-12 $\mu m$.
 \section{Photons}
 \label{sec:reco-photon}
 
-Photons are reconstructed from clusters of energy deposits in the ECAL.
+Photons are reconstructed from clusters of energy deposits in the ECAL~\cite{PhotonPF}.
 The pulse from each crystal is digitized by a 12 bit ADC running at 40MHz and a set of 10 consecutive samples is recorded for amplitude reconstruction.
 In the high luminosity conditions, the pulse contains not only the signals from the current bunch collision but also the contributions from previous pileup bunches.
 To mitigate the out of time pileup, a multi-fit algorithm is used to reconstruct the signal amplitudes by estimating the in-time signal amplitude with up to 9 out-of-time amplitudes.
@@ -99,7 +99,7 @@ Details of photon identification criteria is described in Section \ref{sed:photo
 
 \section{Electrons}
 
-Electrons are reconstructed by associating a track reconstructed in the silicon tracker to an ECAL supercluster.
+Electrons are reconstructed by associating a track reconstructed in the silicon tracker to an ECAL supercluster~\cite{ElectronPF}.
 A dedicated track reconstruction algorithm is implemented for electrons because they have large radiative losses in the tracker than other charged particles.
 The electron track reconstruction also has the seeding, track finding and track fitting steps. 
 In the seeding step, both ECAL-based and tracker-based seeding are considered. 
@@ -125,9 +125,9 @@ For collision data, the efficiency is measured to be 88-98\% in the barrel and 9
 Jet is a collimated spray of hadrons as a result of the hadronisation of quarks or gluons. 
 Depending on the fraction of final particles produced by hadronization, a jet may contains hadrons, non-isolated electrons and collinear photons. 
 Thus multiple sub-detectors can have energy deposits from a jet.
-A combination of these signals is performed with jet algorithms to form a reconstructed jet. 
+A combination of these signals is performed with jet algorithms~\cite{FastJet} to form a reconstructed jet. 
 
-The jets used in this analysis are reconstructed with the anti-$k_T$ algorithms. 
+The jets used in this analysis are reconstructed with the anti-$k_T$ algorithms~\cite{AntiKT}. 
 In this algorithm, each entity $i$ (particles, pseudojets) is assigned a distance to the beam (B): 
 \begin{equation}
 	d_{iB} = k_{ti}^{2p},
@@ -149,7 +149,7 @@ These steps are repeated until all particles are clustered into jets.
 \section{Muons}
 Muons leave hits in both the inner tracker and muon stations.
 The tracker can measure the momentum of muons with high precision, while the muon stations can detect the muons with higher purity because other particles are absorbed in the calorimeter system. 
-Muons can be reconstructed in a inside-out, outside-in or standalone way in CMS.
+Muons can be reconstructed in a inside-out, outside-in or standalone way in CMS~\cite{MuonPF}.
 Based on the reconstruction method, the muons can be classified into three types: 
 \begin{itemize}
 	\item Standalone Muon. Hits in the muon chambers are grouped to form standalone tracks, which provides an initial estimates of the muon tracks and can be used as seeds.
@@ -164,11 +164,15 @@ Particles that do not interact with the detector materials, such as neutrinos, u
 In the initial state, the total momentum in the transverse plane is almost zero. 
 The presence of invisible particles therefore results in an imbalance in the transverse plane, which is named as missing transverse momentum, denoted as \MET.
 
-The raw \MET~is calculated as the negative of the vector sum of the transverse momentum of all reconstructed objects in an event:
+The raw \MET~is calculated as the negative of the vector sum of the transverse momentum of all reconstructed objects in an event~\cite{METPF}:
 \begin{equation*}
 	p_{T, raw}^{miss} = - \sum_{i}^{N_{particles}}p_{T,i}
 \end{equation*}
 
+\MET~is a high-level variable reconstructed using all visible particles in an event.
+It is sensitive to anomalous signals in the detector.
+Such anomalous signals includes unphysical energy deposits in the calorimeter, noise of detector, beam-induced backgrounds, and poorly instrumented regions of the detector.
+Dedicated event filters are designed to identify and remove these anomalies. 
 
 \end{document}
 

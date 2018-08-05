@@ -3,10 +3,10 @@
 
 \begin{document}
 \chapter{Datasets and Triggers}
-\label{sec:datasets}
+\label{cap:datasets}
 
 \section{Datasets}
-\label{subsec:dataandsimulation}
+\label{sec:dataandsimulation}
 This search is based on a data sample corresponding to an integrated luminosity of 35.9 $fb^{-1}$ of proton-proton collisions at $\sqrt{s} =$ 13 TeV produced by the LHC in 2016.
 The analysis is performed in both the $e + \gamma$ and $\mu + \gamma$ channels. 
 Events in each channel  are selected from the corresponding primary dataset with dedicated lepton plus photon triggers.
@@ -14,18 +14,19 @@ MC simulated events are also used for various purpose.
 
 \subsection{Data}
 Reconstructed data sets of the CMS are further skimmed by event filters to keep only the information needed by physics analysis. 
-These samples with reduced file size are called miniAOD. 
+These samples with reduced file size are called miniAOD~\cite{miniAOD}. 
 Events of this analysis are selected from the MiniAOD datasets produced with software CMSSW\_8\_0\_26\_patch1.
-A total of 35.9 $fb^{-1}$ of data was certified to be good for physics analysis. The `golden JSON' file 
+A total of 35.9 $fb^{-1}$ of data was certified to be good for physics analysis. The ``golden JSON'' file 
 Cert\_271036-284044\_13TeV\_23Sep2016ReReco\_Collisions16\_JSON.txt, which provides a list of run numbers and lumi section numbers of data with good quality, is used to select the certified datasets. 
 
-The candidate $e\gamma$ events are selected out of the DoubleEG primary dataset with the diphoton trigger HLT\_Diphoton30\_18\_R9Id\_OR\_IsoCaloId\_AND\_HE\_R9Id\_Mass90. 
+The candidate $e\gamma$ events are selected out of the DoubleEG primary dataset with the diphoton trigger: HLT\_Diphoton30\_18\_R9Id\_OR\_IsoCaloId\_AND\_HE\_R9Id\_Mass90. 
 The $\mu\gamma$ events are selected from the MuonEG dataset, triggered by either the HLT\_Mu17\_Photon30\_CaloIdL\_L1Iso or HLT\_Mu38NoFilterNoVtx\_Photon38\_CaloIdL. 
 In addition, SingleMuon and SingleElectron datasets are used in this analysis for various background estimations and efficiency measurements. 
-The datasets used in this analysis are summarized in Table \ref{Tab:1}. \\
+The datasets used in this analysis are summarized in Table \ref{tab:datasettab}. \\
 
-\begin{table}[htdp]
+\begin{table}[ht]
 \begin{center}
+  \caption{Data sets used in this analysis.}
   \begin{tabular}{ | c| c | }
      \hline 
     Primary Dataset & Samples \\ \hline
@@ -59,15 +60,16 @@ The datasets used in this analysis are summarized in Table \ref{Tab:1}. \\
 		& /SingleMuon/Run2016H-03Feb2017\_ver*-v1/MINIAOD \\ \hline
      \end{tabular}
      \end{center}
-   \caption{Data sets used in this analysis.}\label{Tab:1}
+   \label{tab:datasettab}
  \end{table}   
 
 \subsection{Simulation}
 MC simulated events are used in this analysis to study the search strategy, model the SUSY signal yields, estimate the background contribution and validate the analysis methods.
 All of the Monte-Carlo (MC) simulation samples are listed in Table \ref{Tab:2}, along with the cross sections calculated at the same perturbative order as the generator. \\
 
-\begin{table}[htdp]	
+\begin{table}[ht]	
 \begin{center}
+  \caption{List of the MC samples used for signal and SM background processes, with their cross sections and corresponding equivalent integrated luminosity. [13TeV] stands for TuneCUETP8M1\_13TeV-amcatnloFXFX-pythia8, and [S16] stands for RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6. }\label{Tab:2}
   \resizebox{\linewidth}{!}{
   \begin{tabular}{ | c| c | c | c | }
      \hline 
@@ -90,7 +92,6 @@ All of the Monte-Carlo (MC) simulation samples are listed in Table \ref{Tab:2}, 
     $DY$       & /DYJetsToLL\_M-50\_[13TeV]/[S16]\_ext2-v1/MINIAODSIM  & 5670 & 21.5 \\ \hline
   \end{tabular}
   }
-  \caption{List of the MC samples used for signal and SM background processes, with their cross sections and corresponding equivalent integrated luminosity. [13TeV] stands for TuneCUETP8M1\_13TeV-amcatnloFXFX-pythia8, and [S16] stands for RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6. }\label{Tab:2}
   \end{center}
 \end{table}   
 
@@ -112,15 +113,16 @@ To mitigate the possible mismodeling of pile-up profile in simulations, the MC e
 
 
 \section{Trigger}
-\label{subsec:trigger}
+\label{sec:trigger}
 A diphoton trigger, HLT\_Diphoton30\_18\_R9Id\_OR\_IsoCaloId\_AND\_HE\_R9Id\_Mass90\_v*, is used to collect the signal candidate events for the $e\gamma$ channel. Each HLT diphoton path is seeded from the logic OR of a list of L1 EG triggers.
 For the $\mu\gamma$ channel, a muon-photon trigger, HLT\_Mu17\_Photon30\_CaloIdL\_L1Iso\_v*, is used for events selection. 
 HLT\_Mu38NoFilterNoVtx\_Photon38\_CaloIdL is used in addition with logic OR to compensate for possible trigger inefficiencies caused by the isolation requirement in L1 EG seed. 
 A summary of the signal HLT paths with their L1 seeds is shown in Table \ref{Tab:3}. 
-The measurement of trigger efficiencies is described in subsequent sections. \\
+The measurement of trigger efficiencies is described in subsequent sections.
 
-\begin{table}[htdp]	
+\begin{table}[ht]	
 \begin{center}
+  \caption{List of the HLT used for signal selections.}\label{Tab:3}
  \resizebox{\linewidth}{!}{
   \begin{tabular}{ | c| c | c |  }
      \hline 
@@ -134,11 +136,10 @@ The measurement of trigger efficiencies is described in subsequent sections. \\
      			    &   & OR L1\_Mu20EG15 \\ \hline
      \end{tabular}
    }
-  \caption{List of the HLT used for signal selections.}\label{Tab:3}
   \end{center}
 \end{table}   
 
-\subsubsection{$e\gamma$ Trigger Performance}
+\subsection{$e\gamma$ Trigger Performance}
 The diphoton HLT path doesn't veto events if one or more photons have associated tracks. 
 Therefore this path allows the $e+\gamma$ events to be triggered.
 The diphoton HLT is seeded from a combination of various L1 EG triggers to achieve an optimal L1 efficiency. 
@@ -197,7 +198,7 @@ Systematic uncertainties of the ESF are calculated from the tag-and-probe fits t
 \end{figure}
 
 
-\subsubsection{$\mu\gamma$ Trigger Performance}
+\subsection{$\mu\gamma$ Trigger Performance}
 
 The HLT used in $\mu\gamma$ channel is a combination of two muon-photon cross triggers.
 The main HLT is HLT\_Mu17\_Photon30\_CaloIdL\_L1Iso, which is based on L1\_Mu5\_IsoEG20/L1\_Mu5\_IsoEG18 L1 seeds. 

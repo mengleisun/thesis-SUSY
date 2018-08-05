@@ -5,7 +5,7 @@
 
 
 \chapter{Object Definitions and Event Selection}
-\label{sec:eventSelection}
+\label{cap:eventSelection}
 
 \section{Definition of Particle Identification Variables}
 A description of variables used for particle identification (ID) and selection is given here:
@@ -18,7 +18,7 @@ A description of variables used for particle identification (ID) and selection i
 \end{itemize}
 \noindent \textbf{Isolation variables}:
 \begin{itemize}
-	\item \HoverE: ratio of energy deposited in the HCAL tower behind the ECAL supercluster and energy of the supercluster.
+	\item $\HoverE$: ratio of energy deposited in the HCAL tower behind the ECAL supercluster and energy of the supercluster.
 	\item PF charged isolation \ChIso: transverse energy sum of all PF charged hadrons falling inside a cone of size \DeltaR = 0.3 around the candidate particle. Contributions from pileup are estimated by multiplying the median density of pileup contamination ($\rho$) per event with the effective area of the cone. The pileup contributions are then subtracted from the isolaiton. This is the so-called ``$\rho$ correction'' method. 
 	\item PF neutral isolation \NeuIso:  transverse energy sum of all PF neutral hadrons falling inside a cone of size \DeltaR = 0.3 around the candidate particle. $\rho$ correction is applied to mitigate the pileup effect. 
 	\item PF photon isolation \PhoIso: transverse energy sum of all PF photons reconstructed inside a cone of size \DeltaR = 0.3 around the candidate particle. Footprint of the candidate itself has been removed to avoid double counting. $\rho$ correction is applied to mitigate the pileup effect.
@@ -33,7 +33,7 @@ A description of variables used for particle identification (ID) and selection i
 
 \noindent \textbf{Muon ID variables}:
 \begin{itemize}
-	\item $\chi^2/d.o.f.$: $chi^2$ of the track normalized to the degree of freedom in fitting 
+	\item $\chi^2/d.o.f.$: $\chi^2$ of the track normalized to the degree of freedom in fitting 
 	\item $\chi^2$ of the kick finder: the $\chi^2$ between the inward and outward states of a track in each layer is calculated to look for kicks, and the largest $\chi^2$ per track is used as the $\chi^2$ for kick finder.
 	\item $\Dxy$: transverse impact parameter relative to the beam-spot position
 	\item $\Dz$: longitudinal impact parameter relative to the beam-spot position 
@@ -41,7 +41,7 @@ A description of variables used for particle identification (ID) and selection i
 
 
 \section{Photon}
-\label{subsec:photonID}
+\label{sec:photonID}
 The default format of the photons in miniAOD datasets is ``slimmedPhotons'', which keeps high level physics objects. 
 $e/\gamma$ energy scales, which are described in \ref{sec:reco-photon}, are applied to the photons to optimize the energy reconstruction and resolution. 
 
@@ -49,7 +49,7 @@ Photons with $p_{T} >$ 35 GeV reconstructed in the ECAL barrel ($|\eta| <$ 1.444
 They are required to match the trigger objects of the HLT within $\Delta R <$ 0.3. 
 To ensure that photon candidates pass the $R_9$ filter in the $e\gamma$ trigger, the photons are in addition required to have $R_9 <$ 0.5.
 Out of such preselected photons, those fulfilling a set of ID criteria are selected.
-The selection criteria usually requires the ID variables of a particle to either above some thresholds or below certain upper bounds, which are called "cuts". 
+The selection criteria usually requires the ID variables of a particle to either above some thresholds or below certain upper bounds, which are called ``cuts''. 
 Photons in this search are selected using the loose working point ID, which includes the following cuts: 
 \begin{center}
 \begin{itemize}
@@ -76,7 +76,7 @@ The identification and pixel veto efficiencies are measured for both data and si
 
 
 \section{Electron}
-\label{subsec:electronID} 
+\label{sec:electronID} 
 Electrons with  $p_{T} >$ 25 GeV reconstructed in the pesudorapidity range $|\eta| <$ 2.5 are used. To ensure a good acceptance efficiency, objects falling in the barrel-endcap region 1.442 $< |\eta| <$ 1.56 are rejected. 
 
 Electrons passing the kinematic cuts are required to match the sub-leading leg of the di-photon trigger. 
@@ -88,7 +88,7 @@ Candidate electrons are then identified using cut-based medium working point ID,
 \item $\sigma_{i\eta i\eta} <$ 0.00998(EB), 0.0298(EE)
 \item $\Delta\eta_{in} <$ 0.00311(EB), 0.00609(EE)
 \item $\Delta\phi_{in} <$ 0.103(EB), 0.045(EE)
-\item \HoverE $<$ 0.253(EB), 0.0878(EE)
+\item $\HoverE$ $<$ 0.253(EB), 0.0878(EE)
 \item $|\frac{1}{E} - \frac{1}{p}| <$ 0.0129
 \item At most one expected missing hit in inner tracker layers
 \item Pass conversion veto
@@ -101,10 +101,10 @@ In addition, conversions are identified by fitting track pairs to a common verte
 The conversion algorithm combines all these methods to veto the photon conversions.
 
 The relative isolation cut is removed from the medium ID selections. 
-Instead, we use the mini-Isolation, which is defined as the ratio of the energy sum in a cone to the $p_T$ of the electron.
+Instead, we use the mini-Isolation~\cite{CMS:Isolation}, which is defined as the ratio of the energy sum in a cone to the $p_T$ of the electron.
 The cone size is $p_T$-dependent: R = 10 GeV/min(max($p_T(e)$, 50 GeV), 200 GeV), resulting in a radii of 0.05 for low-$p_T$ electrons and 0.2 for high-$p_T$ ones. 
 The use of mini-Isolation ensures a good acceptance of lepton even in Lorentz-boosted topologies.
-In this analysis, we required the mini-Isolation~\cite{CMS:Isolation} of the electron to be smaller than 0.1. 
+In this analysis, we required the mini-Isolation of the electron to be smaller than 0.1. 
 
 The efficiencies of the electron identification and mini-Isolation filters are measured by EGM group and are given in \cite{EGM:leptonScale}. Fig. \ref{fig:elesf} shows the data-to-simulation ESF of the electron ID and mini-Isolation. 
 
@@ -157,8 +157,8 @@ Both the identification efficiency and isolation efficiency are measured by CMS 
 If more than one candidate object are identified in an event, the one with the highest $p_{T}$ is used.
 
 \section{Jet and HT}
-\label{subsec:jetID}
-ak4PFJets jets \cite{CMS:AK4Jet1,CMS:AK4Jet2}, which are reconstructed using the anti-$k_T$ algorithm with a radii of 0.4, are used in this search.
+\label{sec:jetID}
+ak4PFJets jets, which are reconstructed using the anti-$k_T$ algorithm with a radii of 0.4, are used in this search.
 Jets with $p_T >$ 30 GeV and $|\eta| <$ 2.5 are selected. 
 The raw energy of the jets are first corrected to take account the contributions from pileup.
 Then, jet energy corrections \cite{CMS:JES} derived from the simulation are applied to scale the reconstructed energy.
@@ -176,10 +176,9 @@ Events from electroweak production usually have small $H_T$, whereas those from 
 
 
 \section{Missing Transverse Momentum}
- The type-1 corrections is applied to the raw MET. This correction propagate the jet energy corrections to MET.  \\
+The type-1 corrections is applied to the raw MET. This correction propagate the jet energy corrections to MET.
 
 A set of MET Filters recommended by the JetMET group are applied to clean events with large fake MET, such as detector noise, cosmic rays and beam halos. Events are rejected if they fail the following filters:
-
 \begin{center}
 \begin{itemize}
 \item primry vetex filter:\\
@@ -196,9 +195,8 @@ A set of MET Filters recommended by the JetMET group are applied to clean events
 \end{itemize}
 \end{center}
 
-\subsection{Photon FSR}
+\section{Photon FSR}
   Photons emitted in vector boson (W or Z ) decays or radiated off the leptons can be energetic and isolated. Such events are called final state radiation (FSR) and can mimic the SUSY signals if large MET is also present. Simulation shows that the separation between the photon and the lepton is typically smaller in final states events (FSR) than in SUSY signal events, as shown in Figure [to be produced]. Therefore, three additional cuts are designed to suppress the FSR contributions:
-
 \begin{itemize}
 \item The candidate photon must be well separated from the candidate electron by $\Delta R >$ 0.8
 \item No leptons are reconstructed close to the candidate photon within $\Delta R <$ 0.3

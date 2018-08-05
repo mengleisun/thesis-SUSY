@@ -8,49 +8,40 @@
 \label{sec:results}
 The background estimation is performed in a $p_T^{miss} < $ 70 GeV control region and validated in the $M_T(l, p_T^{miss}) < $ 100 GeV validation region. The high $p_T^{miss}$ signal region was kept blinded until all methods were established.
 
-The signal region is defined as $p_T^{miss} > 120$ GeV and $M_T(l, p_T^{miss}) > 100$ GeV. To improve the sensitivity to SUSY signals, the signal region is divided into $p_T^{miss}$, HT and photon $p_T$ bins. The binning is optimized using T5Wg expected limits, as shown in Figure \ref{fig:signalPhoPt}. For each channel we use 18 bins: (120 GeV $< p_T^{miss} <$ 200 GeV, 200 GeV $< p_T^{miss} <$ 400 GeV, $ p_T^{miss} >$ 400 GeV) $\times$ (0 $< HT <$ 100 GeV, 100 GeV $< HT <$ 400 GeV, $HT >$ 400 GeV) $\times$ (35 GeV $< \gamma p_T < $ 200 GeV, $\gamma p_T > $ 200 GeV).
+The signal region is defined as $p_T^{miss} > 120$ GeV and $M_T(l, p_T^{miss}) > 100$ GeV. To improve the sensitivity to SUSY signals, the signal region is divided into $p_T^{miss}$, HT and photon $p_T$ bins. The binning is optimized using T5Wg expected limits, as shown in Figure \ref{fig:optbin}. For each channel we use 18 bins: (120 GeV $< p_T^{miss} <$ 200 GeV, 200 GeV $< p_T^{miss} <$ 400 GeV, $ p_T^{miss} >$ 400 GeV) $\times$ (0 $< HT <$ 100 GeV, 100 GeV $< HT <$ 400 GeV, $HT >$ 400 GeV) $\times$ (35 GeV $< \gamma p_T < $ 200 GeV, $\gamma p_T > $ 200 GeV).
 
-Figure \ref{fig:signalPhoPt}-\ref{fig:signalHT} show the unblined data distributions of the photon $p_T^{\gamma}$, $p_T^{miss}$ and HT, along with the background predictions. Two signal distributions, one from the TChiWg with $M_{\PSGcpmDo} = 800$ GeV and the other one from the T5Wg with $M_{\tilde{g}} = $1700 GeV, $M_{\PSGcpmDo} = 1000$ GeV, are also overlayed on the plots. The event yields and SM backgrounds for each search bin are shown in Figure \ref{fig:eventyield}, and the corresponding numbers are given in Table \ref{tab:unblindeddata}. 
+Figure \ref{fig:signalPhoPt} shows the unblined data distributions of the photon $p_T^{\gamma}$, $p_T^{miss}$ and HT, along with the background predictions. Two signal distributions, one from the TChiWg with $M_{\PSGcpmDo} = 800$ GeV and the other one from the T5Wg with $M_{\tilde{g}} = $1700 GeV, $M_{\PSGcpmDo} = 1000$ GeV, are also overlayed on the plots. The event yields and SM backgrounds for each search bin are shown in Figure \ref{fig:eventyield}, and the corresponding numbers are given in Table \ref{tab:unblindeddata}. 
 
 \begin{figure}
   \centering
     \includegraphics[width=0.49\textwidth]{Figures/binningOpt.pdf}
 		\caption{Optimization of the signal bins. Baseline binning (black): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. Plan 2 (red): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 100, $>$ 100\}GeV. Plan 3 (magenta): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 200, $>$ 200\}GeV. Plan 4 (green): $p_T^{miss}$\{120-200, 200-400, 400-600\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$p_T^{miss} > $ 600 GeV\}. Plan 5 (cyan): $p_T^{miss}$\{120-200, 200-400, 400-600\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$p_T^{miss} > $ 600 GeV\}$\times$ HT\{ $<$ 400, $ >$ 400\}GeV. }
-    \label{fig:signalPhoPt}
+    \label{fig:optbin}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-a.pdf}
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-b.pdf} \\
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-c.pdf}
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-d.pdf} \\
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-e.pdf}
+\includegraphics[width=0.38\textwidth]{Fig/Figure_004-f.pdf}
+\caption{Distributions of \ptmiss (a, b), $\pt^{\Pgg}$ (c, d), and \HT
+  (e, f) from data (points) and estimated SM predictions (stacked
+  histograms) for the $e\gamma$ (left) and $\mu\gamma$ (right)
+  channels.}
+\label{fig:signalPhoPt} 
 \end{figure}
 
 \begin{figure}
   \centering
-    \includegraphics[width=0.49\textwidth]{Figures/SIGNAL_egamma_2016ReMiniAOD_pt.pdf}
-		\includegraphics[width=0.49\textwidth]{Figures/SIGNAL_mg_2016ReMiniAOD_pt.pdf}
-		\caption{Photon $p_T$ distribution of the observed data and predicted background in the signal region. Left: $e\gamma$, right: $\mu\gamma$}
-    \label{fig:signalPhoPt}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \includegraphics[width=0.49\textwidth]{Figures/SIGNAL_egamma_2016ReMiniAOD_met.pdf}
-		\includegraphics[width=0.49\textwidth]{Figures/SIGNAL_mg_2016ReMiniAOD_met.pdf}
-		\caption{$p_T^{miss}$ distribution of the observed data and predicted background in the signal region. Left: $e\gamma$, right: $\mu\gamma$}
-    \label{fig:signalMET}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \includegraphics[width=0.49\textwidth]{Figures/SIGNAL_egamma_2016ReMiniAOD_ht.pdf}
-		\includegraphics[width=0.49\textwidth]{Figures/SIGNAL_mg_2016ReMiniAOD_ht.pdf}
-		\caption{HT distribution of the observed data and predicted background in the signal region. Left: $e\gamma$, right: $\mu\gamma$}
-    \label{fig:signalHT}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \includegraphics[width=0.9\textwidth]{Figures/signalCount.pdf}
+    \includegraphics[width=0.9\textwidth]{Fig/Figure_005.pdf}
 		\caption{Event yields and stacked background predictions as a function of search bin numbers.}
     \label{fig:eventyield}
 \end{figure}
 
-\begin{table}[htdp]
+\begin{table}[hbtp]
  \resizebox{\textwidth}{!}{ 
    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c||c|c|}    
     \hline
@@ -97,22 +88,21 @@ Figure \ref{fig:signalPhoPt}-\ref{fig:signalHT} show the unblined data distribut
  \caption{Observed number of events and predicted SM backgrounds in search bins. The systematic uncertainties of each background components are added in quadrature.}
  \label{tab:unblindeddata}
  \end{table}    
-}
 
 
 The results are interpreted in terms of upper limits on the cross sections of three different simplified models: TChiWg, T5Wg and T6Wg, which are described in Section \ref{sec:introduction}. The 95\% confidence level (CL) upper limits are obtained using a asymptotic profiled likelihood as test statistics. The limits for the TChiWg models are shown as function of the NLSP masses in Figure \ref{fig:tchiwglimit}, together with the theoretical cross sections of the $\PSGczDo$/$\PSGcpmDo$ pair production. The search excludes NLSP masses up to 900 GeV. Figure \ref{fig:t5wglimit} shows the upper limits on the cross section $\times$ 50\% BR for the T5Wg (left) and T6Wg (right) events with a chargino and a neutralino. The gluino (squark) mass is excluded up to 1700 (1400) GeV in the T5Wg (T6Wg) scenarios.
 
 \begin{figure}
   \centering
-    \includegraphics[width=0.7\textwidth]{Figures/TChiWG_limit_Unblind.pdf} 
+    \includegraphics[width=0.7\textwidth]{Fig/Figure_006.pdf}
 		\caption{Observed and expected upper limits on the cross sections of the TChiWg model, together with the theoretical cross sections. }
     \label{fig:tchiwglimit}
 \end{figure}
 
 \begin{figure}
   \centering
-    \includegraphics[width=0.49\textwidth]{Figures/T5WG_UnblindLimit.pdf} 
-    \includegraphics[width=0.49\textwidth]{Figures/T6WG_UnblindLimit_100_400_200.pdf} 
+    \includegraphics[width=0.49\textwidth]{Fig/Figure_007-a.pdf}
+    \includegraphics[width=0.49\textwidth]{Fig/Figure_007-b.pdf}
 		\caption{Observed and expected exclusion limits for T5Wg (left) and T6Wg (right) models. The upper limits are set on the cross section $\times$ BR, where BR is the branching fractions to the neutralino/chargino states. For simplicity, BR is assumed to be 50\%. }
     \label{fig:t5wglimit}
 \end{figure}
