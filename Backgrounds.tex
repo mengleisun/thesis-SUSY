@@ -4,7 +4,7 @@
 \begin{document}
 
 \chapter{Background Estimation}
-\label{cap:misIdBackgrounds}
+\label{ch6}
 
 The SM backgrounds for this search can be classified into three categories. The main background is the production of a W or Z boson in association with a photon (V + $\gamma$). In particular, the neutrinos from leptonic W decays escape the detector and result in genuine $p^{miss}_T$.
 
@@ -518,31 +518,95 @@ As shown in Figure \ref{fig:ttgvalidationeg} and \ref{fig:ttgvalidationmg}, good
 \end{figure*}
 
 \section{Systematic Uncertainties}
-The relative systematic uncertainties on the background estimation and signal expectation are listed in Table \ref{table:ch4-systematic}. For the fake photon backgrounds, systematic uncertainties are obtained using toy MC methods, as described in Section \ref{sec:efakepho}\ref{sec:jetfakepho}. The same method is also used in determining the uncertainties of the scale factors for the fake lepton and $V\gamma$ backgrounds, as described in Section \ref{sec:VG}. Possible errors on the $V\gamma$ scales, including uncertainties on cross-sections, luminosity, trigger and object identification efficiencies, have been absorbed into the scale factors. In addition to the overall scale, uncertainties caused by the ISR reweighting are also considered. We use the corrected distributions as the central values, and take the full corrections as the systematic uncertainties.
+There are several sources of systematic uncertainties that can affect the predicted backgrounds and signal expectation.
+Table \ref{table:ch4-systematic} summarizes the sources and relative values of systematic uncertainties.
+If the relative uncertainties differ significantly in different kinematic regions because of limited number of events available in the control sample or simulation, the minimum and maximum values of the relative uncertainty is shown.
+The systematic uncertainties considered for this analysis is described in the following. 
 
-For the backgrounds that are taken from simulation, systematic uncertainties can arise from cross-sections, luminosity, and jet energy measurements.  Follow the recommendation of the luminosity study group, we assign a 2.6\% uncertainty on the integrated luminosity. For the rare background, a 50\% uncertainty on the cross-section is assumed, covering the difference between calculated cross-sections and latest CMS measurements. Uncertainties on jet energy scale (JES) and jet energy resolution (JER) are evaluated by varying the jet energy corrections by $\pm\sigma$ and counting the changes in each signal bin.
+\noindent \textbf{Jet Energy Scale} 
+\quad Potential discrepancies between the jet energy scale (JES) measured in data and in simulation should be considered as systematic uncertainties for MC samples. 
+JES affects not only the variables of jets, such as $H_T$, but also the \MET~and $M_T$ through the type-1 corrections described in Section \ref{type-1-corr}.
+Since the search bins are defined in terms of $H_T$ and \MET, changes in these variables can induce a migration of events in the signal region. 
+This uncertainty impacts the $V\gamma$ and rare EWK backgrounds as well as the SUSY signal yields. 
+The JES uncertainty is evaluated by shifting the correction factors by $\pm 1 \sigma$ and recalculating all affected variables. 
+For each search bin, the relative change in event yields due to the $\pm 1 \sigma$ shift in JES is used as the systematic uncertainty.
+JES uncertainties in all search bins and processes are fully correlated. 
 
-The number of events of the fake object proxy samples is limited, especially in the high $p_T^{\gamma}$ and high $p_T^{miss}$ bins which contains very few fake object backgrounds. Therefore we use gamma distribution and estimated transfer factors to model the statistical uncertainties of these backgrounds. This allows us to assign uncertainties on the bins which have zero event in the proxy sample. 
+\noindent \textbf{Efficiency Scale Factors}
+\quad Efficiency scale factors (ESF) for object identification and trigger are applied to account for the difference between data and simulation, as described in Section \ref{sec:trigger} and \ref{ch5}. 
+To assess the effect of ESF uncertainties, the scale factors assigned to each simulated event are scaled by $\pm 1 \sigma$. 
+The relative variation of event yields in each search bin is assigned as the ESF systematic uncertainty. 
+
+\noindent \textbf{Photon Misidentification Rate} 
+\quad For the fake photon backgrounds, systematic uncertainties are obtained using toy MC methods, as described in Section \ref{sec:efakepho}\ref{sec:jetfakepho}. 
+For each search bin, the $1 \sigma$ variation of predicted background due to the changes in photon misidentification rate is used as the systematic uncertainty. 
+The number of events of the fake object proxy samples is limited, especially in the high $p_T^{\gamma}$ and high $p_T^{miss}$ bins which contains very few fake object backgrounds. 
+Therefore we use gamma distribution and estimated transfer factors to model the statistical uncertainties of these backgrounds. This allows us to assign uncertainties on the bins which have zero event in the proxy sample. 
+
+\noindent \textbf{ISR Corrections} 
+\quad Uncertainties caused by the ISR reweighting are considered. 
+We use the corrected distributions as the central values for the $V\gamma$ background, and take the full corrections as the systematic uncertainties.
+For the SUSY signal samples, the same set of ISR weights are assigned to the sum of transverse momentum of the initial SUSY particle system. 
+The uncorrected distributions are used as the nominal expectations for the SUSY signals, and the difference between corrected and uncorrected event yields are taken as systematic uncertainties. 
+
+\noindent \textbf{$V\gamma$ normalization scale}
+\quad The uncertainty of the normalization scale factors derived from the $\Delta\phi(\ell, \MET)$ template fit is one of the major uncertainties of this analysis. 
+As described in Section \ref{sec:VG}, the uncertainty in normalization scales due to the $V\gamma$ shape is obtained by varying the ESF, PDF and renormalization scales of the $V\gamma$ template. 
+Uncertainties on the normalization magnitude are evaluated by shifting the number of events subtracted from the fit target by $1\sigma$. 
+An overall 20\% uncertainty is assigned to the normalization scale factors, and this uncertainty is anti-correlated between the $V\gamma$ and misidentified lepton backgrounds. 
+
+\noindent \textbf{Rare EWK Cross-section}
+\quad For the rare background, a 50\% uncertainty on the cross-section is assumed, covering the difference between calculated cross-sections and latest CMS measurements \cite{CMS:ttgxs,CMS:ttxs}. 
+This is one of the major uncertainties of this analysis. 
+
+\noindent \textbf{Integrated luminosity}
+\quad Follow the recommendation of the luminosity study group, we assign a 2.5\% uncertainty on the integrated luminosity~\cite{CMS-PAS-LUM-17-001}. 
+This uncertainty is applied to the rare EWK background and SUSY signal yields. 
+For the $V\gamma$ sample, uncertainty caused by luminosity has been absorbed to the normalization scale factors.
+
+\noindent \textbf{PDF and renormalization scale} 
+\quad The uncertainties of the background estimation due to the choices of PDF and renormalization and factorization scales have been absorbed to the normalization scale factors of the $V\gamma$ and rare EWK background.
+However, for the SUSY signal samples, additional uncertainties should be considered. 
+The main effect of PDFs is on the cross-section of the SUSY signal, and its remaining effect on the acceptance of SUSY events is very small. 
+Therefore, only the variations of acceptance caused by different renormalization scales are considered. 
+To estimate this uncertainty, renormalization scales are shifted upward and downward by a factor of two with respect to their nominal values and the corresponding change in each search bin is taken as the systematic uncertainty. 
+
+\noindent \textbf{FastSim \MET}
+\quad The SUSY samples are simulated using the FastSim tools of CMS. 
+To access the uncertainty due to potential mis-modeling of the \MET~shape, the analysis is performed using both the PF-\MET~and generator level \MET. 
+The uncertainty is obtained by taking one-half the difference between the acceptance of these two methods.  
 
 \begin{table}[ht]
-  \caption{Systematic uncertainties of the SUSY signals and SM backgrounds.}
-	\centering
-  \resizebox{\linewidth}{!}{
-  \begin{tabular}{|c||c||c|c|c|c|c|}
-  \hline
-  source of uncertainties   & SUSY Signal &  $e\rightarrow\gamma$ fakes & jet$\rightarrow\gamma$ fakes & jet$\rightarrow l$ fakes & $V+\gamma$  & rare EWK \\ \hline
-	Jet energy scale          & 0-10\%      &  -                          &  -                           & -                        &  0-15.6\%   & 0-24.8\% \\ \hline       
-	Jet energy resolution     & 0-10\%      &  -                          &  -                           & -                        &  0-13.6\%   & 0-23\%   \\ \hline
-	ID, trigger ESF           & 4\%         &  -                          &  -                           & -                        &  1.4-6.5\%  & 1.3-6.5\% \\ \hline
-	e-fake-photon shape       & -           &  8.0-50.5\%                 &  -                           & -                        &             &           \\ \hline
-	jet-fake-photon shape     & -           &  -                          &  7.9-55.8\%                  & 0-42.4\%                 &  -          & -         \\ \hline
-	ISR corrections           & -           &  -                          &  -                           & -                        &  2.6-57.8\% & -         \\ \hline
-	Cross section             &	4.3-36.8\%  &  -                          &  -                           & -                        &  -          & 50\%      \\ \hline
-	normalization scale       & -           &  -                          &  -                           & 20\%                     &  20\%       & -         \\ \hline
-	Integrated luminosity     & 2.6\%       &  -                          &  -                           & -                        &  -          & 2.6\%     \\ \hline	
-  \end{tabular}
-	}
+  \centering
+  \caption{Summary of the systematic uncertainties affecting the SUSY
+    signals and SM background estimates, given in percent.}
   \label{table:ch4-systematic}
+  \resizebox{\linewidth}{!}{
+  \begin{tabular}{llc}
+  \hline
+  Source of uncertainty                         & Process               & Relative uncertainty (\%)     \\
+\hline
+  Jet energy scale                              & V\Pgg, rare EW        & 0 -- 22.5                     \\
+  Normalization scale                           & V\Pgg, jet$\rightarrow \ell$ misid. & 20              \\
+  Cross section                                 & rare EW               & 50                            \\
+  Ident.~and trigger efficiency                 & V\Pgg, rare EW        & 1.3 -- 6.5                    \\
+  $\Pe\rightarrow\Pgg$                          & $\Pe\rightarrow\Pgg$ misid. & 8.0 -- 50.5             \\
+  Jet$\rightarrow\Pgg$ shape                    & jet$\rightarrow\Pgg$ misid. & 8.1 -- 56.1             \\
+  Misid.~lepton shape                           & jet$\rightarrow \ell$ misid.& 0 -- 42.4               \\
+  ISR corrections                               &  V\Pgg                & 2.6 -- 57.8                   \\
+  Integrated luminosity                         & rare EW               & 2.5                           \\
+\hline \\
+  Cross section, PDF                            & SUSY signal           & 4.3 -- 36.8                   \\
+  Jet energy scale                              & SUSY signal           & 0 -- 10                       \\
+  Ident.~and trigger efficiency                 & SUSY signal           & 4                             \\
+  Pileup uncertainty                            & SUSY signal           & 2 -- 10                       \\
+  Integrated luminosity                         & SUSY signal           & 2.5                           \\
+  ISR corrections                               & SUSY signal           & 0 -- 31.8                     \\
+  Renormalization/factorization scales          & SUSY signal           & 0 -- 10.2                     \\
+  Fast simulation $p_T^{\text{miss}}$ modelling & SUSY signal           & 0 -- 30.5                     \\
+\hline \\
+  \end{tabular}
+  }
 \end{table}
 
 

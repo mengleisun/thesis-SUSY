@@ -1,4 +1,4 @@
-% simple_susy.mp -- do not edit, generated automatically by thesis.tex
+% simple_susy.mp -- do not edit, generated automatically by thesis_Sun.tex
 input feynmp
 require_RCS_revision "1.30";
 beginchar(1, 150*1.0pt#, 70*1.0pt#, 0);

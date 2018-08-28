@@ -4,8 +4,10 @@
 \begin{document}
 
 
-\chapter{Results}
-\label{sec:results}
+\chapter{Results and Interpretations}
+\label{ch7}
+
+\section{Results}
 The background estimation is performed in a $p_T^{miss} < $ 70 GeV control region and validated in the $M_T(l, p_T^{miss}) < $ 100 GeV validation region. The high $p_T^{miss}$ signal region was kept blinded until all methods were established.
 
 The signal region is defined as $p_T^{miss} > 120$ GeV and $M_T(l, p_T^{miss}) > 100$ GeV. To improve the sensitivity to SUSY signals, the signal region is divided into $p_T^{miss}$, HT and photon $p_T$ bins. The binning is optimized using T5Wg expected limits, as shown in Figure \ref{fig:optbin}. For each channel we use 18 bins: (120 GeV $< p_T^{miss} <$ 200 GeV, 200 GeV $< p_T^{miss} <$ 400 GeV, $ p_T^{miss} >$ 400 GeV) $\times$ (0 $< HT <$ 100 GeV, 100 GeV $< HT <$ 400 GeV, $HT >$ 400 GeV) $\times$ (35 GeV $< \gamma p_T < $ 200 GeV, $\gamma p_T > $ 200 GeV).
@@ -90,7 +92,72 @@ Figure \ref{fig:signalPhoPt} shows the unblined data distributions of the photon
  \end{table}    
 
 
-The results are interpreted in terms of upper limits on the cross-sections of three different simplified models: TChiWg, T5Wg and T6Wg, and two GGM models, which are described in Chapter \ref{ch1}. The 95\% confidence level (CL) upper limits are obtained using an asymptotic profiled likelihood as test statistics. The limits for the TChiWg models are shown as a function of the NLSP masses in Figure \ref{fig:tchiwglimit}, together with the theoretical cross-sections of the $\PSGczDo$/$\PSGcpmDo$ pair production. The search excludes NLSP masses up to 900 GeV. Figure \ref{fig:t5wglimit} shows the upper limits on the cross-section $\times$ 50\% BR for the T5Wg (left) and T6Wg (right) events with a chargino and a neutralino. The gluino (squark) mass is excluded up to 1700 (1400) GeV in the T5Wg (T6Wg) scenarios. Exclusion limits for the GGM model with M1M2 scan are shown in Figure \ref{fig:M1M2limit}. 
+\section{Limit setting procedure}
+The results are interpreted in terms of upper limits on the cross-sections of SUSY models. 
+The 95\% confidence level (CL) upper limits are obtained using a modified frequentist (CL$_s$) method \cite{Junk:1999kv,Read:2002hq,CMS-NOTE-2011-005}.
+In this section, the expected SUSY event yields is denoted as $s$, while the number of SM background events is denoted as $b$. 
+A variable known as the signal strength modifier, denoted as $\mu$, is introduced to scale the yields of the SUSY process, so that the total number of events is modified as $\mu \cdot s +b$. 
+$\mu = 0$ and $b$ events corresponds to the background-only hypothesis, and $\mu = 1$ and $s+b$ events corresponds to the signal+background hypothesis.
+Uncertainties of the backgrounds and signal yields are handled by introducing a set of nuisance parameters $\theta$.
+The expected number of events in the $i$th bin become functions of the nuisance parameters: 
+\begin{equation}
+	n_i = \mu \cdot s_i(\theta) + b_i(\theta)
+\end{equation}
+A likelihood function is then constructed as:
+\begin{equation}
+	\begin{array}{c c l}
+	\mathcal{L}( \text{data}|\mu, \theta) & = & \text{Poisson}(\text{data}|\mu \cdot s(\theta) + b(\theta)) \cdot p(\tilde{\theta} | \theta) \\
+							       & = & \prod_{i=1}^N \frac{(\mu \cdot s_i + b_i)^{n_i}}{n_i !} e^{- (\mu \cdot s_i + b_i) } \cdot p(\tilde{\theta} | \theta),
+	\end{array}
+\end{equation}
+where $p(\theta | \tilde{\theta})$ is the PDFs of the uncertainties and $\tilde{\theta}$ denotes the default values of the nuisance parameters. 
+
+To test the background-only signal+background hypotheses, a test statistic $\tilde{q}_\mu$ based on the profile likelihood ratio is constructed as:
+\begin{equation}
+	\tilde{q}_\mu = -2 ln \frac{\mathcal{L}( \text{data}|\mu, \hat{\theta}_\mu)}{\mathcal{L}( \text{data}|\hat{\mu}, \hat{\theta})}, \text{with}\  0 \le \hat{\mu} \le \mu, 
+\end{equation}
+where $\hat{\mu}$ and $\hat{\theta}$ refer to the global maximum of the likelihood, and $\hat{\theta}_\mu$ refers to the conditional maximum estimator of $\theta$ given $\mu$ and ``data''. 
+In this analysis, the asymptotic form of the profiled likelihood \cite{Cowan2011} is used to speed up the computations. 
+
+The next step of the procedure is to construct the distributions of the test statistic associated with the signal+background and background-only hypotheses: 
+\begin{equation}
+	f( \tilde{q}_\mu | \mu, \hat{\theta}_\mu), f( \tilde{q}_\mu | 0, \hat{\theta}_0).
+\end{equation}
+Then the $p$ value for the signal+background hypothesis can be constructed as:
+\begin{equation}
+	p_\mu = P( \tilde{q}_\mu \ge \tilde{q}_\mu^{obs}) | \text{signal+background}) = \int_{ \tilde{q}_\mu^{obs}}^\infty f( \tilde{q}_\mu | \mu, \hat{\theta}_\mu) d \tilde{q}_\mu,
+\end{equation}
+and that for the background-only hypothesis can be defined as:
+\begin{equation}
+	1- p_b = P( \tilde{q}_\mu \ge \tilde{q}_\mu^{obs}) | \text{background-only}) = \int_{ \tilde{q}_\mu^{obs}}^\infty f( \tilde{q}_\mu | 0, \hat{\theta}_0) d \tilde{q}_\mu. 
+\end{equation}
+The ratio of these two $p$ values is defined to be the CL_$s$, as:
+\begin{equation}
+	\text{CL}_\mu(\mu) = \frac{p_mu}{1-p_b}
+\end{equation}
+If, for $\mu = 1$, CL_$s \le $ 0.05, we state that the SUSY model considered is excluded at 95\% CL. 
+
+
+\section{Interpretations}
+
+The results are interpreted in terms of 95\% CL upper limits on the cross-sections of three different simplified models: TChiWg, T5Wg and T6Wg, and the GGM model, which are described in Chapter \ref{ch1}. 
+
+The TChiWg model is initiated by the direct pair production of NLSP particles $\PSGczDo$ and $\PSGcpmDo$, which decay to $W^\pm\tilde{G}$ and $\gamma\tilde{G}$, respectively.
+The masses of $\PSGczDo$ and $\PSGcpmDo$ are taken to be degenerate and are scanned in the range 300-1200 GeV in the TChiWg model.  
+Figure \ref{fig:tchiwglimit} shows the limits for the TChiWg models as a function of the NLSP masses, along with the theoretical cross-section of the $\PSGczDo$/$\PSGcpmDo$ pair production.
+The crossing point between the theoretical cross-section and the observed limits denotes the excluded mass. 
+This search excludes NLSP masses up to 900 GeV, extending the current best limit by about 120 GeV \cite{}.
+
+The T5Wg (T6Wg) model assumes the strong production of $\tilde{g}$ ($\tilde{q}$) pairs, which decay to $\PSGczDo$ or $\PSGcpmDo$ with a branching fraction of 50\%. 
+Figure \ref{fig:t5wglimit} shows the upper limits on the cross-section $\times$ 50\% branching fraction for the T5Wg (left) and T6Wg (right) models. 
+The black and red curves in Figure \ref{fig:t5wglimit} denote the observed and expected exclusion contours. 
+For both the T5Wg and T6Wg models, the observed limits are slightly lower than the expected limits due to the excess of data in several search bins.
+Since the excess is insignificant, the observed limits still overlap with the expected limits within uncertainties. 
+This search excludes the gluino (squark) mass up to 1700 (1400) GeV in the T5Wg (T6Wg) scenarios. 
+
+Figure \ref{fig:M1M2limit} shows the exclusion limits for the GGM model in terms of the model parameters: M1 and M2.
+For M1 = 1500 GeV, the model points below M2 $<$ 1200 GeV are exluded, which corresponds to the production of $\PSGczDo$ with mass around 700 GeV and $\PSGcpmDo$ with mass around 1100 GeV.  
+
 
 \begin{figure}
   \centering
