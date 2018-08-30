@@ -128,7 +128,7 @@ We compute the transfer factor in a $p_T^{miss} < $ 70 GeV control region. To ca
 
 Because the fake and true components of the photon candidates have different $Iso_{h^\pm}$ shapes, we can determine the contribution of fake photons by a template fit to the isolation distribution of the photon objects. This fit is performed using the $p_T^{miss} <$ 70 GeV samples formed in the DoubleEG and MuonEG dataset for the $e\gamma$ and $\mu\gamma$ channel respectively. First, a well identified lepton passing all the offline selections including trigger matching is required. A photon is then selected with all identification criteria excluding the $\sigma_{i\eta i\eta}$ and $Iso_{h^\pm}$ cut. Trigger leg matching is also required for the photon in order to keep the same phase space as the signal photons. Out of such photons, those passing the shower shape cut, i.e. $\sigma_{i\eta i\eta} <$ 0.01031, are used as the fit target, and the $Iso_{h^\pm}$ distribution of the photons falling in the sideband 0.0103 $< \sigma_{i\eta i\eta} <$ 0.015 forms the hadronic template. The true photon template, on the other hand, is selected from the GJet simulation with the photon truth-matching to a generator level prompt photon. The fit to the $Iso_{h^\pm}$ distribution is performed using the ROOFIT package. 
 
-\begin{figure*}[hbtp]
+\begin{figure*}[hbt]
   \centering
     \includegraphics[width=0.5\textwidth]{Figures/PLOT_JetPhoTemplate.pdf}
   \caption{The normalized $Iso_{h^\pm}$ distributions of the true (black line) and fake (red line) photons in GJet sample.}
@@ -149,14 +149,14 @@ This method scales the normalized true photon $Iso_{h^\pm}$ shape taken from the
 \end{equation}
 where $f_i$ is the fraction of fakes estimated from the template fit in the $i$th iteration, $p_{sb}$ and $p_{sig}$ are the probability of a simulated true photon falling into the signal region and sideband region as illustrated in Figure \ref{fig:iteration}. This procedure is iteratively repeated several times until the calculated $f_i$ converges, i.e. $|f_i - f_{i+1}| < 0.001f_i$. This method is validated using the GJet simulation samples and shows a considerable improvement on the fake fraction estimation. The validation results are shown in Figure \ref{fig:GJetValidation} .
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.5\textwidth]{Figures/PLOT_Iteration.pdf}
   \caption{The $\sigma_{i\eta i\eta}$ distribution of the true photons in GJet sample. Most of the true photons fall in signal region (blue), however, there is still a small fraction of true photons enter the sideband region (yellow).}
     \label{fig:iteration}
 \end{figure*}
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.5\textwidth]{Figures/JetFakePho_GJet.pdf}
   \caption{The hadron fractions estimated in GJet sample. The estimation with iteration corrections is shown in black dots, and the one without such correction is shown in blue.}
@@ -218,7 +218,7 @@ R_{fake/proxy} = \frac{ 2.39 \times 10^4 \cdot e^{-0.082 \cdot p_T} + 3.33 \time
 
 The choice of the $\sigma_{i\eta i\eta}$ sideband is identified as the major source of systematic uncertainties of the fraction of fakes. Since the $Iso_{h^\pm}$ and $\sigma_{i\eta i\eta}$ are correlated, inaccuracy on the fake fraction estimation is expected even though the iterative method is applied. This uncertainty can be assessed by varying the sideband definition and repeating the fit with the modified template. We scan the lower bound of the sideband from 0.01031 to 0.0112 in a step of 0.0101, and scan the upper bound from 0.0140 to 0.0185 in a step of 0.0105. The scan result in one of the $p_T$ bin is shown in Figure \ref{fig:jetfakeSys}. The full variation is taken as the systematic uncertainty. 
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.45\textwidth]{Figures/can2D-50-55_ChIso-DoubleEG-ReMiniAOD.pdf}
   \caption{2D distribution of the fraction of hadrons for photons with 50 GeV $< p_T <$ 55 GeV. The full variation will be used as systematic uncertainties of the template fit.}
@@ -350,7 +350,7 @@ The standard model production of W or Z boson in association with a photon is th
 
 The $W\gamma$ sample is formed by mixing the inclusive $WGToLNuG$ sample with two $p_T$-binned samples: WGJets\_MonoPhoton\_PtG-40to130 and WGJets\_MonoPhoton\_PtG-130. The former one is truncated at 50 GeV and the high-statistics $p_T$-binned samples are used for $p_T$ above 50 GeV. All of the three $W\gamma$ samples are generated with MadGraph at leading order. To account for higher order corrections, a constant NNLO k-factor of 1.34 is applied. Figure \ref{fig:mixWG} shows that a smooth photon $p_{T}$ distribution can be obtained via this mixing procedure. For the $Z\gamma$ process, we use an inclusive NLO sample with $p_T >$ 10 GeV. Because the $Z\gamma$ sample has a $M_{ll} > 30$ GeV cut at matrix-element level, we use part of the Drell-Yan samples to supplement the events with $M_{ll} < 30$ GeV. All of these simulated samples are then normalized to $35.87 fb^{-1}$ and mixed to form the $V\gamma$ template.
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.45\textwidth]{Figures/WGMixing.pdf}
   \caption{Photon $p_T$ distributions in individual $W\gamma$ samples and their combination.}
@@ -382,7 +382,7 @@ Figure \ref{fig:apen-ISRJetPt} shows the comparision between the ISR $p_T$ spect
 \end{table}
 
 
-\begin{figure}
+\begin{figure}[!hbt]
   \centering
     \includegraphics[width=0.5\textwidth]{Figures/PLOT_ISRweight.pdf}
   \caption{The electron misidentification rate as a function of $p_T$ (top left), $\eta$ (top right) and $N_{vtx}$ (bottom), along with the systematic uncertainties.}
@@ -390,7 +390,7 @@ Figure \ref{fig:apen-ISRJetPt} shows the comparision between the ISR $p_T$ spect
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[hbtp]
   \centering
     \includegraphics[width=0.45\textwidth]{Figures/VALIDNOCOR_mg_2016ReMiniAOD_met.pdf}
     \includegraphics[width=0.45\textwidth]{Figures/VALIDNOCOR_mg_2016ReMiniAOD_pt.pdf} \\
@@ -414,7 +414,7 @@ Because the angular distance between the signal lepton and MET has different sha
 
 The template fitting is performed in the control region, defined by 40 GeV $< p_{T}^{miss} <$ 70 GeV. The lower cut is applied to suppress $Z\gamma$ events. Figure \ref{fig:WGZG_met} shows the normalized $p_{T}^{miss}$ distribution of the $W\gamma$ and $Z\gamma$ samples. By applying a 40 GeV $p_{T}^{miss}$ cut, we select a control sample dominated by $W\gamma$ events.  
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.45\textwidth]{Figures/dphiTemplate_MET.pdf}
   \caption{$p_T^{miss}$ distributions of the $W\gamma$ (red) and $Z\gamma$ (blue) sample. The 40 GeV cut will remove a large fraction of the $Z\gamma$ contributions.}
@@ -432,7 +432,7 @@ where $N_{con}$ is the total number of events in the control sample, $f_{V\gamma
 %To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perform the template fit in four lepton $p_T$ bins: (25-50, 50-70, 70-100, $>=$100) GeV. Figure \ref{fig:dphiptdependence} shows that the fluctuation of the scale factors in different $p_T$ bins are within systematic uncertainties. Since no obvious $p_T$ dependence is observed and the statistics at high $p_T$ is limited, we decide to perform the template fit in the full $p_T$ range and use a global $V\gamma$ scale factor. However, this may not be true for the fake lepton scale factors, because the $p_T$ distribution of the fake lepton background may not be perfectly modeled by the proxy sample. Thus we first subtract the $V\gamma$ contribution from the control sample using the global $V\gamma$ scale factors, and then use $p_T$-binned fake lepton scale factors to let the fake lepton proxy sample fill the control region. The $p_T$-binned scale factors are obtained by taking the ratio of the remaining events to the fake lepton templates in different $p_T$ bins. Figure \ref{fig:dphifitresult} shows the result of the fit. 
 
 To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perform the template fit in four lepton $p_T$ bins: (25-50, 50-70, 70-100, $>=$100) GeV. Figure \ref{fig:dphiptdependence} shows that the fluctuation of the scale factors in different $p_T$ bins are within systematic uncertainties. Since no obvious $p_T$ dependence is observed and the statistics at high $p_T$ is limited, we decide to perform the template fit in the full $p_T$ range and use a global $V\gamma$ scale factor. Figure \ref{fig:dphifitresult} shows the result of the fit. 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.45\textwidth]{Figures/scale_ptDependence_eg.pdf}
     \includegraphics[width=0.45\textwidth]{Figures/scale_ptDependence_mg.pdf}
@@ -440,7 +440,7 @@ To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perfor
     \label{fig:dphiptdependence}
 \end{figure*}
 
-\begin{figure*}[hbtp]
+\begin{figure*}[!hbt]
   \centering
     \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_eg.pdf}
     \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_mg.pdf}
