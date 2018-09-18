@@ -1,10 +1,11 @@
-\documentclass[12pt,twoside]{memoir}
+\documentclass[12pt,oneside]{memoir}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 \usepackage[T1]{fontenc}
 \usepackage{subfiles}
 \usepackage{pennames}
 \usepackage{physics}
+\usepackage{setspace}
 
 \usepackage{color}
 \usepackage{charter}
@@ -27,6 +28,7 @@
 
 \usepackage[colorlinks,linkcolor=blue,filecolor=blue,citecolor=blue,urlcolor=blue,backref=page]{hyperref}
 
+\renewcommand{\baselinestretch}{1.5}
 \newsubfloat{figure}
 \setlength{\parskip}{1em}
 % ====================================================================
@@ -52,12 +54,6 @@
 \setcounter{topnumber}{9}
 \setcounter{bottomnumber}{9}
 \setcounter{totalnumber}{9}
-% 
-%%%%%%%%%%%%%% Example for content of file definitions.tex %%%%%%%%%%%
-\def\ra    {\rightarrow}
-\def\ul    {\underline} 
-\def\mevcc {\ifmmode {\mathrm MeV}/c^2 \else MeV$/c^2$\fi}
-\def\BsJpsiPhi {\ensuremath{\Bs \ra J/\psi\,\phi}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \begin{document} 
@@ -68,14 +64,15 @@
 %
 \thispagestyle{empty}
   \begin{center}
+\linespread{1.0}
     \ \\
     \ \\
     \ \\
     \textbf{
       \LARGE{
         \begin{center}
-	Search for supersymmetry using events with a photon, a
-	lepton, and missing transverse momentum in proton-proton collisions at \\ $\sqrt{s} =$ 13 TeV in CMS
+	Search for supersymmetry using events with a photon plus
+	lepton and missing transverse momentum in proton-proton collisions at \\ $\sqrt{s} =$ 13 TeV with the CMS detector
         \end{center}
       }
     }
@@ -85,7 +82,6 @@
     by \\
     \ \\
     \large{Menglei Sun} \\
-    \ \\
     \ \\
     \ \\
     \ \\
@@ -103,14 +99,13 @@
     Advised by Professor Manfred Paulini \\
     \ \\
     \today
-  \end{center}
+ \end{center}
 
+\thispagestyle{empty} \cleardoublepage
 % ====================================================================
 %     Generates one blank page before the 'Abstract'
 % ====================================================================
-
-\thispagestyle{empty} \cleardoublepage
-
+\thispagestyle{empty}\clearpage\mbox{}\clearpage
 % ====================================================================
 %     Input your abstract in file abstract.tex here. 
 %     A simple example of the content of such a file is given below.
@@ -129,8 +124,10 @@
     Models of supersymmetry (SUSY) with gauge-mediated supersymmetry
     breaking (GMSB) naturally yield events with photons in the final state.
     Searches for events with both a photon and a lepton enhanced the sensitivity 
-    to electroweak production of supersymmetric particles. We interpret the results of our search
-    in the context of SUSY with gauge-mediated supersymmetry breaking as well as simplified SUSY models.
+    to electroweak production of supersymmetric particles.
+    No significant excess above the SM background is observed in the signal region.
+    We interpret the results of our search in the context of SUSY with gauge-mediated 
+    supersymmetry breaking as well as simplified SUSY models.
 \end{abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -182,7 +179,7 @@ To better understand the structure of matter, physicists need to look deeper and
 Particle physics is a branch of the physics that aims to understand the fundamental nature of matter and energy, 
 the interactions between them, and to apply that knowledge to better understand the origin and structure of the universe. 
 Throughout the 1950s and 1960s, hundreds of sub-atomic particles were discovered in particle physics experiments.
-In examing and organizing these particles, a Standard Model of the particle physics has emerged.
+In examining and organizing these particles, a Standard Model of the particle physics has emerged.
 
 The Standard Model is our current theory that best describes the subatomic world. 
 According to the Standard Model, matter is built up from a set of spin-1/2 particles, called fermions. 

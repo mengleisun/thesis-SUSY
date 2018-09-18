@@ -8,16 +8,23 @@
 \label{ch7}
 
 \section{Results}
-The background estimation is performed in a $p_T^{miss} < $ 70 GeV control region and validated in the $M_T(l, p_T^{miss}) < $ 100 GeV validation region. The high $p_T^{miss}$ signal region was kept blinded until all methods were established.
+The background estimation is performed in a $\MET < $ 70 GeV control region and validated in the $M_T(\ell, \MET) < $ 100 GeV validation region. The high $\MET$ signal region was kept blinded until all methods were established.
 
-The signal region is defined as $p_T^{miss} > 120$ GeV and $M_T(l, p_T^{miss}) > 100$ GeV. To improve the sensitivity to SUSY signals, the signal region is divided into $p_T^{miss}$, HT and photon $p_T$ bins. The binning is optimized using T5Wg expected limits, as shown in Figure \ref{fig:optbin}. For each channel we use 18 bins: (120 GeV $< p_T^{miss} <$ 200 GeV, 200 GeV $< p_T^{miss} <$ 400 GeV, $ p_T^{miss} >$ 400 GeV) $\times$ (0 $< HT <$ 100 GeV, 100 GeV $< HT <$ 400 GeV, $HT >$ 400 GeV) $\times$ (35 GeV $< \gamma p_T < $ 200 GeV, $\gamma p_T > $ 200 GeV).
+The signal region is defined as $\MET > 120$ GeV and $M_T(\ell, \MET) > 100$ GeV. To improve the sensitivity to SUSY signals, the signal region is divided into $\MET$, $\HT$ and photon $p_T$ bins. The binning is optimized using T5Wg expected limits, as shown in Figure \ref{fig:optbin}. For the optimization, three bins in $\MET$ (120-200,200-400,$>$ 400 GeV) and three bins in $\HT$ (0-100, 100-400, $ >$ 400 GeV) are used as the baseline binning. The performance of other binning strategies, such as adding $p^\gamma_T$ bins, are compared to the baseline binning. 
+By choosing the bins that give the optimal exclusion limit, we decide to use 18 bins for each channel:  
+(120 GeV $< \MET <$ 200 GeV, 200 GeV $< \MET <$ 400 GeV, $ \MET >$ 400 GeV) $\times$ (0 $< \HT <$ 100 GeV, 100 GeV $< \HT <$ 400 GeV, $\HT >$ 400 GeV) $\times$ (35 GeV $< \gamma p_T < $ 200 GeV, $\gamma p_T > $ 200 GeV).
 
-Figure \ref{fig:signalPhoPt} shows the unblined data distributions of the photon $p_T^{\gamma}$, $p_T^{miss}$ and HT, along with the background predictions. Two signal distributions, one from the TChiWg with $M_{\PSGcpmDo} = 800$ GeV and the other one from the T5Wg with $M_{\tilde{g}} = $1700 GeV, $M_{\PSGcpmDo} = 1000$ GeV, are also overlayed on the plots. The event yields and SM backgrounds for each search bin are shown in Figure \ref{fig:eventyield}, and the corresponding numbers are given in Table \ref{tab:unblindeddata}. 
+Figure \ref{fig:signalPhoPt} shows the unblinded data distributions of the photon $p_T^{\gamma}$, $\MET$ and $\HT$, along with the background predictions. Two signal distributions, one from the TChiWg with $M_{\PSGcpmDo} = 800$ GeV and the other one from the T5Wg with $M_{\tilde{g}} = $1700 GeV, $M_{\PSGcpmDo} = 1000$ GeV, are also overlayed on the plots. The event yields and SM backgrounds for each search bin are shown in Figure \ref{fig:eventyield}, and the corresponding numbers are given in Table \ref{tab:unblindeddata}. 
+
+The data are consistent with the estimated SM backgrounds within the uncertainties through the search region. 
+The 22$^{nd}$ and 36$^{th}$ bins, which are both in $e\gamma$ channel, show excesses above prediction with local significances of 2.3 and 1.2 standard deviations, respectively.
+In the corresponding regions of the $\mu\gamma$ channel, the data agree with the SM backgrounds.
+Thus, we conclude that no significant excess of events above the SM expectation is observed. 
 
 \begin{figure}[tb]
   \centering
     \includegraphics[width=0.49\textwidth]{Figures/binningOpt.pdf}
-		\caption{Optimization of the signal bins. Baseline binning (black): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. Plan 2 (red): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 100, $>$ 100\}GeV. Plan 3 (magenta): $p_T^{miss}$\{120-200, 200-400, $ >$ 400\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 200, $>$ 200\}GeV. Plan 4 (green): $p_T^{miss}$\{120-200, 200-400, 400-600\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$p_T^{miss} > $ 600 GeV\}. Plan 5 (cyan): $p_T^{miss}$\{120-200, 200-400, 400-600\}GeV $\times$ HT\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$p_T^{miss} > $ 600 GeV\}$\times$ HT\{ $<$ 400, $ >$ 400\}GeV. }
+		\caption{Optimization of the signal bins. Baseline binning (black): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. Plan 2 (red): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 100, $>$ 100\}GeV. Plan 3 (magenta): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 200, $>$ 200\}GeV. Plan 4 (green): $\MET$\{120-200, 200-400, 400-600\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$\MET > $ 600 GeV\}. Plan 5 (cyan): $\MET$\{120-200, 200-400, 400-600\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$\MET > $ 600 GeV\}$\times$ $\HT$\{ $<$ 400, $ >$ 400\}GeV. }
     \label{fig:optbin}
 \end{figure}[tb]
 
@@ -29,7 +36,7 @@ Figure \ref{fig:signalPhoPt} shows the unblined data distributions of the photon
 \includegraphics[width=0.38\textwidth]{Fig/Figure_004-d.pdf} \\
 \includegraphics[width=0.38\textwidth]{Fig/Figure_004-e.pdf}
 \includegraphics[width=0.38\textwidth]{Fig/Figure_004-f.pdf}
-\caption{Distributions of \ptmiss (a, b), $\pt^{\Pgg}$ (c, d), and \HT
+\caption{Distributions of \MET (a, b), $p_T^{\Pgg}$ (c, d), and $\HT$
   (e, f) from data (points) and estimated SM predictions (stacked
   histograms) for the $e\gamma$ (left) and $\mu\gamma$ (right)
   channels.}
@@ -47,7 +54,7 @@ Figure \ref{fig:signalPhoPt} shows the unblined data distributions of the photon
  \resizebox{\textwidth}{!}{ 
    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c||c|c|}    
     \hline
-	Bin& channel & $p_T^{miss}$ & HT  & $p_T^{\gamma}$ & $e\rightarrow\gamma$ fakes & jet$\rightarrow\gamma$ fakes & jet$\rightarrow l$ fakes  & $W\gamma/Z\gamma$ & rare & SM background & Data \\ \hline 
+	Bin& channel & $\MET$ & $\HT$  & $p_T^{\gamma}$ & $e\rightarrow\gamma$ fakes & jet$\rightarrow\gamma$ fakes & jet$\rightarrow l$ fakes  & $W\gamma/Z\gamma$ & rare & SM background & Data \\ \hline 
   1&  $\mu\gamma$   & 120-200 & $<$100  & $<$200  &  46.920 $\pm$ 3.905  &  44.067 $\pm$ 4.611 &   3.100 $\pm$ 1.519  & 183.161 $\pm$ 45.284 &  37.238 $\pm$ 19.051 & 314.486 $\pm$  49.522  & 309\\ \hline
   2&  $\mu\gamma$   & 120-200 & 100-400 & $<$200  & 140.845 $\pm$11.790  &  52.269 $\pm$ 5.214 &   7.440 $\pm$ 2.613  &  85.740 $\pm$ 27.722 & 176.442 $\pm$ 89.401 & 462.736 $\pm$  94.661  & 494\\ \hline
   3&  $\mu\gamma$   & 120-200 & $>$400  & $<$200  & 21.039 $\pm$ 2.085  &  12.701 $\pm$ 1.808 &   2.480 $\pm$ 1.336  &   11.665 $\pm$  4.425 &  50.288 $\pm$ 25.599 &  98.173 $\pm$  26.409  &  85\\ \hline
@@ -131,11 +138,11 @@ and that for the background-only hypothesis can be defined as:
 \begin{equation}
 	1- p_b = P( \tilde{q}_\mu \ge \tilde{q}_\mu^{obs}) | \text{background-only}) = \int_{ \tilde{q}_\mu^{obs}}^\infty f( \tilde{q}_\mu | 0, \hat{\theta}_0) d \tilde{q}_\mu. 
 \end{equation}
-The ratio of these two $p$ values is defined to be the CL_$s$, as:
+The ratio of these two $p$ values is defined to be the CL$_s$, as:
 \begin{equation}
 	\text{CL}_\mu(\mu) = \frac{p_mu}{1-p_b}
 \end{equation}
-If, for $\mu = 1$, CL_$s \le $ 0.05, we state that the SUSY model considered is excluded at 95\% CL. 
+If, for $\mu = 1$, CL$_s \le $ 0.05, we state that the SUSY model considered is excluded at 95\% CL. 
 
 
 \section{Interpretations}
@@ -176,7 +183,7 @@ For M1 = 1500 GeV, the model points below M2 $<$ 1200 GeV are exluded, which cor
 
 \begin{figure}[tb]
   \centering
-    \includegraphics[width=0.49\textwidth]{Fig/GGMXSEC.pdf}
+    \includegraphics[width=0.7\textwidth]{Fig/GGMXSEC.pdf}
     \caption{Exclusion limits for GGM models as a function of the M1 and M2 masses.}
      \label{fig:M1M2limit}
 \end{figure}

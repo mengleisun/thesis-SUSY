@@ -6,48 +6,66 @@
 \chapter{Background Estimation}
 \label{ch6}
 
-The SM backgrounds for this search can be classified into three categories. The main background is the production of a W or Z boson in association with a photon (V + $\gamma$). In particular, the neutrinos from leptonic W decays escape the detector and result in genuine $p^{miss}_T$.
+The SM backgrounds of this search can be classified into three categories. 
+The main background is the production of W or Z bosons in association with a photon, 
+denoted as V$\gamma$. In particular, neutrinos from leptonic decays of W bosons escape the detector and result in genuine $\MET$.
 
-The second category contains misidentified objects, including fake photons from misreconstructed electrons or jets and fake leptons from non-prompt productions. Such backgrounds are estimated using data-driven methods in the $p^{miss}_T <$ 70 GeV control region and extrapolated into the signal region. 
+The second category contains misidentified objects, including fake photons from misreconstructed electrons or jets, 
+and misidentified leptons from non-prompt productions. Such backgrounds are estimated by scaling control samples with 
+misidentification rate that is estimated in the $\MET <$ 70 GeV control region. 
 
-The rare, but non-negligible backgrounds are associated productions of multiboson or top quarks plus a photon. These backgrounds are estimated using simulation. 
+The rare, but non-negligible backgrounds, are associated productions of multiboson or top quarks plus a photon. 
+These backgrounds are estimated using simulation. 
 
 \section{The Misidentification of Electrons as Photons}
 \label{sec:efakepho}
 
-The misidentification of electrons as photons may occur if the matching between ECAL clusters and track seeds found in the pixel detector fails during reconstruction. Such events can arise from Drell-Yan di-electron productions, where the photon candidates are in fact misreconstructed electrons. In addition, $t\bar{t}$ and $WW$ events with  $ee$ or $e\mu$ in the final states also enter the signal selection if one electron fakes the photon. This background can be estimated by constructing an electron enriched proxy sample and scaling it by a transfer factor R, where R is the rate of fake photons arising from electron objects. The proxy sample is formed by inverting the pixel veto and electron veto of the signal photon candidates while keeping other selections unchanged. Having a pixel seed matched to the photon, we in fact replace the photon with a well reconstructed electron.
+The misidentification of electrons as photons may occur if the matching between ECAL clusters and pixel track seeds fails during reconstruction. Such events can arise from Drell-Yan di-electron productions, where the photon candidates are in fact misreconstructed electrons. In addition, $t\bar{t}$ and $WW$ events with  $ee$ or $e\mu$ in the final states also enter the signal selection if one electron fakes the photon. This background can be estimated by constructing an electron enriched control sample and scaling it by a transfer factor R, where R is the rate of fake photons arising from electron objects. The control sample is formed by inverting the pixel veto and electron veto requirements of the signal photon candidates while keeping other selections unchanged. Having a pixel seed matched to the photon, we in fact replace the photon with a well reconstructed electron.
 
-The misidentification rate R is measured using a tag-and-probe method in the $p_T^{miss} < $ 70 GeV control region. We select di-electron from Z decays in a similar way with the trigger efficiency measurement. Events triggered by HLT\_Ele27\_eta2p1\_WPLoose\_Gsf in the SingleElectron dataset are used. The tag object is a well reconstructed electron with $p_T >$ 30 GeV and matches within $\Delta R <$ 0.3 to the single electron trigger leg. Then a photon passing all the offline selections excluding the pixel seed veto and electron veto is selected as the probe. To measure the misidentification rate in a wider range, the $p_T$ threshold of the probe is lowered to 30 GeV. The invariant mass of the tag and probe pair is required to be consistent with the Z boson mass. Since the pixel seed is not checked for the probe, it is also possible for the probe to be registered as a tag. To avoid any bias in the selection of probes, all combinations of the tag-and-probe pairs are counted. If the probe can additionally pass the pixel seed veto and electron veto, this event will enter the numerator sample, denoted as $e\gamma$. Those fail either pixel veto or electron veto will enter the denominator sample, which is labeled as $ee$ in this note. The transfer factor is defined as $R = N^{e\gamma}/N^{ee}$, which is the misidentification rate of electrons as photons.
+The misidentification rate R is measured using a tag-and-probe method in the $p_T^{miss} < $ 70 GeV control region. We select di-electron from Z decays in a similar way with the trigger efficiency measurement. Events triggered by HLT\_Ele27\_eta2p1\_WPLoose\_Gsf in the SingleElectron dataset are used. The tag object is a well reconstructed electron with $p_T >$ 30 GeV and matches within $\Delta R <$ 0.3 to the single electron trigger leg. Then a photon passing all the offline selections excluding the pixel seed veto and electron veto is selected as the probe. To measure the misidentification rate in a wider range, the $p_T$ threshold of the probe is lowered to 30 GeV. The invariant mass of the tag and probe pair is required to be consistent with the Z boson mass. Since the pixel seed is not checked for the probe, it is also possible for the probe to be registered as a tag. To avoid any bias in the selection of probes, all combinations of the tag-and-probe pairs are counted. If the probe can additionally pass the pixel seed veto and electron veto, this event will enter the numerator sample, denoted as $e\gamma$. Those fail either pixel veto or electron veto will enter the denominator sample, which is labeled as $ee$ in this thesis. The transfer factor is defined as $R = N^{e\gamma}/N^{ee}$, which is the misidentification rate of electrons as photons.
 
-To determine the number of $Z\rightarrow ee$ events in the numerator and denominator samples, a fit to the tag-and-probe invariant mass in the range [60 GeV, 120 GeV] is performed using the RooFit~\cite{RooFit} package. The fit model consists of two probability density functions: one describes the signal ($Z\rightarrow ee$) shape and the other models the background. We choose the Breit-Wigner function to describe the shape of the signal. To account for the radiation loss and resolution effect, the signal function is convoluted with a double-side crystal ball density function. The background shape is obtained from a $\mu$+probe template selected using the SingleMuon dataset, under the assumption of lepton flavor symmetry.  To form the template, we keep the probe definition unchanged and replace the tag electron with a medium working point muon that fired the HLT\_IsoMu24 trigger. The distribution of the invariant mass of the $\mu$ and the probe is then smoothed using a Gaussian kernel estimator. 
-
-Systematic uncertainties of the fit majorly come from mismodeling the signal and background shapes. To evaluate this effect, the invariant mass distributions are fitted again using alternative shapes. We first perform the fit with the signal model replacing by a $Z\rightarrow ee$ template selecting from the Drell-Yan simulation and convoluting with Gaussian distributions. We then change the background shape to an exponential function and fix the signal model to be the nominal Breit-Wigner. The choices of fitting functions are summarized in Table \ref{table:ch4-fitfunc}. Figure \ref{fig:fitAllele} shows the fitting results using the nominal fitting functions in different $p_T$ bins. The fake rates evaluated using altered shapes are compared with the nominal values, and their difference is used as the systematic uncertainties.
-
-\begin{table}[hbtp]
-  \caption{Summary of the functions used to fit the tag-and-probe invariant mass. Nominal shapes in the table are used to determine the central values of the number of events in the numerator and denominator samples. Other functions are used for the measurement of systematic uncertainties.}
-  \resizebox{\linewidth}{!}{
-  \begin{tabular}{|c|c|c|c|}
-  \hline
-                           & Signal Model   & Background Model & fake rate ($p_T^\gamma > 30$ GeV)\\ \hline
-  nominal shapes           & Breit-Wigner convoluting with crystal ball     &  $\mu$ + probe template & 2.29\% \\ \hline
-  alter signal shapes      & Drell-Yan simulation convoluting with Gaussian &  $\mu$ + probe template & 2.26\% \\ \hline
-  alter background shapes  & Breit-Wigner convoluting with crystal ball     &  exponential function   & 2.43\% \\ \hline
-  \end{tabular}
-  }
-  \label{table:ch4-fitfunc}
-\end{table}
+To determine the number of $Z\rightarrow ee$ events in the numerator and denominator samples, a fit to the tag-and-probe invariant mass in the range [60 GeV, 120 GeV] is performed using the RooFit~\cite{RooFit} package. The fit model consists of two probability density functions: one describes the signal ($Z\rightarrow ee$) shape and the other models the background. We choose the Breit-Wigner function to describe the shape of the signal. To account for the radiation loss and resolution effect, the signal function is convoluted with a double-side crystal ball density function. The background shape is obtained from a $\mu$+probe template selected using the SingleMuon dataset, under the assumption of lepton flavor symmetry.  To form the template, we keep the probe definition unchanged and replace the tag electron with a medium working point muon that fired the HLT\_IsoMu24 trigger. The distribution of the invariant mass of the $\mu$ and the probe is then smoothed using a Gaussian kernel estimator. Figure \ref{fig:fitAllele} shows the fitting results of the denominator samples in different $p_T$ bins, while Figure \ref{fig:fitAllele-num} shows that of the numerator samples. 
 
 \begin{figure*}[hbtp]
   \centering
-   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_35_40.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_35_40.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_40_45.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_40_45.pdf} \\ 
-   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_45_50.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_45_50.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_50_55.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_50_55.pdf} \\
-   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_55_60.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_55_60.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_60_65.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_60_65.pdf} \\
-   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_65_70.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_65_70.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_70_75.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_70_75.pdf} \\
-   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_75_80.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_75_80.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_80_90.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_80_90.pdf} \\
-    \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_90_100.pdf}  \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_90_100.pdf}   \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_den_100_120.pdf} \includegraphics[width=0.24\textwidth]{Figures/Bw_ker_pt_num_100_120.pdf} \\
-  \caption{Tag-and-probe fits in various $p_T$ bins for electron misidentification rate measurement. }
+   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_35_40.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_40_45.pdf} \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_45_50.pdf} \\
+  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_50_55.pdf}   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_55_60.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_60_65.pdf}\\
+   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_65_70.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_70_75.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_75_80.pdf} \\
+ \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_80_90.pdf} \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_90_100.pdf}   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_den_100_120.pdf}\\
+  \caption{Fits to the tag-and-probe invariant mass of the denominator samples, which are defined as the samples with probe electrons matching to pixel track seeds. This fit is performed in various $p_T$ bins. The black dots, the blue solid lines, and the blue dashed lines
+represent the data, the signal+background model, and the background-only model, respectively.} 
  \label{fig:fitAllele}
 \end{figure*}
+
+\begin{figure*}[hbtp]
+  \centering
+   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_35_40.pdf}   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_40_45.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_45_50.pdf} \\
+  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_50_55.pdf}    \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_55_60.pdf}   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_60_65.pdf} \\
+   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_65_70.pdf}   \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_70_75.pdf} \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_75_80.pdf} \\
+  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_80_90.pdf} \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_90_100.pdf}  \includegraphics[width=0.31\textwidth]{Figures/Bw_ker_pt_num_100_120.pdf} \\
+  \caption{Fits to the tag-and-probe invariant mass of the numerator samples, which are defined as the samples with probe electrons failing to be matched with pixel track seeds. This fit is performed in various $p_T$ bins. The black dots, the blue solid lines, and the blue dashed lines
+represent the data, the signal+background model, and the background-only model, respectively.} 
+ \label{fig:fitAllele-num}
+\end{figure*}
+
+Systematic uncertainties of the fit majorly come from mismodeling of the signal and background shapes. To evaluate this effect, the invariant mass distributions are fitted again using alternative shapes. We first perform the fit with the signal model replaced by a $Z\rightarrow ee$ template selecting from the Drell-Yan simulation and convoluting with Gaussian distributions. We then change the background shape to an exponential function and fix the signal model to be the nominal Breit-Wigner. The choices of fitting functions are summarized in Table \ref{table:ch4-fitfunc}.  The fake rates evaluated using altered shapes are compared with the nominal values, and their difference is used as the systematic uncertainties.
+
+\begin{table}[hbt]
+  \caption{Summary of the functions used to fit the tag-and-probe invariant mass. Nominal shapes in the table are used to determine the central values of the number of events in the numerator and denominator samples. Other functions are used for the measurement of systematic uncertainties.}
+  \label{table:ch4-fitfunc}
+  \resizebox{\linewidth}{!}{
+  \begin{tabular}{|c|c|c|}
+  \hline
+  Signal Model   & Background Model & fake rate ($p_T^\gamma > 30$ GeV)\\ \hline \hline
+  \multicolumn{3}{|c|}{Nominal Shapes} \\ \hline
+  Breit-Wigner convoluting with crystal ball  &  $\mu$ + probe template & 2.29\% \\ \hline \hline
+  \multicolumn{3}{|c|}{Alter Signal Shapes } \\ \hline
+  Drell-Yan simulation convoluting with Gaussian &  $\mu$ + probe template & 2.26\% \\ \hline \hline
+  \multicolumn{3}{|c|}{Alter Background Shapes } \\ \hline
+  Breit-Wigner convoluting with crystal ball     &  exponential function   & 2.43\% \\ \hline
+  \end{tabular}
+  }
+\end{table}
 
 
 Once the normalization and parameters of the signal functions are determined from the fit, the $N^{ee}$ and $N^{e\gamma}$ values are given by the integrals of signal shapes between 80 GeV and 101 GeV in the corresponding samples. The global fake rate for electrons with $p_T >$ 30 GeV is: 
@@ -76,7 +94,7 @@ can be used to model the fake rate dependencies on these two variables. The para
 \begin{eqnarray*}
 	a   &=& 6.4 \pm 0.8  \\
 	b   &=& (2.9 \pm 0.8) \cdot 10^{-2} \\
-	\alpha &=& -1.8 \pm 0.1 \\
+	\alpha &=& 1.8 \pm 0.1 \\
 	c &=& (5.9 \pm 1.1) \cdot 10^{-3} \\
 	\beta &=& (9.2 \pm 0.4) \cdot 10^{-4} \\
 \end{eqnarray*}
@@ -94,9 +112,9 @@ To fix the constant N, we applied the misidentification rate to the denominator 
 \end{equation}
 
 
-The electron-fake-photon rate calculated above is applied to the electron-enriched proxy sample to predict the contribution from misidentified electrons. Uncertainties of the misidentified electron background are evaluated with toy Monti-Carlo experiments. First, the parameters of the fake rate functions are pulled from a multi-variant Gaussian distribution with means given by the nominal fitting result, and covariance matrix given by the fitting errors. The ranges of the pulled parameters are restricted to be one sigma around the nominal values. The normalization factor N is recalculated using the new parameters. The toy MC is generated 1000 times to obtain distributions of the background variations. The one sigma band is constructed using the toy results.
+The electron-fake-photon rate calculated above is applied to the electron-enriched control sample to predict the contribution from misidentified electrons. Uncertainties of the misidentified electron background are evaluated with toy Monti-Carlo experiments. First, the parameters of the fake rate functions are pulled from a multi-variant Gaussian distribution with means given by the nominal fitting result, and covariance matrix given by the fitting errors. The ranges of the pulled parameters are restricted to be one sigma around the nominal values. The normalization factor N is recalculated using the new parameters. The toy MC is generated 1000 times to obtain distributions of the background variations. The one sigma band is constructed using the toy results.
 
-   This background estimation method is tested on simulated DY, WW, WZ and $t\bar{t}$ events. The misidentification rate derived from the DY samples using tag and probe method is compared to the true fake rate calculated by truth-matching the photons to generated electrons, and their difference are considered as a source of systematic uncertainty. The proxy events selected from the mixed simulation samples are scaled by the misidentification rate to predict the number of fake photons in the samples. As shown in Figure \ref{fig:efakephoclosure_egamma} and Figure \ref{fig:efakephoclosure_mg}, the predicted distributions show good agreement with the real misidentified electrons.  
+   This background estimation method is tested on simulated DY, WW, WZ and $t\bar{t}$ events. The misidentification rate derived from the DY samples using tag and probe method is compared to the true fake rate calculated by truth-matching the photons to generated electrons, and their difference are considered as a source of systematic uncertainty. The control events selected from the mixed simulation samples are scaled by the misidentification rate to predict the number of fake photons in the samples. As shown in Figure \ref{fig:efakephoclosure_egamma} and Figure \ref{fig:efakephoclosure_mg}, the predicted distributions show good agreement with the real misidentified electrons.  
 
 \begin{figure*}[hbtp]
   \centering
@@ -122,9 +140,9 @@ The electron-fake-photon rate calculated above is applied to the electron-enrich
 \section{The Misidentification of Hadrons as Photons}\label{sec:jetfakepho}
 Jets with electromagnetic fluctuations can deposit a significant fraction of energy in the ECAL and mimic photon signals. In particular, such misidentification occurs when the jet energy is mostly carried by a $\pi^0$ or $\eta$ which decays into two nearly collinear photons. 
 
-The jet to photon misidentification rate is low, but the cross-section of QCD process is large, so the misidentified jets still have non-negligible contributions to the backgrounds. Such backgrounds are difficult to estimate using simulation because of the large statistics requirement and the possible mis-modeling of hadron fragmentation and hadronization. Therefore a data-driven method is deployed to predict this background. First, a proxy-to-fake transfer factor, defined as the ratio of estimated number of fake photons to the number of jet proxy objects, is derived in a low MET control region. This transfer factor will then be applied to a control sample with $e/\gamma$ enriched jets to predict the jet-to-photon fakes in the high MET signal region. 
+The jet to photon misidentification rate is low, but the cross-section of QCD process is large, so the misidentified jets still have non-negligible contributions to the backgrounds. Such backgrounds are difficult to estimate using simulation because of the large statistics requirement and the possible mis-modeling of hadron fragmentation and hadronization. Therefore a data-driven method is deployed to predict this background. First, a control-to-fake transfer factor, defined as the ratio of estimated number of fake photons to the number of jet control objects, is derived in a low $\MET$ control region. This transfer factor will then be applied to a control sample with $e/\gamma$ enriched jets to predict the jet-to-photon fakes in the high $\MET$ signal region. 
 
-We compute the transfer factor in a $p_T^{miss} < $ 70 GeV control region. To calculate the ratio between the fake photons and jet proxies, we first need to determine the fraction of hadrons within the candidate photons.  Compared to the prompt photons, the fake photons tend to have wider shower shapes and more hadronic activities. Therefore we can use variables like $\sigma_{i\eta i\eta}$ and $Iso_{h^\pm}$ to discriminate between true photons and fakes. Figure \ref{fig:fakeinGJet} shows the $Iso_{h^\pm}$ contributions in the GJet simulation samples. 
+We compute the transfer factor in a $p_T^{miss} < $ 70 GeV control region. To calculate the ratio between the fake photons and jet control samples, we first need to determine the fraction of hadrons within the candidate photons.  Compared to the prompt photons, the fake photons tend to have wider shower shapes and more hadronic activities. Therefore we can use variables like $\sigma_{i\eta i\eta}$ and $Iso_{h^\pm}$ to discriminate between true photons and fakes. Figure \ref{fig:fakeinGJet} shows the $Iso_{h^\pm}$ distribution in the GJet simulation samples. 
 
 Because the fake and true components of the photon candidates have different $Iso_{h^\pm}$ shapes, we can determine the contribution of fake photons by a template fit to the isolation distribution of the photon objects. This fit is performed using the $p_T^{miss} <$ 70 GeV samples formed in the DoubleEG and MuonEG dataset for the $e\gamma$ and $\mu\gamma$ channel respectively. First, a well identified lepton passing all the offline selections including trigger matching is required. A photon is then selected with all identification criteria excluding the $\sigma_{i\eta i\eta}$ and $Iso_{h^\pm}$ cut. Trigger leg matching is also required for the photon in order to keep the same phase space as the signal photons. Out of such photons, those passing the shower shape cut, i.e. $\sigma_{i\eta i\eta} <$ 0.01031, are used as the fit target, and the $Iso_{h^\pm}$ distribution of the photons falling in the sideband 0.0103 $< \sigma_{i\eta i\eta} <$ 0.015 forms the hadronic template. The true photon template, on the other hand, is selected from the GJet simulation with the photon truth-matching to a generator level prompt photon. The fit to the $Iso_{h^\pm}$ distribution is performed using the ROOFIT package. 
 
@@ -143,11 +161,11 @@ where $N_{fake}$ is the estimated number of fake photons passing $Iso_{h^\pm} < 
 
 Though most of the true photons have narrow shower shape, a small fraction of the true photons still fall in the $\sigma_{i\eta i\eta}$ sideband and therefore contaminate the hadronic template. Having true photons in the hadronic template will result in overestimating the fraction of fakes. To correct the hadronic $Iso_{h^\pm}$ template shape, an iterative method is deployed to remove the true photon contaminations.
 
-This method scales the normalized true photon $Iso_{h^\pm}$ shape taken from the GJet MC by a factor $N_{true-in-sb}$, and subtract this shape from the raw hadronic template. The factor, $N_{true-in-sb}$,  is calculated as:
+This method scales the normalized true photon $Iso_{h^\pm}$ shape taken from the GJet MC by a factor $N_\textrm{true-in-sb}$, and subtract this shape from the raw hadronic template. The factor, $N_\textrm{true-in-sb}$,  is calculated as:
 \begin{equation}
-		N_{true-in-sb} = N_{sig} \cdot (1-f_i) \cdot \frac{p_{sb}}{p_{sig}}
+		N_\textrm{true-in-sb} = N_{sig} \cdot (1-f_i) \cdot \frac{p_{sb}}{p_{sig}}
 \end{equation}
-where $f_i$ is the fraction of fakes estimated from the template fit in the $i$th iteration, $p_{sb}$ and $p_{sig}$ are the probability of a simulated true photon falling into the signal region and sideband region as illustrated in Figure \ref{fig:iteration}. This procedure is iteratively repeated several times until the calculated $f_i$ converges, i.e. $|f_i - f_{i+1}| < 0.001f_i$. This method is validated using the GJet simulation samples and shows a considerable improvement on the fake fraction estimation. The validation results are shown in Figure \ref{fig:GJetValidation} .
+where $f_i$ is the fraction of fakes estimated from the template fit in the $i$th iteration, $p_{sig}$ and $p_{sb}$ are the probability of a simulated true photon falling into the signal region and sideband region, respectively, as illustrated in Figure \ref{fig:iteration}. This procedure is iteratively repeated several times until the calculated $f_i$ converges, i.e. $|f_i - f_{i+1}| < 0.001f_i$. This method is validated using the GJet simulation samples and shows a considerable improvement on the fake fraction estimation. The validation results are shown in Figure \ref{fig:GJetValidation} .
 
 \begin{figure*}[!hbt]
   \centering
@@ -178,13 +196,13 @@ The $Iso_{h^\pm}$ fit is performed in 14 $p_T$ bins on the data. The fitting res
 
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/JetFakePho_DoubleEG_ReMiniAOD.pdf}
-    \includegraphics[width=0.45\textwidth]{Figures/JetFakePho_MuonEG_ReMiniAOD.pdf}
-  \caption{The hadron fractions estimated in DoubleEG (left) and MuonEG (right) dataset.} 
+    \includegraphics[width=0.7\textwidth]{Figures/JetFakePho_DoubleEG_ReMiniAOD.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/JetFakePho_MuonEG_ReMiniAOD.pdf}
+  \caption{The hadron fractions estimated in DoubleEG (top) and MuonEG (bottom) dataset.} 
     \label{fig:hadronfraction}
 \end{figure*}
 
-Once the fraction of fakes are determined, the number of fakes in the candidate photons can be calculated and used as the numerator sample for the transfer factor calculation. The denominator sample of the transfer factor is a jet-enriched proxy sample. This sample is formed by replacing the candidate photon with a proxy object, which fulfills the following  criteria:
+Once the fraction of fakes are determined, the number of fakes in the candidate photons can be calculated and used as the numerator sample for the transfer factor calculation. The denominator sample of the transfer factor is a jet-enriched control sample. This sample is formed by replacing the candidate photon with a control object, which fulfills the following  criteria:
 \begin{center}
 \begin{itemize}
 \item pass H/E, $Iso_{pho}$, $Iso_{h^0}$ cut in the loose-ID
@@ -200,27 +218,27 @@ It is useful to parameterize the $p_T$ dependence of the transfer factors using 
 
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/JetFakeRate_transfer_eg_EB.pdf}
-    \includegraphics[width=0.45\textwidth]{Figures/JetFakeRate_transfer_mg_EB.pdf}
-  \caption{Function fits for jet-fake-photon transfer factor measurements in $e\gamma$ (left) and $\mu\gamma$ channel. The $p_T$ distributions of the proxy objects and fake photons are shown in black and red dots respectively. The one sigma band of the fitting are shown in black lines.}
+    \includegraphics[width=0.7\textwidth]{Figures/JetFakeRate_transfer_eg_EB.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/JetFakeRate_transfer_mg_EB.pdf}
+  \caption{Function fits for jet-fake-photon transfer factor measurements in $e\gamma$ (top) and $\mu\gamma$ (bottom) channel. The $p_T$ distributions of the control objects and fake photons are shown in black and red dots respectively. The one sigma band of the fitting are shown in black lines.}
     \label{fig:jetFakePt}
 \end{figure*}
 
 From the fits, we obtained the function forms for the $e\gamma$ channel:
 \begin{equation}
-R_{fake/proxy} = \frac{ 1.43 \times 10^4 \cdot e^{-0.069 \cdot p_T} + 5.11 \times 10^2 \cdot e^{-0.030 \cdot p_T}}{4.08 \times 10^4 \cdot e^{-0.055 \cdot p_T} +  5.51 \times 10^2 \cdot e^{-0.019 \cdot p_T}}
+R_{fake/control} = \frac{ 1.43 \times 10^4 \cdot e^{-0.069 \cdot p_T} + 5.11 \times 10^2 \cdot e^{-0.030 \cdot p_T}}{4.08 \times 10^4 \cdot e^{-0.055 \cdot p_T} +  5.51 \times 10^2 \cdot e^{-0.019 \cdot p_T}}
 \end{equation}
 
 and $\mu\gamma$ channel:
 \begin{equation}
-R_{fake/proxy} = \frac{ 2.39 \times 10^4 \cdot e^{-0.082 \cdot p_T} + 3.33 \times 10^2 \cdot e^{-0.030 \cdot p_T}}{6.01 \times 10^4 \cdot e^{-0.059 \cdot p_T} +  5.90 \times 10^2 \cdot e^{-0.021 \cdot p_T}}
+R_{fake/control} = \frac{ 2.39 \times 10^4 \cdot e^{-0.082 \cdot p_T} + 3.33 \times 10^2 \cdot e^{-0.030 \cdot p_T}}{6.01 \times 10^4 \cdot e^{-0.059 \cdot p_T} +  5.90 \times 10^2 \cdot e^{-0.021 \cdot p_T}}
 \end{equation}
 
-The choice of the $\sigma_{i\eta i\eta}$ sideband is identified as the major source of systematic uncertainties of the fraction of fakes. Since the $Iso_{h^\pm}$ and $\sigma_{i\eta i\eta}$ are correlated, inaccuracy on the fake fraction estimation is expected even though the iterative method is applied. This uncertainty can be assessed by varying the sideband definition and repeating the fit with the modified template. We scan the lower bound of the sideband from 0.01031 to 0.0112 in a step of 0.0101, and scan the upper bound from 0.0140 to 0.0185 in a step of 0.0105. The scan result in one of the $p_T$ bin is shown in Figure \ref{fig:jetfakeSys}. The full variation is taken as the systematic uncertainty. 
+The choice of the $\sigma_{i\eta i\eta}$ sideband is identified as the major source of systematic uncertainties of the fraction of fakes. Since the $Iso_{h^\pm}$ and $\sigma_{i\eta i\eta}$ are correlated, inaccuracy on the fake fraction estimation is expected even though the iterative method is applied. This uncertainty can be assessed by varying the sideband definition and repeating the fit with the modified template. We scan the lower bound of the sideband from 0.01031 to 0.0112 in a step of 0.00005, and scan the upper bound from 0.0140 to 0.0185 in a step of 0.0005. The scan result in one of the $p_T$ bin is shown in Figure \ref{fig:jetfakeSys}. The full variation is taken as the systematic uncertainty. 
 
 \begin{figure*}[!hbt]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/can2D-50-55_ChIso-DoubleEG-ReMiniAOD.pdf}
+    \includegraphics[width=0.7\textwidth]{Figures/can2D-50-55_ChIso-DoubleEG-ReMiniAOD.pdf}
   \caption{2D distribution of the fraction of hadrons for photons with 50 GeV $< p_T <$ 55 GeV. The full variation will be used as systematic uncertainties of the template fit.}
     \label{fig:jetfakeSys}
 \end{figure*}
@@ -236,14 +254,14 @@ The systematic uncertainties on the fraction of fakes get propagated to the func
 Events with jets and prompt photons also enter the signal region if the jets get misidentified as leptons. In this analysis,  we consider all leptons that do not originate  from a~\PWpm or~\PZz as  fakes. This includes leptons from heavy-flavour decays, misidentified jets, light-meson decays, and electrons from photon conversions. Studies on simulated QCD events show that the fake muons mostly come from  heavy flavor quarks, while the fake electrons predominantly come from light flavor jets with significant electromagnetic components. 
 
 We estimate the contribution of fake leptons in a manner analogous to the
-estimation of fake photons: select a proxy sample of events enriched in the fake leptons, and then use a scale factor to extrapolate this sample to the background in the signal region.  The selection of the proxy sample is close to that of the signal candidate. We require the proxy sample to contain one candidate photon, one fake lepton proxy, and no candidate leptons. 
+estimation of fake photons: select a control sample of events enriched in the fake leptons, and then use a scale factor to extrapolate this sample to the background in the signal region.  The selection of the control sample is close to that of the signal candidate. We require the control sample to contain one candidate photon, one fake lepton control object, and no candidate leptons. 
 
-The scale factor for the fake lepton proxy sample is derived in a $40 < p_{T}^{miss} < 70$ GeV control region using a template fit to the
-$\Delta\phi\left(l, p_{T}^{miss}\right)$ distribution. After removing the contribution of fake photons, events in the control region are dominated by $W\gamma/Z\gamma$ processes and fake lepton contributions. $p_{T}^{miss}$ in the fake lepton events usually come from mismeasured objects. Thus the $\Delta\phi\left(l, p_{T}^{miss}\right)$ shape of the fake lepton background is different with that of the $W\gamma/Z\gamma$ processes. This feature allows us to perform a two templates fit to the $\Delta\phi\left(l, p_{T}^{miss}\right)$ of the data and simultaneously determine the normalization for the fake lepton proxy sample and $W\gamma/Z\gamma$ simulated samples. The normalized proxy sample then provides the estimate of the
+The scale factor for the fake lepton control sample is derived in a $40 < p_{T}^{miss} < 70$ GeV control region using a template fit to the
+$\Delta\phi\left(l, p_{T}^{miss}\right)$ distribution. After removing the contribution of fake photons, events in the control region are dominated by $W\gamma/Z\gamma$ processes and fake lepton contributions. $p_{T}^{miss}$ in the fake lepton events usually come from mismeasured objects. Thus the $\Delta\phi\left(l, p_{T}^{miss}\right)$ shape of the fake lepton background is different with that of the $W\gamma/Z\gamma$ processes. This feature allows us to perform a two templates fit to the $\Delta\phi\left(l, p_{T}^{miss}\right)$ of the data and simultaneously determine the normalization for the fake lepton control sample and $W\gamma/Z\gamma$ simulated samples. The normalized control sample then provides the estimate of the
 background contribution from events with fake leptons in the signal region. The template fit is described in details in Section~\ref{sec:VG}. 
 
-\subsection{Fake Electron Proxies}
-We find from simulations of QCD events that fake electrons commonly result from light flavor jets which shower significantly in the ECAL and get misidentified as electrons. These fake electrons have some characteristic features like large energy sum around the objects,  broader cluster shapes in $\eta$, and less consistent match between the reconstructed track momentum and the corresponding cluster energy. We therefore impose the following requirements on the electron objects of our proxy sample:
+\subsection{Fake Electron Control Sample}
+We find from simulations of QCD events that fake electrons commonly result from light flavor jets which shower significantly in the ECAL and get misidentified as electrons. These fake electrons have some characteristic features like large energy sum around the objects,  broader cluster shapes in $\eta$, and less consistent match between the reconstructed track momentum and the corresponding cluster energy. We therefore impose the following requirements on the electron objects of our control sample:
 
 \begin{itemize}
     \item Electron $\pt > 25\GeV$, $|\eta| < 1.442$ or $1.56 < |\eta| < 2.5$.
@@ -255,7 +273,7 @@ From simulation, we find the selection has negligible contamination from prompt
 electrons.
 
 To check the consistency of the background modeling, we compare events in data
-with proxy electrons to events in QCD simulation with electrons matched to
+with control electrons to events in QCD simulation with electrons matched to
 fakes. To ensure sufficient statistics in the QCD simulation, we replace the
 requirement that the event contains a loose photon with the requirement that it
 contains a loose jet, as described in Section \ref{sec:jetID}, and we insist that
@@ -263,7 +281,7 @@ $\Delta R\left(\textrm{\Pl, jet}\right) > 0.8$. The distributions of several
 kinematic variables are compared between the two samples, as shown in
 Fig.~\ref{fig:c_electron}. Reasonable agreements are obtained in all distributions.
 The $\Delta\phi\left(l, p_{T}^{miss}\right)$ distribution
-is used in the template fit to determine the normalization factor of the proxy
+is used in the template fit to determine the normalization factor of the control
 sample.
 
 \begin{figure*}[hbtp]
@@ -273,13 +291,13 @@ sample.
     \includegraphics[width=0.475\textwidth]{Figures/faketemp_electron_mt.pdf}
     \includegraphics[width=0.475\textwidth]{Figures/faketemp_electron_dPhi.pdf}
     \caption{Comparison of various kinematic distributions between simulated
-        QCD events with a fake electron and events in data with a proxy
+        QCD events with a fake electron and events in data with a control
         electron. The distributions are area-normalized to facilitate a
         comparison of their shapes.}
         \label{fig:c_electron}
 \end{center}\end{figure*}
 
-\subsection{Fake Muon Proxies}
+\subsection{Fake Muon Control Sample}
 
 Simulation indicates that, in contrast to the electron case, muon fakes tend to
 be the product of real, non-prompt muons from the decay of heavy-flavor quarks.
@@ -287,18 +305,18 @@ Because these are real muons, the distributions of their primary ID variables
 tend to be indistinguishable from those of prompt muons. The primary handle for
 distinguishing these objects is thus the mini-isolation variable, which tends
 to be greater for objects produced in the decays of heavy quarks. We therefore
-construct muon proxies by requiring candidate muons to pass the following
+construct muon control sample by requiring candidate muons to pass the following
 selection criteria:
 \begin{itemize}
     \item Muon $p_T > 25\GeV$, $|\eta| <$ 2.4.
     \item Passes cut-based medium ID.
     \item $0.2 <$ mini-isolation $< 0.4$.
 \end{itemize}
-From simulation we conclude that the muon proxy sample has less than 5\%
+From simulation we conclude that the muon control sample has less than 5\%
 contamination from prompt muons.
 
 We again check the consistency of the background modeling by comparing the
-kinematic distributions of data events with proxy muons to simulated events
+kinematic distributions of data events with control muons to simulated events
 with fake muons. We switch the requirement of a loose photon in the event
 to the requirement of a loose jet, which is well separated from the lepton candidate
 ($\Delta R\left(\textrm{\Pl, jet}\right) > 0.8$). The distributions of these
@@ -310,29 +328,30 @@ variables are shown in Fig. \ref{fig:c_muon}.
     \includegraphics[width=0.475\textwidth]{Figures/faketemp_muon_mt.pdf}
     \includegraphics[width=0.475\textwidth]{Figures/faketemp_muon_dPhi.pdf}
     \caption{Comparison of various kinematic distributions between simulated
-        QCD events with a fake muon and events in data with a proxy muon. The
+        QCD events with a fake muon and events in data with a control muon. The
         distributions are area-normalized to facilitate a comparison of their
         shapes.}
         \label{fig:c_muon}
 \end{center}\end{figure*}
 
 \subsection{Corrections on Proxy Samples}
-Because the mini-isolation is computed using a cone size depending on the momentum of the lepton, the mini-isolation cuts could have non-linear efficiencies. Thus the $p_T$ distribution of the fake lepton background may not be perfectly modeled by the proxy sample. By comparing the $p_T$ distribution of the fake proxies and simulated QCD events, we find disagreements in the fake electron $p_T$ shapes. Though the lepton $p_T$ is not directly used in defining the signal bins, a mismodeled lepton $p_T$ could still affect the determination of the $V\gamma$ and fake lepton scale factors. Therefore, we use the ratios between the simulated events and fake electron proxies as correction factors to reweight the fake electron control samples. For the fake muons, the shape of the proxy sample is more consistent with the QCD simulations, moreover, the rate for a jet to be misidentified as a muon is much smaller than that of an electron. Thus we won't correct the muon control samples. 
-Figure \ref{fig:reweight_fakelep} shows the $p_T$ distributions and the MC-to-data ratios. Table \ref{table:correctionsfakelep} summarize the correction factors we used for the electron proxy reweighting.
+Because the mini-isolation is computed using a cone size depending on the momentum of the lepton, the mini-isolation cuts could have non-linear efficiencies. Thus the $p_T$ distribution of the fake lepton background may not be perfectly modeled by the control sample. By comparing the $p_T$ distribution of the control objects and simulated QCD events, we find disagreements in the fake electron $p_T$ shapes. Though the lepton $p_T$ is not directly used in defining the signal bins, a mismodeled lepton $p_T$ could still affect the determination of the $V\gamma$ and fake lepton scale factors. Therefore, we use the ratios between the simulated events and fake electron control sample as correction factors to reweight the fake electron control samples. For the fake muons, the shape of the control sample is more consistent with the QCD simulations, moreover, the rate for a jet to be misidentified as a muon is much smaller than that of an electron. Thus we won't correct the muon control samples. 
+Figure \ref{fig:reweight_fakelep} shows the $p_T$ distributions and the MC-to-data ratios. Table \ref{table:correctionsfakelep} summarize the correction factors we used for the electron control reweighting.
 
 \begin{figure*}[hbtp]\begin{center}
-    \includegraphics[width=0.475\textwidth]{Figures/faketemp_electron_LepPt.pdf}
-    \includegraphics[width=0.475\textwidth]{Figures/faketemp_muon_LepPt.pdf}
-    \caption{Comparison of lepton $p_T$ distributions between the QCD simulation and fake lepton proxy samples. Left: $e\gamma$ events, right: $\mu\gamma$ events. The ratio can be used as correction factors.}
+    \includegraphics[width=0.7\textwidth]{Figures/faketemp_electron_LepPt.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/faketemp_muon_LepPt.pdf}
+    \caption{Comparison of lepton $p_T$ distributions between the QCD simulation and fake lepton control samples. Top: $e\gamma$ events, bottom: $\mu\gamma$ events. The ratio can be used as correction factors.}
         \label{fig:reweight_fakelep}
 \end{center}\end{figure*}
 
 \begin{table}[ht]
-  \caption{Correction factors used in electron proxy reweighting.}
+  \caption{Correction factors used in electron control reweighting.}
+  \label{table:correctionsfakelep}
 	\centering
   \begin{tabular}{|c|c|c|}
   \hline
-  $p_T$ (GeV)  & $e$ proxy corrections \\ \hline
+  $p_T$ (GeV)  & $e$ control corrections \\ \hline
   25-50  & 0.79$\pm$ 0.02  \\ \hline
   50-75  & 1.12$\pm$ 0.04  \\ \hline
   75-100 & 1.41$\pm$ 0.08  \\ \hline 
@@ -342,7 +361,6 @@ Figure \ref{fig:reweight_fakelep} shows the $p_T$ distributions and the MC-to-da
   200-400& 1.55$\pm$ 0.27  \\ \hline
   $>$ 400& 1.0 \\ \hline 
   \end{tabular}
-  \label{table:correctionsfakelep}
 \end{table}
 
 \section{$W\gamma$ and $Z\gamma$ Background}\label{sec:VG}
@@ -352,7 +370,7 @@ The $W\gamma$ sample is formed by mixing the inclusive $WGToLNuG$ sample with tw
 
 \begin{figure*}[!hbt]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/WGMixing.pdf}
+    \includegraphics[width=0.7\textwidth]{Figures/WGMixing.pdf}
   \caption{Photon $p_T$ distributions in individual $W\gamma$ samples and their combination.}
     \label{fig:mixWG}
 \end{figure*}
@@ -401,14 +419,14 @@ Figure \ref{fig:apen-ISRJetPt} shows the comparision between the ISR $p_T$ spect
 \end{figure}
 
 The corrected $V\gamma$ distributions are normalized with scale factors derived in the control region to estimate the backgrounds in the signal region. 
-Because the angular distance between the signal lepton and MET has different shapes in the $V\gamma$ and misidentified object background, we choose to use $\Delta\phi(l,E_{T}^{miss})$ as the distribution for the template fit. For the fake lepton background, the missing transverse momentum is typically caused by mismeasured object and tends to be aligned with the lepton. The $W\gamma$ events, on the other hand, has a neutrino and thus contains genuine $E_{T}^{miss}$. Figure \ref{fig:dphitemplate} shows the distribution of these two sources. Fitting the two $\Delta\phi$ templates to the distributions of the data will simultaneously determine the normalization factors for the $V\gamma$ and fake leptons backgrounds. 
+Because the angular distance between the signal lepton and $\MET$ has different shapes in the $V\gamma$ and misidentified object background, we choose to use $\Delta\phi(l,E_{T}^{miss})$ as the distribution for the template fit. For the fake lepton background, the missing transverse momentum is typically caused by mismeasured object and tends to be aligned with the lepton. The $W\gamma$ events, on the other hand, has a neutrino and thus contains genuine $E_{T}^{miss}$. Figure \ref{fig:dphitemplate} shows the distribution of these two sources. Fitting the two $\Delta\phi$ templates to the distributions of the data will simultaneously determine the normalization factors for the $V\gamma$ and fake leptons backgrounds. 
 
 \begin{figure*}[hbtp]
     \begin{center}
-    \includegraphics[width=0.45\textwidth]{Figures/dphiTemplate_eg.pdf}
-    \includegraphics[width=0.45\textwidth]{Figures/dphiTemplate_mg.pdf}
+    \includegraphics[width=0.7\textwidth]{Figures/dphiTemplate_eg.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/dphiTemplate_mg.pdf}
     \end{center}
-  \caption{$\Delta\phi\left(\ell,E_{T}^{miss}\right)$ distribution of the $V\gamma$ sample (blue) and fake lepton template(red) in the $e\gamma$ channel (left) and $\mu\gamma$ channel (right). }
+  \caption{$\Delta\phi\left(\ell,E_{T}^{miss}\right)$ distribution of the $V\gamma$ sample (blue) and fake lepton template(red) in the $e\gamma$ channel (top) and $\mu\gamma$ channel (bottom). }
     \label{fig:dphitemplate}
 \end{figure*}
 
@@ -416,7 +434,7 @@ The template fitting is performed in the control region, defined by 40 GeV $< p_
 
 \begin{figure*}[!hbt]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/dphiTemplate_MET.pdf}
+    \includegraphics[width=0.7\textwidth]{Figures/dphiTemplate_MET.pdf}
   \caption{$p_T^{miss}$ distributions of the $W\gamma$ (red) and $Z\gamma$ (blue) sample. The 40 GeV cut will remove a large fraction of the $Z\gamma$ contributions.}
     \label{fig:WGZG_met}
 \end{figure*}
@@ -429,22 +447,22 @@ Once the fraction of $V\gamma$ events in the control region is determined, the s
 \end{equation}
 where $N_{con}$ is the total number of events in the control sample, $f_{V\gamma}$ is the fraction of $V\gamma$ events derived from the template fit, and $N_{V\gamma}$ is the number of events in the $V\gamma$ template. After removing the $V\gamma$ events, the remaining events in the control sample are the contribution of fake leptons. 
 
-%To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perform the template fit in four lepton $p_T$ bins: (25-50, 50-70, 70-100, $>=$100) GeV. Figure \ref{fig:dphiptdependence} shows that the fluctuation of the scale factors in different $p_T$ bins are within systematic uncertainties. Since no obvious $p_T$ dependence is observed and the statistics at high $p_T$ is limited, we decide to perform the template fit in the full $p_T$ range and use a global $V\gamma$ scale factor. However, this may not be true for the fake lepton scale factors, because the $p_T$ distribution of the fake lepton background may not be perfectly modeled by the proxy sample. Thus we first subtract the $V\gamma$ contribution from the control sample using the global $V\gamma$ scale factors, and then use $p_T$-binned fake lepton scale factors to let the fake lepton proxy sample fill the control region. The $p_T$-binned scale factors are obtained by taking the ratio of the remaining events to the fake lepton templates in different $p_T$ bins. Figure \ref{fig:dphifitresult} shows the result of the fit. 
+%To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perform the template fit in four lepton $p_T$ bins: (25-50, 50-70, 70-100, $>=$100) GeV. Figure \ref{fig:dphiptdependence} shows that the fluctuation of the scale factors in different $p_T$ bins are within systematic uncertainties. Since no obvious $p_T$ dependence is observed and the statistics at high $p_T$ is limited, we decide to perform the template fit in the full $p_T$ range and use a global $V\gamma$ scale factor. However, this may not be true for the fake lepton scale factors, because the $p_T$ distribution of the fake lepton background may not be perfectly modeled by the control sample. Thus we first subtract the $V\gamma$ contribution from the control sample using the global $V\gamma$ scale factors, and then use $p_T$-binned fake lepton scale factors to let the fake lepton control sample fill the control region. The $p_T$-binned scale factors are obtained by taking the ratio of the remaining events to the fake lepton templates in different $p_T$ bins. Figure \ref{fig:dphifitresult} shows the result of the fit. 
 
 To study the possible $p_T$ dependence of the $V\gamma$ scale factors, we perform the template fit in four lepton $p_T$ bins: (25-50, 50-70, 70-100, $>=$100) GeV. Figure \ref{fig:dphiptdependence} shows that the fluctuation of the scale factors in different $p_T$ bins are within systematic uncertainties. Since no obvious $p_T$ dependence is observed and the statistics at high $p_T$ is limited, we decide to perform the template fit in the full $p_T$ range and use a global $V\gamma$ scale factor. Figure \ref{fig:dphifitresult} shows the result of the fit. 
-\begin{figure*}[!hbt]
+\begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/scale_ptDependence_eg.pdf}
-    \includegraphics[width=0.45\textwidth]{Figures/scale_ptDependence_mg.pdf}
-  \caption{The $V\gamma$ scale factors as a function of lepton $p_T$. The blue dots denote the $p_T$ binned scale factors, and the black dots denote the scale in full $p_T$ range. Left: $e\gamma$ channel, right: $\mu\gamma$ channel. }
+    \includegraphics[width=0.7\textwidth]{Figures/scale_ptDependence_eg.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/scale_ptDependence_mg.pdf}
+  \caption{The $V\gamma$ scale factors as a function of lepton $p_T$. The blue dots denote the $p_T$ binned scale factors, and the black dots denote the scale in full $p_T$ range. Top: $e\gamma$ channel, bottom: $\mu\gamma$ channel. }
     \label{fig:dphiptdependence}
 \end{figure*}
 
-\begin{figure*}[!hbt]
+\begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_eg.pdf}
-    \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_mg.pdf}
-  \caption{Results of the $\Delta\phi(l,E_{T}^{miss})$ template fit in the $e\gamma$ channel (left) and $\mu\gamma$ channel (right).}
+    \includegraphics[width=0.7\textwidth]{Fig/fit_dPhi_eg.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Fig/fit_dPhi_mg.pdf}
+  \caption{Results of the $\Delta\phi(l,E_{T}^{miss})$ template fit in the $e\gamma$ channel (top) and $\mu\gamma$ channel (bottom).}
     \label{fig:dphifitresult}
 \end{figure*}
 
@@ -472,9 +490,9 @@ Therefore, the normalization obtained in control region can be used to predict t
 
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_eg_MET120.pdf}
-    \includegraphics[width=0.45\textwidth]{Fig/fit_dPhi_mg_MET120.pdf}
-  \caption{Validation of the $\Delta\phi(l,E_{T}^{miss})$ template fit in the intermediate $p_T^{miss}$ region for the $e\gamma$ channel (left) and $\mu\gamma$ channel (right).}
+    \includegraphics[width=0.7\textwidth]{Fig/fit_dPhi_eg_MET120.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Fig/fit_dPhi_mg_MET120.pdf}
+  \caption{Validation of the $\Delta\phi(l,E_{T}^{miss})$ template fit in the intermediate $p_T^{miss}$ region for the $e\gamma$ channel (top) and $\mu\gamma$ channel (bottom).}
     \label{fig:checkdPhi}
 \end{figure*}
 
@@ -483,9 +501,9 @@ repeat the fit 1000 times. Figure \ref{fig:dphisystematic} shows the distributio
 
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/VGammaScale_eg.pdf}
-    \includegraphics[width=0.45\textwidth]{Figures/VGammaScale_mg.pdf}
-  \caption{Distribution of the scale factors derived from 1000 toy MC experiments. Left: $e\gamma$ channel, right: $\mu\gamma$ channel.}
+    \includegraphics[width=0.7\textwidth]{Figures/VGammaScale_eg.pdf} \\
+    \includegraphics[width=0.7\textwidth]{Figures/VGammaScale_mg.pdf}
+  \caption{Distribution of the scale factors derived from 1000 toy MC experiments. Top: $e\gamma$ channel, bottom: $\mu\gamma$ channel.}
     \label{fig:dphisystematic}
 \end{figure*}
 
@@ -504,16 +522,16 @@ As shown in Figure \ref{fig:ttgvalidationeg} and \ref{fig:ttgvalidationmg}, good
 
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/VALID_egamma_2016ReMiniAOD_met_TT.png}
-    \includegraphics[width=0.45\textwidth]{Figures/VALID_egamma_2016ReMiniAOD_ht_TT.png}
-  \caption{$p_T^{miss}$ (left) and $H_T$ (right) distributions of the $e\gamma$ channel.}
+    \includegraphics[width=0.7\textwidth]{Figures/VALID_egamma_2016ReMiniAOD_met_TT.png} \\
+    \includegraphics[width=0.7\textwidth]{Figures/VALID_egamma_2016ReMiniAOD_ht_TT.png}
+  \caption{$p_T^{miss}$ (top) and $H_T$ (bottom) distributions of the $e\gamma$ channel.}
     \label{fig:ttgvalidationeg}
 \end{figure*}
 \begin{figure*}[hbtp]
   \centering
-    \includegraphics[width=0.45\textwidth]{Figures/VALID_mg_2016ReMiniAOD_met_TT.png}
-    \includegraphics[width=0.45\textwidth]{Figures/VALID_mg_2016ReMiniAOD_ht_TT.png}
-  \caption{$p_T^{miss}$ (left) and $H_T$ (right) distributions of the $\mu\gamma$ channel.}
+    \includegraphics[width=0.7\textwidth]{Figures/VALID_mg_2016ReMiniAOD_met_TT.png} \\
+    \includegraphics[width=0.7\textwidth]{Figures/VALID_mg_2016ReMiniAOD_ht_TT.png}
+  \caption{$p_T^{miss}$ (top) and $H_T$ (bottom) distributions of the $\mu\gamma$ channel.}
     \label{fig:ttgvalidationmg}
 \end{figure*}
 
@@ -521,6 +539,8 @@ As shown in Figure \ref{fig:ttgvalidationeg} and \ref{fig:ttgvalidationmg}, good
 There are several sources of systematic uncertainties that can affect the predicted backgrounds and signal expectation.
 Table \ref{table:ch4-systematic} summarizes the sources and relative values of systematic uncertainties.
 If the relative uncertainties differ significantly in different kinematic regions because of limited number of events available in the control sample or simulation, the minimum and maximum values of the relative uncertainty is shown.
+The main sources of systematic uncertainties are the scale factors derived from the $\Delta\phi(l,p_{T}^{miss})$ template fit and the cross sections used to normalize the rare EWK simulated samples.
+The subdominant systematic uncertainties come from the ISR reweighting of the $V\gamma$ samples, and modeling of the misidentified photos. 
 The systematic uncertainties considered for this analysis is described in the following. 
 
 \noindent \textbf{Jet Energy Scale} 
@@ -540,8 +560,8 @@ The relative variation of event yields in each search bin is assigned as the ESF
 \noindent \textbf{Photon Misidentification Rate} 
 \quad For the fake photon backgrounds, systematic uncertainties are obtained using toy MC methods, as described in Section \ref{sec:efakepho}\ref{sec:jetfakepho}. 
 For each search bin, the $1 \sigma$ variation of predicted background due to the changes in photon misidentification rate is used as the systematic uncertainty. 
-The number of events of the fake object proxy samples is limited, especially in the high $p_T^{\gamma}$ and high $p_T^{miss}$ bins which contains very few fake object backgrounds. 
-Therefore we use gamma distribution and estimated transfer factors to model the statistical uncertainties of these backgrounds. This allows us to assign uncertainties on the bins which have zero event in the proxy sample. 
+The number of events of the fake object control samples is limited, especially in the high $p_T^{\gamma}$ and high $p_T^{miss}$ bins which contains very few fake object backgrounds. 
+Therefore we use gamma distribution and estimated transfer factors to model the statistical uncertainties of these backgrounds. This allows us to assign uncertainties on the bins which have zero event in the control sample. 
 
 \noindent \textbf{ISR Corrections} 
 \quad Uncertainties caused by the ISR reweighting are considered. 
