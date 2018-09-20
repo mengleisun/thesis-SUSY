@@ -21,14 +21,14 @@ The 22$^{nd}$ and 36$^{th}$ bins, which are both in $e\gamma$ channel, show exce
 In the corresponding regions of the $\mu\gamma$ channel, the data agree with the SM backgrounds.
 Thus, we conclude that no significant excess of events above the SM expectation is observed. 
 
-\begin{figure}[tb]
+\begin{figure}[htb]
   \centering
     \includegraphics[width=0.49\textwidth]{Figures/binningOpt.pdf}
 		\caption{Optimization of the signal bins. Baseline binning (black): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. Plan 2 (red): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 100, $>$ 100\}GeV. Plan 3 (magenta): $\MET$\{120-200, 200-400, $ >$ 400\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV $\times$ $p_T^\gamma$ \{$<$ 200, $>$ 200\}GeV. Plan 4 (green): $\MET$\{120-200, 200-400, 400-600\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$\MET > $ 600 GeV\}. Plan 5 (cyan): $\MET$\{120-200, 200-400, 400-600\}GeV $\times$ $\HT$\{ $<$100, 100-400, $ >$ 400\}GeV. + \{$\MET > $ 600 GeV\}$\times$ $\HT$\{ $<$ 400, $ >$ 400\}GeV. }
     \label{fig:optbin}
-\end{figure}[tb]
+\end{figure}
 
-\begin{figure}[tb]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.38\textwidth]{Fig/Figure_004-a.pdf}
 \includegraphics[width=0.38\textwidth]{Fig/Figure_004-b.pdf} \\
@@ -43,7 +43,7 @@ Thus, we conclude that no significant excess of events above the SM expectation 
 \label{fig:signalPhoPt} 
 \end{figure}
 
-\begin{figure}[tb]
+\begin{figure}[htb]
   \centering
     \includegraphics[width=0.9\textwidth]{Fig/Figure_005.pdf}
 		\caption{Event yields and stacked background predictions as a function of search bin numbers.}
@@ -108,18 +108,18 @@ $\mu = 0$ and $b$ events corresponds to the background-only hypothesis, and $\mu
 Uncertainties of the backgrounds and signal yields are handled by introducing a set of nuisance parameters $\theta$.
 The expected number of events in the $i$th bin become functions of the nuisance parameters: 
 \begin{equation}
-	n_i = \mu \cdot s_i(\theta) + b_i(\theta)
+	n_i = \mu \cdot s_i(\theta) + b_i(\theta).
 \end{equation}
 A likelihood function is then constructed as:
 \begin{equation}
 	\begin{array}{c c l}
 	\mathcal{L}( \text{data}|\mu, \theta) & = & \text{Poisson}(\text{data}|\mu \cdot s(\theta) + b(\theta)) \cdot p(\tilde{\theta} | \theta) \\
 							       & = & \prod_{i=1}^N \frac{(\mu \cdot s_i + b_i)^{n_i}}{n_i !} e^{- (\mu \cdot s_i + b_i) } \cdot p(\tilde{\theta} | \theta),
-	\end{array}
+	\end{array},
 \end{equation}
 where $p(\theta | \tilde{\theta})$ is the PDFs of the uncertainties and $\tilde{\theta}$ denotes the default values of the nuisance parameters. 
 
-To test the background-only signal+background hypotheses, a test statistic $\tilde{q}_\mu$ based on the profile likelihood ratio is constructed as:
+To test the background-only and signal+background hypotheses, a test statistic $\tilde{q}_\mu$ based on the profile likelihood ratio is constructed as:
 \begin{equation}
 	\tilde{q}_\mu = -2 ln \frac{\mathcal{L}( \text{data}|\mu, \hat{\theta}_\mu)}{\mathcal{L}( \text{data}|\hat{\mu}, \hat{\theta})}, \text{with}\  0 \le \hat{\mu} \le \mu, 
 \end{equation}
@@ -140,7 +140,7 @@ and that for the background-only hypothesis can be defined as:
 \end{equation}
 The ratio of these two $p$ values is defined to be the CL$_s$, as:
 \begin{equation}
-	\text{CL}_\mu(\mu) = \frac{p_mu}{1-p_b}
+	\text{CL}_\mu(\mu) = \frac{p_\mu}{1-p_b}.
 \end{equation}
 If, for $\mu = 1$, CL$_s \le $ 0.05, we state that the SUSY model considered is excluded at 95\% CL. 
 
@@ -153,7 +153,7 @@ The TChiWg model is initiated by the direct pair production of NLSP particles $\
 The masses of $\PSGczDo$ and $\PSGcpmDo$ are taken to be degenerate and are scanned in the range 300-1200 GeV in the TChiWg model.  
 Figure \ref{fig:tchiwglimit} shows the limits for the TChiWg models as a function of the NLSP masses, along with the theoretical cross-section of the $\PSGczDo$/$\PSGcpmDo$ pair production.
 The crossing point between the theoretical cross-section and the observed limits denotes the excluded mass. 
-This search excludes NLSP masses up to 900 GeV, extending the current best limit by about 120 GeV \cite{}.
+This search excludes NLSP masses up to 900 GeV, extending the current best limit by about 120 GeV \cite{singlephotonMET}.
 
 The T5Wg (T6Wg) model assumes the strong production of $\tilde{g}$ ($\tilde{q}$) pairs, which decay to $\PSGczDo$ or $\PSGcpmDo$ with a branching fraction of 50\%. 
 Figure \ref{fig:t5wglimit} shows the upper limits on the cross-section $\times$ 50\% branching fraction for the T5Wg (left) and T6Wg (right) models. 

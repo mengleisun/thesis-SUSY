@@ -31,7 +31,7 @@ Therefore, the track-finding algorithms must be able to fully exploit the capabi
 
 A Combinatorial Track Finder (CTF) based on extended Kalman filter (KF) is used for track reconstruction~\cite{TrackPF}. 
 The CTF reconstruction sequence is performed in several iterations, with the initial interactions targeting at easy-identifiable tracks whereas later interactions dealing with more complex situations. 
-Hits associated with the tracks in each iteration is removed from later iterations in order to reduce the complexity for reconstructing more difficult tracks. 
+Hits associated with the tracks in each iteration are removed from later iterations in order to reduce the complexity for reconstructing more difficult tracks. 
 The CTF generates track seeds in the inner layers of the tracker and constructs the tracks outwards. 
 Each CTF iteration proceeds in four steps:
 
@@ -68,7 +68,7 @@ Figure \ref{fig:multifit} shows examples of fitted pulses for simulated events i
 \end{figure*}
 
 Energy of the photons usually spread over several crystals. 
-Calorimeter hits deposited by the same electromagnetic shower is collected by the clustering algorithm. 
+Calorimeter hits deposited by the same electromagnetic shower are collected by the clustering algorithm. 
 First, cluster seeds are formed by taking local maxima of energy deposits above a given threshold. 
 Second, adjacent cells with an energy above the noise cut are added to the cluster seeds to form basic clusters. 
 In the final step, basic clusters belonging to the same object are merged together to form a supercluster, which is extended in $\phi$, to recover the radiated energy. 
@@ -96,11 +96,11 @@ The absolute ADC to GeV scale factor is determined separately in EB and EE using
 Any object that deposits a significant fraction of energy in the ECAL can be reconstructed as a photon.
 Therefore, electrons and electromagnetically rich jets are all registered in the photon collection. 
 To distinguish the real photons from other objects, photon candidates are required to pass a list of shower shape quality cuts and not to have a matching track seed from the tracker. 
-Details of photon identification criteria is described in Section \ref{sed:photonID}.
+Details of photon identification criteria is described in Section \ref{sec:photonID}.
 
 \section{Electrons}
 
-Electrons are reconstructed by associating a track reconstructed in the silicon tracker to an ECAL supercluster~\cite{ElectronPF}.
+Electrons are reconstructed by associating tracks reconstructed in the silicon tracker to ECAL superclusters~\cite{ElectronPF}.
 A dedicated track reconstruction algorithm is implemented for electrons because they have large radiative losses in the tracker than other charged particles.
 The electron track reconstruction also has the seeding, track finding and track fitting steps. 
 In the seeding step, both ECAL-based and tracker-based seeding are considered. 
@@ -138,13 +138,13 @@ The distance between two entities is defined as:
 \begin{equation}
 	d_{ij} = min(k_{ti}^{2p}, k_{tj}^{2p})\frac{\Delta_{ij}^2}{R^2},
 \end{equation}
-where $\Delta_{ij}^2 = (\eta_i - \eta_j)^2 + (\phi_i - \phi_j)^2$ and R is the radius of the reconstruction cone. 
+where $\Delta_{ij}^2 = (\eta_i - \eta_j)^2 + (\phi_i - \phi_j)^2$, and R is the radius of the reconstruction cone. 
 In CMS Run II, a R = 0.4 cone is used for normal jets. 
 
 The anti-$k_T$ is a sequential clustering algorithm which proceeds in an iterative way.
 In each iteration, it computes the $d_{iB}$ and $d_{ij}$ of all entities, and compares them to find the smallest quantity.  
 If $d_{ij}$ is the smallest one, then the $i$th and $j$th object are merged into one. 
-Otherwise, if $d_{iB}$ is the smallest one, then the $i$th object is called a jet and get removed from the list. 
+Otherwise, if $d_{iB}$ is the smallest one, then the $i$th object is called a jet and gets removed from the list. 
 These steps are repeated until all particles are clustered into jets. 
 
 \section{Muons}
@@ -167,7 +167,7 @@ The presence of invisible particles, therefore, results in an imbalance in the t
 
 The raw \MET~is calculated as the negative of the vector sum of the transverse momentum of all reconstructed objects in an event~\cite{METPF}:
 \begin{equation*}
-	p_{T, raw}^{miss} = - \sum_{i}^{N_{particles}}p_{T,i}
+	p_{T, raw}^{miss} = - \sum_{i}^{N_{particles}}p_{T,i}.
 \end{equation*}
 
 \MET~is a high-level variable reconstructed using all visible particles in an event.

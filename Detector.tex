@@ -10,7 +10,7 @@ The Large Hadron Collider (LHC)~\cite{LHCTDR}, located at CERN on the France-Swi
 It is installed in a 27 km long near-circular tunnel that was constructed in the 1980s to host the Large Electron-Positron (LEP) machine. 
 The LHC uses twin-bore magnets to allow two proton beams to travel in opposite directions. 
 The main superconducting magnets of the LHC operate at a temperature below 2K, which is maintained by a superfluid helium cryogenic system, and generates a peak dipole field of 8.33 T. 
-The LHC is designed to provides a peak luminosity of $L = 10^{34}cm^{2}s^{-1}$ and a maximum center of mass energy of $\sqrt{s} = $14 TeV for proton-proton collisions. 
+The LHC is designed to provides a peak luminosity of $L = 10^{34}\ \text{cm}^{-2}\text{s}^{-1}$ and a maximum center of mass energy of $\sqrt{s} = $14 TeV for proton-proton collisions. 
 
 The protons injected to the LHC are boosted by a chain of accelerators, each of which increases the energy of the protons to a certain scale and the beams can also be delivered to other experiments at low energy. 
 The configuration of the CERN accelerator complex is shown in Fig. \ref{fig:LHC}. 
@@ -21,7 +21,7 @@ The LHC is the last element in the accelerator complex, where protons are stored
 
 \begin{figure*}[hbt]
 	\centering
-	\includegraphics[width=0.8\textwidth]{plot/LHCcomplex.png}
+	\includegraphics[width=0.95\textwidth]{plot/LHCcomplex.png}
 	\caption{Scheme of the CERN Accelerator Complex.}
 	\label{fig:LHC}
 \end{figure*}
@@ -30,7 +30,7 @@ The LHC is the last element in the accelerator complex, where protons are stored
 The two high-energy proton beams circulate in the LHC at close to the speed of light and collide with each other at four interaction points (IP), corresponding to the location of the four detectors: CMS, ATLAS, ALICE and LHCb. 
 The CMS and ATLAS are general-purpose detectors, which investigate a wide range of physics from the precise measurements of the SM to searches for new physics. 
 The ALICE is a heavy-ion detector, focusing on the study of strong interactions. 
-The LHCb experiment specializes in b quark physics, and it is a single arm detector which mainly collects forward particles. 
+The LHCb experiment specializes in b quark physics, and is a single arm detector which mainly collects forward particles. 
 In addition, there are three smaller experiments on the LHC: TOTEM (Total, elastic and diffractive cross-section measurement), LHCf ((Large Hadron Collider forward) and MoEdal (Monopole and Exotics Detector). 
 This thesis will focus on the results of the CMS experiments. 
 
@@ -66,12 +66,12 @@ The CMS uses a coordinate system with the origin centered at the interaction poi
 The tracking system is designed to provide a precise and efficient reconstruction of the trajectories of charged particles. 
 At the same time, accurate measurements of secondary vertices and impact parameters are necessary for the estimation of the positions of primary vertices as well as the identification of heavy flavors. 
 At the designed luminosity of the LHC, about 1000 particles are expected to hit the tracker at each bunch crossing. 
-To keep the occupancy at around 1\% in such challenging operation conditions, pixelated detectors and micro-strip detectors are used at the small radii and large radii regions respectively. 
+To keep the occupancy at around 1\% in such challenging operation conditions, pixelated detectors and micro-strip detectors are used at the small radii and large radii regions, respectively. 
 The sensors are solely made of radiation tolerant silicons. With a sensitive area of about 200 $m^2$, the CMS tracker is so far the largest silicon tracker.  
 
 The tracker has a cylindrical volume of 5.8 m in length and 2.5 m in diameter, embedded in the homogeneous magnetic field of 3.8 T. 
 A schematic view of the CMS tracker is shown in Fig. \ref{fig:tracker}. 
-In the barrel region, the pixel detector consists of three cylindrical layers at radii between 4.4 cm and 10.2 cm and the strip tracker consists of ten layers extending to 110cm in radius. 
+In the barrel region, the pixel detector consists of three cylindrical layers at radii between 4.4 cm and 10.2 cm and the strip tracker consists of ten layers extending to 110 cm in radius. 
 Both subdetectors are complemented by disks on each side, extending to 290 cm in z and covering a pseudorapidity range up to $|\eta| <$ 2.5. 
 
 \begin{figure*}[!htb]
@@ -117,14 +117,14 @@ Figure \ref{fig:stripreso} shows the resolution of the strip detectors. A 20-30 
 
 \begin{figure*}[!htb]
 	\centering
-	\includegraphics[width=0.49\textwidth]{Fig/StripHitRes.pdf}
+	\includegraphics[width=0.7\textwidth]{Fig/StripHitRes.pdf}
 	\caption{Strip Hit resolution for different cluster widths expressed in units of number of strips. }
 	\label{fig:stripreso}
 \end{figure*}
 
 \subsection{Electromagnetic Calorimeter}
 The CMS electromagnetic calorimeter (ECAL) is a hermetic, homogeneous detector consisting of 61,200 PbWO$_4$ crystals in the barrel (EB), and 7324 crystals in each of the two endcap sections (EE). 
-The PbWO$_4$ crystals have a density of 8.28 g/cm$^3$, radiation length of 0.89 cm and Moli`ere radius of 2.2 cm. 
+The PbWO$_4$ crystals have a density of 8.28 g/cm$^3$, radiation length of 0.89 cm and Moli\`ere radius of 2.2 cm. 
 These characteristics make them the appropriate material for a compact calorimeter. 
 The scintillation light emitted by the crystals are blue-green color, with a maximum wavelength at 420-430 nm. 
 Therefore blue laser can be used to monitor the transparency and response of the crystals. 
@@ -169,8 +169,8 @@ Figure \ref{fig:lasermonitor} shows the evolution of the ECAL response for the R
 \end{figure*}
 
 The ECAL has been operating stably throughout the 2015 and 2016 LHC Run II operation.
-The analysis using 2.5fb collision data collected in 2015 shows that a relative energy resolution
-between 1.4\% and 3\% for electrons is achieved in the EB, and 3\% to 4\% for EE~\cite{Sun:2233637}. 
+The analysis using 2.5 $\text{fb}^{-1}$ collision data collected in 2015 shows that a relative energy resolution
+between 1.4\% and 3\% for electrons is achieved in the EB, and 3-4\% for EE~\cite{Sun:2233637}. 
 
 \subsection{Hadron Calorimeter}
 The hadron calorimeter (HCAL) is designed to absorb and measure the energy of hadrons. 
@@ -250,7 +250,7 @@ When segments of the whole chamber are fitted together, the resolution is improv
 	\centering
 	\includegraphics[width=0.8\textwidth]{plot/DT.png}
 	\caption{An R-z cross section of a quadrant of the CMS detector with the axis parallel to the beam (z) running horizontally and radius (R) increasing upward.  The interaction point is at the lower left corner. 
-	 Shown are the locations of the various muon stations and the steel disks (dark grey areas). The 4 drift tube (DT, in light orange) stations are labeled MB (?muon barrel?) and the cathode strip chambers (CSC, in green) are labeled ME (?muon endcap?).              Resistive plate chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE, respectively.}
+	 Shown are the locations of the various muon stations and the steel disks (dark grey areas). The 4 drift tube (DT, in light orange) stations are labeled MB (muon barrel) and the cathode strip chambers (CSC, in green) are labeled ME (muon endcap).              Resistive plate chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE, respectively.}
 	\label{fig:DT}
 \end{figure*}
 
@@ -358,7 +358,7 @@ The offline DQM is used in the monitoring of the reconstruction quality, validat
 
 Figure \ref{fig:dqmworkflow} shows the workflow of the DQM. 
 The subset of raw data containing both the physics events and calibration data are delivered to the DQM farm for unpacking and reconstruction.
-Each sub-detector has a set of DQM code that check the quality of the data relevant to it and record the analysis results in a ROOT file.
+Each sub-detector has a set of DQM code that checks the quality of the data relevant to it and record the analysis results in a ROOT file.
 The quality check is performed every lumi section, and the ROOT files are delivered to the graphical user interface (GUI) for view.
 GUI, the central component of the DQM, is a website for browsing data quality histograms.
 The content in GUI is organized in workspaces depending on the scope and ranging from high-level summaries to shift views to expert areas.  
@@ -378,9 +378,9 @@ For instance, the timing histograms in the ECAL DQM can be used to align the tim
 
 \begin{figure*}[hbt]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Fig/ecaldqm.pdf}
-	\label{fig:ecaldqm}
+	\includegraphics[width=\textwidth]{Fig/ecaldqm.pdf}
 	\caption{Snapshot of the ECAL DQM.}
+	\label{fig:ecaldqm}
 \end{figure*}
 
 The DQM is in addition used in the certification of data good for physics analysis.
